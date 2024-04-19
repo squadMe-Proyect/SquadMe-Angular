@@ -1,0 +1,24 @@
+<ion-card appHighlight (click)="onEditClick($event)">
+  <div id="interior">
+    <ion-buttons>
+      <ion-button (click)="onDeleteClick($event)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-avatar>
+      <img *ngIf="player && player.picture" alt="Player photo"  [src]="player.picture" />
+      <img *ngIf="!player?.picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+    <div id="datos">
+      <ion-card-header>
+        <ion-card-title>{{player?.name}} {{player?.surname}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="space-datos">
+          <ion-card-subtitle>{{ 'player.positionLabel' | translate }}: {{player?.position}}</ion-card-subtitle>
+        </div>
+        <div class="space-datos">
+          <ion-card-subtitle>{{ 'player.nationLabel' | translate }}: {{player?.nation}}</ion-card-subtitle>
+        </div>
+      </ion-card-content>
+    </div>
+  </div>
+</ion-card>

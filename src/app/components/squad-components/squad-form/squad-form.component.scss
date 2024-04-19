@@ -1,0 +1,28 @@
+ion-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.positions {
+    display: flex;
+    justify-content: center;
+}
+
+ion-toolbar {
+    padding-bottom: 10px;
+}
+
+#toolbar-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+#overall {
+    margin-left: 80%;
+}
+
+@media (max-width: 850px) {
+    #overall {
+      margin-left: 70%
+    }
+}

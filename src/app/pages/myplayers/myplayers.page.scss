@@ -1,0 +1,22 @@
+#añadir {
+    margin-left: 5px;
+}
+
+#jugadores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px;
+}
+
+@media (max-width: 990px) {
+    #jugadores {
+      margin: 20px
+    }
+}
+
+@media (max-width: 450px) {
+    #jugadores {
+      margin: 10px
+    }
+}
