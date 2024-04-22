@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController, ToastOptions } from '@ionic/angular';
+import { lastValueFrom } from 'rxjs';
 import { UserCredentials } from 'src/app/interfaces/user-credentials';
 import { AuthService } from 'src/app/services/api/auth.service';
+import { CustomTranslateService } from 'src/app/services/custom-translate.service';
 
 
 @Component({
@@ -13,9 +15,10 @@ import { AuthService } from 'src/app/services/api/auth.service';
 export class LoginPage implements OnInit {
 
   constructor(
-    private auth:AuthService,
+    public auth:AuthService,
     private router:Router,
-    private toast:ToastController
+    private toast:ToastController,
+    public translate:CustomTranslateService
   ) { }
 
   ngOnInit() {
@@ -27,9 +30,10 @@ export class LoginPage implements OnInit {
         console.log(user)
         this.router.navigate(['/home'])
       },
-      error: (err: any) => {
+      error: async (err: any) => {
+        const message = await lastValueFrom(this.translate.get('login.error.badCredentials'))
         const options:ToastOptions = {
-          message:`Las credenciales no son correctas`,
+          message:message,
           duration:1000,
           position:'bottom',
           color:'danger',

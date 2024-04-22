@@ -17,7 +17,8 @@
         "goalsLabel":"Goals",
         "assistsLabel":"Assists",
         "cleanSheetsLabel":"Clean sheets",
-        "watchHighlights":"Watch Highlights"
+        "watchHighlights":"Watch Highlights",
+        "beenSelected":"This player has already been selected"
     },
     "squad":{
         "lineUpLabel":"Line-Up"
@@ -29,7 +30,10 @@
         "email":"Email",
         "pwd":"Password",
         "noAccount":"I have no account",
-        "submit":"Access"
+        "submit":"Access",
+        "error":{
+            "badCredentials":"Credenciales are not correct"
+        }
     },
     "register":{
         "email":"Email",
@@ -40,7 +44,12 @@
         "pwd":"Password",
         "confirm":"Confirm password",
         "login":"I have account",
-        "submit":"Register"
+        "submit":"Register",
+        "error": {
+            "existingEmail":"This email is already in use",
+            "invalidEmail":"The email format is not correct",
+            "errorToRegister":"Error during sign up"
+        }
     },
     "user-card":{
         "name":"Name"

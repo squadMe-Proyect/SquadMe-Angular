@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastController, ToastOptions } from '@ionic/angular';
+import { lastValueFrom } from 'rxjs';
 import { Coach } from 'src/app/interfaces/coach';
 import { UserRegisterInfo } from 'src/app/interfaces/user-register-info';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { CoachService } from 'src/app/services/coach.service';
+import { CustomTranslateService } from 'src/app/services/custom-translate.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +18,9 @@ export class RegisterPage implements OnInit {
   constructor(
     private auth:AuthService,
     private cSvc:CoachService,
-    private router:Router
+    private router:Router,
+    private toast:ToastController,
+    public translate:CustomTranslateService
   ) { }
 
   ngOnInit() {
@@ -28,7 +33,43 @@ export class RegisterPage implements OnInit {
         this.cSvc.createCoach(user).subscribe()
         this.router.navigate(['/home'])
       },
-      error: (err:any) => console.log(err)
+      error: async (err:any) => {
+        console.log(err)
+        if(err.code == "auth/email-already-in-use") {
+          const messageKey = 'register.error.existingEmail'
+          const message = await lastValueFrom(this.translate.get(messageKey))
+          const options:ToastOptions = {
+            message:message,
+            duration:1000,
+            position:'bottom',
+            color:'danger',
+            cssClass:'red-toast'
+          }
+          this.toast.create(options).then(toast=>toast.present())
+        } else if(err.code == "auth/invalid-email") {
+          const messageKey = 'register.error.invalidEmail'
+          const message = await lastValueFrom(this.translate.get(messageKey))
+            const options:ToastOptions = {
+              message:message,
+              duration:1000,
+              position:'bottom',
+              color:'danger',
+              cssClass:'red-toast'
+            }
+            this.toast.create(options).then(toast=>toast.present())
+        } else {
+          const messageKey = 'register.error.errorToRegister'
+          const message = await lastValueFrom(this.translate.get(messageKey))
+          const options:ToastOptions = {
+            message:message,
+            duration:1000,
+            position:'bottom',
+            color:'danger',
+            cssClass:'red-toast'
+          }
+          this.toast.create(options).then(toast=>toast.present())
+        }
+      } 
     })
   }
 }

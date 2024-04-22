@@ -13,6 +13,7 @@ import { PlayerService } from 'src/app/services/player.service';
 export class SquadFormComponent  implements OnInit {
 
   playersAdded:Player[] = []
+  @Input() coachId:string | undefined
   countPlayers:number = 0
   form:FormGroup
   mode:'Edit' | 'New' = 'New'
@@ -40,6 +41,7 @@ export class SquadFormComponent  implements OnInit {
       overall:[0, [Validators.required]],
       players:[,[Validators.required]]
     })
+    console.log(this.coachId)
   }
 
   ngOnInit() {

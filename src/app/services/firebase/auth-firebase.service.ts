@@ -40,7 +40,7 @@ export class AuthFirebaseService extends AuthService {
           obs.complete()
         } else {
           await this.fbSvc.deleteUser()
-          obs.error("ERROR")
+          obs.error("ERROR user does not exists in the database")
         }
       }).catch(err => {
         obs.error(err)

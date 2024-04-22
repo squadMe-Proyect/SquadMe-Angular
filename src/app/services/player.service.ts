@@ -76,7 +76,9 @@ export class PlayerService {
   updatePlayer(player:Player, user:Coach):Observable<Player> {
     return new Observable<Player>(obs => {
       if(user.role == 'ADMIN') {
-        this.fbSvc.updateDocument("players",player.id!!,player).then(_=>{
+        const playerWithoutId = {...player}
+        delete playerWithoutId.id
+        this.fbSvc.updateDocument("players",player.id!!,playerWithoutId).then(_=>{
           this.unsubscr = this.fbSvc.subscribeToCollection('players', this._players, this.mapPlayers);
           obs.next(player)
           obs.complete()

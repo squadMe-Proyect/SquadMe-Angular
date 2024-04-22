@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, lastValueFrom, map } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Squad } from '../interfaces/squad';
 import { FirebaseDocument, FirebaseService } from './firebase/firebase.service';
 import { Player } from '../interfaces/player';
 import { Unsubscribe } from 'firebase/firestore';
-import { AuthService } from './api/auth.service';
-import { Coach } from '../interfaces/coach';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +13,9 @@ export class SquadService {
   private _squads = new BehaviorSubject<Squad[]>([])
   public squads$ = this._squads.asObservable()
   private unsubscr:Unsubscribe|null = null;
-  private user:any
   constructor(
-    private fbSvc:FirebaseService,
-    private authSvc:AuthService
+    private fbSvc:FirebaseService
   ) { 
-    this.authSvc.me().subscribe(u => { this.user = u })
     this.unsubscr = this.fbSvc.subscribeToCollection('squads', this._squads, this.mapSquads);
   }
 
@@ -31,7 +26,7 @@ export class SquadService {
       lineUp:el.data['lineUp'],
       players:el.data['players'].map((player:Player) => {
         return {
-          idPlayer:player.id,
+          id:player.id,
           name:player.name,
           surname:player.surname,
           position:player.position,
@@ -42,14 +37,14 @@ export class SquadService {
     }
   }
 
-  addSquad(squad:Squad):Observable<Squad> {
+  addSquad(squad:Squad, user:any):Observable<Squad> {
     return new Observable<Squad>(obs => {
-      if(this.user?.role == 'ADMIN') {
+      if(user.role == 'ADMIN') {
         delete squad.id
-        squad.coachId = this.user?.id
+        squad.coachId = user.id
         squad.players = squad.players.map (player => {
         const _player:any = {
-          idPlayer:player.id,
+          id:player.id,
           name:player.name,
           surname:player.surname,
           position:player.position,
@@ -78,12 +73,12 @@ export class SquadService {
     })
   }
 
-  updateSquad(squad:Squad):Observable<Squad> {
+  updateSquad(squad:Squad, user:any):Observable<Squad> {
     return new Observable<Squad>(obs => {
-      if(this.user?.role == 'ADMIN') {
+      if(user.role == 'ADMIN') {
         squad.players = squad.players.map (player => {
           const _player:any = {
-            idPlayer:player.id,
+            id:player.id,
             name:player.name,
             surname:player.surname,
             position:player.position,
@@ -102,28 +97,30 @@ export class SquadService {
     })
   }
 
-  updatePlayerInSquad(player:Player):Observable<Squad> {
+  updatePlayerInSquad(player:Player, user:any):Observable<Squad> {
     return new Observable<Squad>(obs => {
-      if(this.user?.role == 'ADMIN') {
+      if(user.role == 'ADMIN') {
         this.fbSvc.getDocuments('squads').then(docs => {
           docs.map (doc => {
             const squad = this.mapSquads(doc)
             const index = squad.players.findIndex(p => p.id == player.id)
             if(index > -1) {
               squad.players[index] = player
-              this.updateSquad(squad).subscribe()
+              this.updateSquad(squad, user).subscribe()
               obs.next(squad)
             }
             obs.complete()
           })
+        }).catch(err => {
+          obs.error(err)
         })
       }
     })
   }
 
-  deleteSquad(squad:Squad):Observable<void> {
+  deleteSquad(squad:Squad, user:any):Observable<void> {
     return new Observable<void>(obs => {
-      if(this.user?.role == 'ADMIN') {
+      if(user.role == 'ADMIN') {
         this.fbSvc.deleteDocument("squads", squad.id!!).then(_ => {
           this.unsubscr = this.fbSvc.subscribeToCollection('squads', this._squads, this.mapSquads);
         }).catch(err => {

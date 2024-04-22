@@ -17,7 +17,8 @@
         "goalsLabel":"Goles",
         "assistsLabel":"Asistencias",
         "cleanSheetsLabel":"Porterias a cero",
-        "watchHighlights":"Ver Highlights"
+        "watchHighlights":"Ver Highlights",
+        "beenSelected":"Este jugador ya ha sido seleccionado"
     },
     "squad":{
         "lineUpLabel":"Formación"
@@ -29,7 +30,10 @@
         "email":"Email",
         "pwd":"Contraseña",
         "noAccount":"No tengo cuenta",
-        "submit":"Acceder"
+        "submit":"Acceder",
+        "error":{
+            "badCredentials":"Las credenciales no son correctas"
+        }
     },
     "register":{
         "email":"Email",
@@ -40,7 +44,12 @@
         "pwd":"Contraseña",
         "confirm":"Confirmar contraseña",
         "login":"Ya tengo cuenta",
-        "submit":"Registrar"
+        "submit":"Registrar",
+        "error": {
+            "existingEmail":"Este email ya está en uso",
+            "invalidEmail":"El formato del email no es correcto",
+            "errorToRegister":"Error durante el registro"
+        }
     },
     "user-card":{
         "name":"Nombre"

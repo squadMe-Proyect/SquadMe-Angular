@@ -4,6 +4,7 @@ import { SquadFormComponent } from 'src/app/components/squad-components/squad-fo
 import { Coach } from 'src/app/interfaces/coach';
 import { Squad } from 'src/app/interfaces/squad';
 import { AuthService } from 'src/app/services/api/auth.service';
+import { CustomTranslateService } from 'src/app/services/custom-translate.service';
 import { SquadService } from 'src/app/services/squad.service';
 
 @Component({
@@ -15,13 +16,21 @@ export class MySquadsPage implements OnInit {
   
   squads: Squad[] = []
   private user:any
+  coachId:string | undefined
   loading:boolean = false
   constructor(
     public squadsSvc:SquadService,
     private modal:ModalController,
     private authSvc:AuthService
-  ) { 
-    this.authSvc.user$.subscribe(u => { this.user = u })
+  ) {
+    this.authSvc.user$.subscribe(u => {
+      this.user = u
+      if(this.user.role == 'ADMIN') {
+        this.coachId = this.user.id
+      } else {
+        this.coachId = this.user.coachId
+      }
+    })
   }
 
   ngOnInit() {
@@ -33,7 +42,7 @@ export class MySquadsPage implements OnInit {
     this.loading = false
     this.squadsSvc.squads$.subscribe(_squads => {
       console.log(this.user?.id)
-      this.squads = _squads.filter(s => s.coachId == this.user?.id )
+      this.squads = _squads.filter(s => s.coachId == this.coachId)
       console.log(this.squads)
     })
     /*this.squads.query("").subscribe(response => {
@@ -48,7 +57,8 @@ export class MySquadsPage implements OnInit {
     const modal = await this.modal.create({
       component:SquadFormComponent,
       componentProps: {
-        squad:data
+        squad:data,
+        coachId:this.coachId
       },
       cssClass:'squad-modal'
     })
@@ -63,7 +73,7 @@ export class MySquadsPage implements OnInit {
   onNewSquad() {
     var onDismiss = (info:any) => {
       this.loading = true
-      this.squadsSvc.addSquad(info.data).subscribe(_=>{
+      this.squadsSvc.addSquad(info.data, this.user).subscribe(_=>{
         this.onLoadSquads()
       })
     }
@@ -76,7 +86,7 @@ export class MySquadsPage implements OnInit {
         case 'ok': {
           this.loading = true
           squad = info.data
-          this.squadsSvc.updateSquad(squad).subscribe(_=>{
+          this.squadsSvc.updateSquad(squad, this.user).subscribe(_=>{
             this.onLoadSquads()
           })
         }
@@ -94,7 +104,7 @@ export class MySquadsPage implements OnInit {
 
   onDeleteSquad(squad:Squad) {
     this.loading = true
-    this.squadsSvc.deleteSquad(squad).subscribe()
+    this.squadsSvc.deleteSquad(squad, this.user).subscribe()
     this.onLoadSquads()
   }
 }

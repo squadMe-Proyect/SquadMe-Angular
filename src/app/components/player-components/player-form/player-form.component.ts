@@ -13,21 +13,21 @@ export class PlayerFormComponent  implements OnInit {
 
   form:FormGroup
   mode:'New' | 'Edit' = 'New'
-  @Input('player') set player(_player:Player|null) {
+  @Input('player') player:Player|undefined /*{
     if(_player) {
       this.mode = 'Edit'
-      this.form.controls['idPlayer'].setValue(_player.id)
+      /*this.form.controls['id'].setValue(_player.id)
       this.form.controls['name'].setValue(_player.name)
       this.form.controls['surname'].setValue(_player.surname)
       this.form.controls['position'].setValue(_player.position)
       this.form.controls['nation'].setValue(_player.nation)
       this.form.controls['picture'].setValue(_player.picture)
     }
-  }
+  }*/
   constructor(
     private formB:FormBuilder,
     private modal:ModalController
-  ) { 
+  ) {
     this.form = this.formB.group({
       id:[null],
       name:['',[Validators.required]],
@@ -41,7 +41,19 @@ export class PlayerFormComponent  implements OnInit {
     })
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(this.player) {
+      this.mode = 'Edit'
+      this.form = this.formB.group({
+        id:[this.player?.id],
+        name:[this.player?.name,[Validators.required]],
+        surname:[this.player?.surname,[Validators.required]],
+        position:[this.player?.position,[Validators.required]],
+        nation:[this.player?.nation,[Validators.required]],
+        picture:[this.player?.picture]
+      })
+    }
+  }
 
   onSubmit() {
     this.modal.dismiss(this.form.value, 'ok')

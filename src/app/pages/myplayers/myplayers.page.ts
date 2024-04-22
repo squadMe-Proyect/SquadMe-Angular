@@ -171,38 +171,47 @@ export class MyplayersPage implements OnInit {
             if(_picture.substring(0,4) == 'data') {
               this.dataURLtoBlob(info.data.picture, (blob: Blob) => {
                 this.mediaSvc.upload(blob).subscribe((media: any) => {
-                  let _player = { idPlayer: player.id, ...info.data }
-                  _player.picture = media.file
+                  const _player = {
+                    id:info.data.id,
+                    name:info.data.name,
+                    surname:info.data.surname,
+                    position:info.data.position,
+                    email:player.email,
+                    nation:info.data.nation,
+                    role:player.role,
+                    picture:media.file,
+                    teamName:player.teamName
+                  }
                   console.log(_player)
                   this.playerSvc.updatePlayer(_player, this.user).subscribe(_=>{
                     this.onLoadPlayers();
                   })
-                  this.squadSvc.updatePlayerInSquad(_player).subscribe()
+                  this.squadSvc.updatePlayerInSquad(_player, this.user).subscribe()
                 })
               })
             } else {
               player = info.data
               this.playerSvc.updatePlayer(player, this.user).subscribe(p=>{
                 this.onLoadPlayers();
-                this.squadSvc.updatePlayerInSquad(p).subscribe()
+                this.squadSvc.updatePlayerInSquad(p, this.user).subscribe()
               })
             }
           } else if (info.data.picture == null || info.data.picture == "") {
             const _player = {
-              id:info.data.idPlayer,
+              id:info.data.id,
               name:info.data.name,
               surname:info.data.surname,
               position:info.data.position,
-              email:info.data.email,
+              email:player.email,
               nation:info.data.nation,
-              role:'PLAYER',
+              role:player.role,
               picture:"",
-              teamName:info.data.teamName
+              teamName:player.teamName
             }
             this.playerSvc.updatePlayer(_player, this.user).subscribe(_=>{
               this.onLoadPlayers();
             })
-            this.squadSvc.updatePlayerInSquad(_player).subscribe()
+            this.squadSvc.updatePlayerInSquad(_player, this.user).subscribe()
           }
         }
           break;

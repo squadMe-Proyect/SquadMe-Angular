@@ -20,6 +20,7 @@ export class PlayerCardComponent  implements OnInit, ControlValueAccessor {
 
   @Input() player: Player | null = null
   @Input() pAdded:Player[] = []
+  @Input() coachId:string | undefined
   @Output() onPlayerSelected = new EventEmitter()
   onChange?:(obj: any) => void
   disable:boolean = false
@@ -46,7 +47,8 @@ export class PlayerCardComponent  implements OnInit, ControlValueAccessor {
       component:PlayerSearcherComponent,
       componentProps:{
         player:this.player,
-        playersSelected:this.pAdded
+        playersSelected:this.pAdded,
+        coachId:this.coachId
       },
     })
     popover.present()
