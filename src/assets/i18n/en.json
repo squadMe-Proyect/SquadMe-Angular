@@ -1,7 +1,19 @@
 {
     "home":{
-        "title":"Welcome to FUTCaser!",
-        "subtitle":"Search information of the best players in the world and create new players and squads for them"
+        "title":"Welcome to SquadMe!",
+        "subtitle":"Register your players, make squads, plan your training sessions and asign your week matches",
+        "nextMatch":{
+            "labelNextMatch":"Next match",
+            "noMatchYet":"There is no match assigned this week",
+            "addMatch":"ADD MATCH"
+        },
+        "generalPlayerStats":{
+            "title":"General player stats",
+            "labelMaxGoals":"Top scorer: ",
+            "labelMaxAssists":"Top assistant: ",
+            "labelMaxYellowCards":"Most yellow cards: ",
+            "labelMaxRedCards":"Most red cards: "
+        }
     },
     "player": {
         "nameLabel":"Name",
@@ -9,15 +21,10 @@
         "ageLabel":"Age",
         "teamLabel":"Team",
         "nationLabel":"Nation",
-        "ratingLabel":"Rating",
-        "yearsLabel":"years",
-        "created":"Created",
         "statsLabel":"Season stats",
-        "matchesLabel":"Matches",
         "goalsLabel":"Goals",
         "assistsLabel":"Assists",
         "cleanSheetsLabel":"Clean sheets",
-        "watchHighlights":"Watch Highlights",
         "beenSelected":"This player has already been selected"
     },
     "squad":{
@@ -81,6 +88,8 @@
     "searcher-placeholder":"Search player",
     "form":{
         "mode": {
+            "createMatch":"Next match",
+            "editMatch":"Edit next match",
             "createSquad":"Create Squad",
             "createPlayer":"Create Player",
             "editSquad":"Edit Squad",
@@ -96,6 +105,18 @@
             "nation":"Write the nation",
             "pwd":"Write the password",
             "confirm":"Repeat the password"
+        }
+    },
+    "match":{
+        "opponentName":"Opponent",
+        "opponentHint":"Write the name of your opponent",
+        "date":"Date",
+        "dateHint":"Select the match day",
+        "accept":"Accept",
+        "squad":"Squad",
+        "squadHint":"Select your squad",
+        "error":{
+            "dateNotSelected":"You must select one date"
         }
     }
 }

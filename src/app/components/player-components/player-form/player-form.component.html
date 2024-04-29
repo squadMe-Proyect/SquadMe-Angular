@@ -1,8 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button color="dark" fill="clear" (click)="onCancel()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
-    <ion-title *ngIf="mode=='New'">{{'form.mode.createPlayer' | translate}}</ion-title>
-    <ion-title *ngIf="mode=='Edit'">{{'form.mode.editPlayer' | translate}}</ion-title>
+    <div class="toolbar-content">
+      <ion-button color="dark" fill="clear" (click)="onCancel()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+      <ion-title *ngIf="mode=='New'">{{'form.mode.createPlayer' | translate}}</ion-title>
+      <ion-title *ngIf="mode=='Edit'">{{'form.mode.editPlayer' | translate}}</ion-title>
+    </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -23,10 +25,10 @@
     <ion-popover #popover trigger="nested-trigger" side="end">
       <ng-template>
         <ion-list>
-          <ion-item (click)="onSelectPosition(popover, posicion, 'FW')" >FW</ion-item>
-          <ion-item (click)="onSelectPosition(popover, posicion, 'MF')" >MF</ion-item>
-          <ion-item (click)="onSelectPosition(popover, posicion, 'DF')" >DF</ion-item>
-          <ion-item (click)="onSelectPosition(popover, posicion, 'GK')" >GK</ion-item>
+          <ion-item (click)="onSelectPosition(popover, posicion, 'Delantero')" >Delantero</ion-item>
+          <ion-item (click)="onSelectPosition(popover, posicion, 'Centrocampista')" >Centrocampista</ion-item>
+          <ion-item (click)="onSelectPosition(popover, posicion, 'Defensa')" >Defensa</ion-item>
+          <ion-item (click)="onSelectPosition(popover, posicion, 'Portero')" >Portero</ion-item>
         </ion-list>
       </ng-template>
     </ion-popover>

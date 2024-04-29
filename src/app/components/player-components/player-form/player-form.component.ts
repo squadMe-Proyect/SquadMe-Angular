@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonInput, IonPopover, ModalController } from '@ionic/angular';
+import { lastValueFrom } from 'rxjs';
 import { Player } from 'src/app/interfaces/player';
+import { CustomTranslateService } from 'src/app/services/custom-translate.service';
 import { PasswordValidation } from 'src/app/validators/password';
 
 @Component({
@@ -13,20 +15,10 @@ export class PlayerFormComponent  implements OnInit {
 
   form:FormGroup
   mode:'New' | 'Edit' = 'New'
-  @Input('player') player:Player|undefined /*{
-    if(_player) {
-      this.mode = 'Edit'
-      /*this.form.controls['id'].setValue(_player.id)
-      this.form.controls['name'].setValue(_player.name)
-      this.form.controls['surname'].setValue(_player.surname)
-      this.form.controls['position'].setValue(_player.position)
-      this.form.controls['nation'].setValue(_player.nation)
-      this.form.controls['picture'].setValue(_player.picture)
-    }
-  }*/
+  @Input('player') player:Player|undefined
   constructor(
     private formB:FormBuilder,
-    private modal:ModalController
+    private modal:ModalController,
   ) {
     this.form = this.formB.group({
       id:[null],

@@ -38,7 +38,6 @@ export class SquadFormComponent  implements OnInit {
       id:[null],
       name:['',[Validators.required]],
       lineUp:['',[Validators.required]],
-      overall:[0, [Validators.required]],
       players:[,[Validators.required]]
     })
     console.log(this.coachId)
@@ -62,7 +61,6 @@ export class SquadFormComponent  implements OnInit {
     this.lineUp = lineUp
     input.value = lineUp
     this.form.controls['players'].setValue([])
-    this.form.controls['overall'].setValue(0)
     this.countPlayers = 0
     this.playersAdded = []
     popover.dismiss()
