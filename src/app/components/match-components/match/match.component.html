@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-label>
+    <h2>{{match?.date}}</h2>
+  </ion-label>
+  <ion-label>
+    <h1>{{user.teamName}}</h1>
+    <h1>VS</h1>
+    <h1>{{match?.opponent}}</h1>
+  </ion-label>
+  <ion-label>
+    <h1>{{match?.result}}</h1>
+  </ion-label>
+</ion-header>
+<ion-content>
+  <ng-container>
+    <ion-label>
+      <h1>{{match?.squad?.name}} ({{match?.squad?.lineUp}})</h1>
+    </ion-label>
+    <ion-list>
+      <ion-label *ngFor="let player of match?.squad?.players">
+        <ion-text>{{player.name}}</ion-text>
+        <ion-text>{{player.position}}</ion-text>
+      </ion-label>
+    </ion-list>
+  </ng-container>
+</ion-content>

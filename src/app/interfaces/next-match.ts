@@ -1,10 +1,9 @@
 import { Squad } from "./squad";
 
-export interface Match {
+export interface NextMatch {
     id?:string,
     date:string,
     opponent:string,
     result:string,
-    squad:Squad,
-    coachId?:string
+    squad:Squad
 }
