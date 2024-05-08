@@ -13,20 +13,10 @@ export class PlayerFormComponent  implements OnInit {
 
   form:FormGroup
   mode:'New' | 'Edit' = 'New'
-  @Input('player') player:Player|undefined /*{
-    if(_player) {
-      this.mode = 'Edit'
-      /*this.form.controls['id'].setValue(_player.id)
-      this.form.controls['name'].setValue(_player.name)
-      this.form.controls['surname'].setValue(_player.surname)
-      this.form.controls['position'].setValue(_player.position)
-      this.form.controls['nation'].setValue(_player.nation)
-      this.form.controls['picture'].setValue(_player.picture)
-    }
-  }*/
+  @Input('player') player:Player|undefined
   constructor(
     private formB:FormBuilder,
-    private modal:ModalController
+    private modal:ModalController,
   ) {
     this.form = this.formB.group({
       id:[null],
@@ -45,12 +35,16 @@ export class PlayerFormComponent  implements OnInit {
     if(this.player) {
       this.mode = 'Edit'
       this.form = this.formB.group({
-        id:[this.player?.id],
-        name:[this.player?.name,[Validators.required]],
-        surname:[this.player?.surname,[Validators.required]],
-        position:[this.player?.position,[Validators.required]],
-        nation:[this.player?.nation,[Validators.required]],
-        picture:[this.player?.picture]
+        id:[this.player.id],
+        name:[this.player.name,[Validators.required]],
+        surname:[this.player.surname,[Validators.required]],
+        position:[this.player.position,[Validators.required]],
+        nation:[this.player.nation,[Validators.required]],
+        numbers:[this.player.numbers],
+        assists:[this.player.assists],
+        yellowCards:[this.player.yellowCards],
+        redCards:[this.player.redCards],
+        picture:[this.player.picture]
       })
     }
   }

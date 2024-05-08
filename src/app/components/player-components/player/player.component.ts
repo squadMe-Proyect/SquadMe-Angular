@@ -14,9 +14,7 @@ export class PlayerComponent  implements OnInit {
   @Output() onCardClicked:EventEmitter<void> = new EventEmitter<void>()
   @Output() onDeleteClicked:EventEmitter<void> = new EventEmitter<void>()
   @Output() onEditClicked:EventEmitter<void> = new EventEmitter<void>()
-  constructor(
-
-  ) { }
+  constructor() { }
 
   ngOnInit() {}
 
@@ -33,5 +31,4 @@ export class PlayerComponent  implements OnInit {
     ev.stopPropagation()
     this.onEditClicked.emit()
   }
-
 }

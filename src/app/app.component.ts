@@ -41,4 +41,8 @@ export class AppComponent {
   routeInclude(path:string):boolean{
     return this.router.url.includes(path);
   }
+
+  toProfile() {
+    this.router.navigate(['/user'])
+  }
 }

@@ -64,7 +64,7 @@ export class AuthFirebaseService extends AuthService {
 
   register(info:UserRegisterInfo):Observable<Coach|Player>{
     return new Observable<Coach|Player>(obs=>{
-      const user = this.fbSvc.getUser()!!
+      const user = this.fbSvc.getUser()
       const auth = this.fbSvc.getAuth()!!
       this.fbSvc.createUserWithEmailAndPassword(info.email, info.password).then(credentials => {
         const _user = credentials?.user.user
@@ -77,16 +77,23 @@ export class AuthFirebaseService extends AuthService {
           nation:info.nation,
           role:info.role
         }
-        auth.updateCurrentUser(user).then(_=>{
-          if(!this._user.value && !(this._connected.value || this._connected.value == false)) {
-            this._user.next(_extendedUser)
-            this._connected.next(true)
-          }
+        if(user) {
+          auth.updateCurrentUser(user).then(_=>{
+            if(!this._user.value && !(this._connected.value || this._connected.value == false)) {
+              this._user.next(_extendedUser)
+              this._connected.next(true)
+            }
+            obs.next(_extendedUser)
+            obs.complete()
+          }).catch(er => {
+            obs.error(er)
+          })
+        } else {
+          this._user.next(_extendedUser)
+          this._connected.next(true)
           obs.next(_extendedUser)
           obs.complete()
-        }).catch(er => {
-          obs.error(er)
-        })
+        }
       }).catch(err => {
         obs.error(err)
       })

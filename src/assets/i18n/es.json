@@ -1,7 +1,20 @@
 {
     "home":{
-        "title":"¡Bienvenido a FUTCaser!",
-        "subtitle":"Busca información sobre los mejores jugadores en la actualidad y crea jugadores personalizados y plantillas para ellos"
+        "title":"¡Bienvenido a SquadMe!",
+        "subtitle":"Inscriba a sus jugadores, crea formaciones, plantea entrenamientos y asigna tus partidos semanales",
+        "nextMatch":{
+            "labelNextMatch":"Próximo partido",
+            "noMatchYet":"No hay partido asignado esta semana",
+            "addMatch":"AÑADIR PARTIDO",
+            "editMatch":"EDITAR PARTIDO",
+            "deleteMatch":"FINALIZAR PARTIDO"
+        },
+        "generalPlayerStats":{
+            "labelMaxGoals":"Máximo goleador: ",
+            "labelMaxAssists":"Máximo asistente: ",
+            "labelMaxYellowCards":"Más tarjetas amarillas: ",
+            "labelMaxRedCards":"Más tarjetas rojas: "
+        }
     },
     "player": {
         "nameLabel":"Nombre",
@@ -9,15 +22,12 @@
         "ageLabel":"Edad",
         "teamLabel":"Equipo",
         "nationLabel":"País",
-        "ratingLabel":"Valoración",
-        "yearsLabel":"años",
-        "created":"Creado",
         "statsLabel":"Estadísticas de la temporada",
-        "matchesLabel":"Partidos",
         "goalsLabel":"Goles",
         "assistsLabel":"Asistencias",
         "cleanSheetsLabel":"Porterias a cero",
-        "watchHighlights":"Ver Highlights",
+        "yellowCardsLabel":"Tarjetas amarillas",
+        "redCardsLabel":"Tarjetas rojas",
         "beenSelected":"Este jugador ya ha sido seleccionado"
     },
     "squad":{
@@ -71,6 +81,7 @@
         "myplayers":"Jugadores",
         "mysquads":"Plantillas",
         "signout":"Cerrar sesión",
+        "profile":"Mi perfil",
         "about":"Información"
     },
     "about":{
@@ -81,10 +92,12 @@
     "searcher-placeholder":"Buscar jugador",
     "form":{
         "mode": {
+            "createMatch":"Próximo partido",
+            "editMatch":"Editar próximo partido",
             "createSquad":"Crear Plantilla",
             "createPlayer":"Crear Jugador",
             "editSquad":"Editar Plantilla",
-            "editPlayer":"Edit Jugador",
+            "editPlayer":"Editar Jugador",
             "create":"Crear",
             "save":"Guardar"
         },
@@ -96,6 +109,23 @@
             "nation":"Escribe la nacionalidad",
             "pwd":"Escribe la contraseña",
             "confirm":"Repita la contraseña"
+        }
+    },
+    "match": {
+        "opponentName": "Rival",
+        "opponentHint": "Escribe el nombre de tu rival",
+        "date": "Fecha",
+        "dateHint": "Selecciona el día del partido",
+        "accept":"Aceptar",
+        "squad": "Plantilla",
+        "squadHint": "Selecciona tu plantilla",
+        "result":{
+            "label":"Resultado",
+            "teamName":"Tu equipo",
+            "opponentName":"Equipo rival"
+        },
+        "error":{
+            "dateNotSelected":"Debes seleccionar una fecha"
         }
     }
 }

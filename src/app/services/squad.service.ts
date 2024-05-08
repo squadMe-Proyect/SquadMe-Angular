@@ -73,6 +73,16 @@ export class SquadService {
     })
   }
 
+  getSquadByName(name:String):Observable<Squad> {
+    return new Observable<Squad>(obs => {
+      this.fbSvc.getDocumentsBy("squads","name",name).then(doc => {
+        const data:Squad = this.mapSquads(doc[0])
+        obs.next(data)
+        obs.complete()
+      })
+    })
+  }
+
   updateSquad(squad:Squad, user:any):Observable<Squad> {
     return new Observable<Squad>(obs => {
       if(user.role == 'ADMIN') {

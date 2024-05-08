@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ModalController, ToastController, ToastOptions } from '@ionic/angular';
 import { lastValueFrom } from 'rxjs';
 import { PlayerFormComponent } from 'src/app/components/player-components/player-form/player-form.component';
@@ -6,6 +6,7 @@ import { Player } from 'src/app/interfaces/player';
 import { UserRegisterInfo } from 'src/app/interfaces/user-register-info';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { MediaService } from 'src/app/services/api/media.service';
+import { CustomTranslateService } from 'src/app/services/custom-translate.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { SquadService } from 'src/app/services/squad.service';
 
@@ -23,9 +24,10 @@ export class MyplayersPage implements OnInit {
     public playerSvc: PlayerService,
     public squadSvc: SquadService,
     private modal: ModalController,
-    private mediaSvc: MediaService,
+    public mediaSvc: MediaService,
     private toast:ToastController,
-    private authSvc:AuthService
+    public authSvc:AuthService,
+    public translate:CustomTranslateService
   ) { 
     this.authSvc.user$.subscribe(u => { this.user = u })
   }
@@ -54,6 +56,7 @@ export class MyplayersPage implements OnInit {
   async presentForm(data: Player | null, onDismiss: (result: any) => void) {
     const modal = await this.modal.create({
       component: PlayerFormComponent,
+      cssClass:"form-modal",
       componentProps: {
         player: data
       }
@@ -180,7 +183,9 @@ export class MyplayersPage implements OnInit {
                     nation:info.data.nation,
                     role:player.role,
                     picture:media.file,
-                    teamName:player.teamName
+                    teamName:player.teamName,
+                    numbers:info.data.numbers,
+                    assists:info.data.assists
                   }
                   console.log(_player)
                   this.playerSvc.updatePlayer(_player, this.user).subscribe(_=>{
@@ -206,7 +211,9 @@ export class MyplayersPage implements OnInit {
               nation:info.data.nation,
               role:player.role,
               picture:"",
-              teamName:player.teamName
+              teamName:player.teamName,
+              numbers:info.data.numbers,
+              assists:info.data.assists
             }
             this.playerSvc.updatePlayer(_player, this.user).subscribe(_=>{
               this.onLoadPlayers();

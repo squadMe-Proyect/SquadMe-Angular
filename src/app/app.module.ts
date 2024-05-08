@@ -9,22 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientWebProvider } from './services/http/http-client-web.provider';
 import { createTranslateLoader } from './services/custom-translate.service';
-import { HttpClientProvider } from './services/http/http-client.provider';
 import { AuthService } from './services/api/auth.service';
 import { AuthFirebaseService } from './services/firebase/auth-firebase.service';
 import { MediaService } from './services/api/media.service';
 import { environment } from 'src/environments/environment';
 import { FirebaseService } from './services/firebase/firebase.service';
 import { MediaFirebaseService } from './services/firebase/media-firebase.service';
-
-
-export function httpProviderFactory(
-  http:HttpClient,
-  platform:Platform) {
-  return new HttpClientWebProvider(http);
-}
 
 export function MediaServiceFactory(
   fb:FirebaseService){
@@ -55,11 +46,6 @@ export function AuthServiceFactory(
     ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    {
-      provide: HttpClientProvider,
-      deps: [HttpClient, Platform],
-      useFactory: httpProviderFactory,  
-    },
     {
       provide: AuthService,
       deps: [FirebaseService],

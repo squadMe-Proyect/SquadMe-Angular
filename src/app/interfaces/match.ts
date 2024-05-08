@@ -5,5 +5,6 @@ export interface Match {
     date:string,
     opponent:string,
     result:string,
-    squad:Squad
+    squad:Squad,
+    coachId?:string
 }

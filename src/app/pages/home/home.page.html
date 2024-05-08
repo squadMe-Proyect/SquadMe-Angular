@@ -1,6 +1,56 @@
 <ion-content class="offset-header" [fullscreen]="false">
   <div id="home">
-    <h1>{{'home.title' | translate}}</h1>
-    <h3>{{'home.subtitle' | translate}}</h3>
+    <ion-card id="player-stats">
+      <ion-card-header>
+        <ion-card-title>
+          {{'player.statsLabel' | translate}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-card-subtitle>
+          {{'home.generalPlayerStats.labelMaxGoals' | translate}}
+        </ion-card-subtitle>
+        <div class="datos">
+          <ion-label>{{maxGoalsPlayer?.name}} {{maxGoalsPlayer?.surname}}</ion-label>
+          <ion-label>{{maxGoalsPlayer?.numbers}}</ion-label>
+        </div>
+        <ion-card-subtitle>
+          {{'home.generalPlayerStats.labelMaxAssists' | translate}}
+        </ion-card-subtitle>
+        <div class="datos">
+          <ion-label>{{maxAssistsPlayer?.name}} {{maxAssistsPlayer?.surname}}</ion-label>
+          <ion-label>{{maxAssistsPlayer?.assists}}</ion-label>
+        </div>
+        <ion-card-subtitle>
+          {{'home.generalPlayerStats.labelMaxYellowCards' | translate}}
+        </ion-card-subtitle>
+        <div class="datos">
+          <ion-label>{{maxYellowPlayer?.name}} {{maxYellowPlayer?.surname}}</ion-label>
+          <ion-label>{{maxYellowPlayer?.yellowCards}}</ion-label>
+        </div>
+        <ion-card-subtitle>
+          {{'home.generalPlayerStats.labelMaxRedCards' | translate}}
+        </ion-card-subtitle>
+        <div class="datos">
+          <ion-label>{{maxRedPlayer?.name}} {{maxRedPlayer?.surname}}</ion-label>
+          <ion-label>{{maxRedPlayer?.redCards}}</ion-label>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card id="nextMatch">
+      <ion-card-header>
+        <ion-card-title>{{'home.nextMatch.labelNextMatch' | translate}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content id="contentMatch">
+        <ion-card-title *ngIf="!match">{{'home.nextMatch.noMatchYet' | translate}}</ion-card-title>
+        <ion-button color="light" *ngIf="!match" (click)="onNewMatch()">
+          <ion-icon name="add"></ion-icon>
+          {{'home.nextMatch.addMatch' | translate}}
+        </ion-button>
+        <ng-container *ngIf="match">
+          <app-match [user]="user" [match]="match" (onEditClick)="onEditMatch(match)" (onDeleteClick)="finishMatch(match)"></app-match>
+        </ng-container>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
