@@ -1,9 +1,9 @@
 <ion-content class="offset-header" [fullscreen]="false">
   <div id="home">
-    <ion-card>
+    <ion-card id="player-stats">
       <ion-card-header>
         <ion-card-title>
-          {{'home.generalPlayerStats.title' | translate}}
+          {{'player.statsLabel' | translate}}
         </ion-card-title>
       </ion-card-header>
       <ion-card-content>
@@ -43,12 +43,12 @@
       </ion-card-header>
       <ion-card-content id="contentMatch">
         <ion-card-title *ngIf="!match">{{'home.nextMatch.noMatchYet' | translate}}</ion-card-title>
-        <ion-button *ngIf="!match" (click)="onNewMatch()" >
+        <ion-button color="light" *ngIf="!match" (click)="onNewMatch()">
           <ion-icon name="add"></ion-icon>
           {{'home.nextMatch.addMatch' | translate}}
         </ion-button>
         <ng-container *ngIf="match">
-          <app-match [user]="user" [match]="match"></app-match>
+          <app-match [user]="user" [match]="match" (onEditClick)="onEditMatch(match)" (onDeleteClick)="finishMatch(match)"></app-match>
         </ng-container>
       </ion-card-content>
     </ion-card>

@@ -140,8 +140,8 @@ export class FirebaseService {
         if(!this._auth)
             resolve(null);
         try {
-            const userCredentials = await createUserWithEmailAndPassword(this._auth!, email, password)
-            resolve({ user: userCredentials });
+            //const userCredentials = 
+            resolve({ user: await createUserWithEmailAndPassword(this._auth!, email, password) });
         } catch (error:any) {
             switch (error.code) {
             case 'auth/email-already-in-use':

@@ -5,10 +5,11 @@
         "nextMatch":{
             "labelNextMatch":"Próximo partido",
             "noMatchYet":"No hay partido asignado esta semana",
-            "addMatch":"AÑADIR PARTIDO"
+            "addMatch":"AÑADIR PARTIDO",
+            "editMatch":"EDITAR PARTIDO",
+            "deleteMatch":"FINALIZAR PARTIDO"
         },
         "generalPlayerStats":{
-            "title":"Estadísticas generales de jugadores",
             "labelMaxGoals":"Máximo goleador: ",
             "labelMaxAssists":"Máximo asistente: ",
             "labelMaxYellowCards":"Más tarjetas amarillas: ",
@@ -25,6 +26,8 @@
         "goalsLabel":"Goles",
         "assistsLabel":"Asistencias",
         "cleanSheetsLabel":"Porterias a cero",
+        "yellowCardsLabel":"Tarjetas amarillas",
+        "redCardsLabel":"Tarjetas rojas",
         "beenSelected":"Este jugador ya ha sido seleccionado"
     },
     "squad":{
@@ -78,6 +81,7 @@
         "myplayers":"Jugadores",
         "mysquads":"Plantillas",
         "signout":"Cerrar sesión",
+        "profile":"Mi perfil",
         "about":"Información"
     },
     "about":{
@@ -115,6 +119,11 @@
         "accept":"Aceptar",
         "squad": "Plantilla",
         "squadHint": "Selecciona tu plantilla",
+        "result":{
+            "label":"Resultado",
+            "teamName":"Tu equipo",
+            "opponentName":"Equipo rival"
+        },
         "error":{
             "dateNotSelected":"Debes seleccionar una fecha"
         }

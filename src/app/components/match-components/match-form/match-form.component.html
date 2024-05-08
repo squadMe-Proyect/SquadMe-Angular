@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar-content">
+      <ion-button color="dark" fill="clear" (click)="onCancel()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+      <ion-title *ngIf="mode=='New'">{{'form.mode.createMatch' | translate}}</ion-title>
+      <ion-title *ngIf="mode=='Edit'">{{'form.mode.editMatch' | translate}}</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <ion-item>
+      <ion-input label="{{'match.opponentName' | translate }}" placeholder="{{'match.opponentHint' | translate}}" labelPlacement="fixed" type="text" formControlName="opponent"></ion-input>
+    </ion-item>
+    <ion-item [button]="true" id="nested-date-trigger">
+      <ion-input #dateInput [readonly]="true" label="{{'match.date' | translate }}" placeholder="{{'match.dateHint' | translate}}" labelPlacement="fixed" type="text" formControlName="date"></ion-input>
+    </ion-item>
+    <ion-popover #popoverDate trigger="nested-date-trigger" triggerAction="click" side="end">
+      <ng-template>
+        <ion-datetime #dateTime></ion-datetime>
+        <ion-buttons>
+          <ion-button (click)="onSelectDate(popoverDate, dateInput, dateTime)">Aceptar</ion-button>
+        </ion-buttons>
+      </ng-template>
+    </ion-popover>
+    <ion-item [button]="true" id="nested-squad-trigger">
+      <ion-input #squadInput [readonly]="true" label="{{'match.squad' | translate }}" labelPlacement="fixed" placeholder="{{'match.squadHint' | translate}}" formControlName="squad" type="text"></ion-input>
+    </ion-item>
+    <ion-popover #popoverSquad trigger="nested-squad-trigger" triggerAction="click" side="end">
+      <ng-template>
+        <ion-list>
+          <ion-item (click)="onSelectSquad(popoverSquad, squadInput, squad)" *ngFor="let squad of squads">
+            <div id="squad-items">
+              <ion-text>{{squad.name}}</ion-text>
+              <ion-text>({{squad.lineUp}})</ion-text>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ng-template>
+    </ion-popover>
+    <ion-item [button]="true" id="nested-result-popover">
+      <ion-input #resultInput [readonly]="true" label="{{'match.result.label' | translate}}" labelPlacement="fixed" formControlName="result" type="text"></ion-input>
+    </ion-item>
+    <ion-popover #popoverResult trigger="nested-result-popover" triggerAction="click" side="end" *ngIf="mode=='Edit'">
+      <ng-template>
+        <ion-input #teamResult label="{{'match.result.teamName' | translate}}" labelPlacement="fixed" formControlName="teamResult" type="number"></ion-input>
+        <ion-input #opponentResult label="{{'match.result.opponentName' | translate}}" labelPlacement="fixed" formControlName="opponentResult" type="number"></ion-input>
+        <ion-buttons>
+          <ion-button (click)="onSetResult(popoverResult, resultInput, teamResult, opponentResult)">Aceptar</ion-button>
+        </ion-buttons>
+      </ng-template>
+    </ion-popover>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-buttons>
+    <ion-button *ngIf="mode=='New'" [disabled]="!form.valid" (click)="onSubmit()">{{ 'form.mode.create' | translate }}</ion-button>
+    <ion-button *ngIf="mode=='Edit'" [disabled]="!form.valid" (click)="onSubmit()">{{ 'form.mode.save' | translate }}</ion-button>
+  </ion-buttons>
+</ion-footer>

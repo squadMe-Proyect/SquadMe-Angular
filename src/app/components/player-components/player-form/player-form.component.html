@@ -39,7 +39,19 @@
       <ion-input label="{{'register.pwd' | translate }}" placeholder="{{'form.placeholder.pwd' | translate}}" labelPlacement="fixed" formControlName="password" type="password"></ion-input>
     </ion-item>
     <ion-item *ngIf="mode=='New'">
-      <ion-input label="{{'register.confirm' | translate }}" placeholder="{{'form.placeholder.confirm' | translate}}" labelPlacement="fixed" formControlName="confirm" type="password"></ion-input>
+      <ion-input label="{{'register.confirm' | translate }}" placeholder="{{'form.placeholder.confirm' | translate}}" formControlName="confirm" type="password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="mode=='Edit' && player?.position!='Portero'">
+      <ion-input label="{{'player.goalsLabel' | translate }}" labelPlacement="fixed" formControlName="numbers" type="number"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="mode=='Edit' && player?.position!='Portero'">
+      <ion-input label="{{'player.assistsLabel' | translate }}" labelPlacement="fixed" formControlName="assists" type="number"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="mode=='Edit'">
+      <ion-input label="{{'player.yellowCardsLabel' | translate }}" formControlName="yellowCards" type="number"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="mode=='Edit'">
+      <ion-input label="{{'player.redCardsLabel' | translate }}" labelPlacement="fixed" formControlName="redCards" type="number"></ion-input>
     </ion-item>
   </form>
 </ion-content>

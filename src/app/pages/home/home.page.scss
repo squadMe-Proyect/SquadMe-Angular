@@ -15,13 +15,6 @@ h1 {
   text-shadow: 5px 5px 5px rgb(10, 5, 56);
 }
 
-ion-button {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 30px;
-}
-
 ion-card-header {
   background: rgb(10, 5, 56);
   text-align: center;
@@ -47,4 +40,19 @@ ion-card-content, ion-card-subtitle {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+app-match {
+  width: 800px;
+}
+
+#player-stats {
+  width: 400px;
+}
+
+ion-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 30px;
 }

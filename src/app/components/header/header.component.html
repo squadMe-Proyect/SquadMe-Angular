@@ -37,9 +37,10 @@
     <ng-template>
       <ion-content>
         <ion-list>
+          <ion-item [button]="true" (click)="onProfile.emit()"[detail]="false"><ion-icon slot="start" name="person-outline"></ion-icon>{{'header.user.profile' | translate}}</ion-item>
           <ion-item [button]="true" (click)="onSignout.emit()"[detail]="false"><ion-icon slot="start" name="exit-outline"></ion-icon>{{'header.user.signout' | translate}}</ion-item>
         </ion-list>
       </ion-content>
     </ng-template>
-    </ion-popover>  
+  </ion-popover>  
 </ion-header>

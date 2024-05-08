@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonInput, IonPopover, ModalController } from '@ionic/angular';
-import { lastValueFrom } from 'rxjs';
 import { Player } from 'src/app/interfaces/player';
-import { CustomTranslateService } from 'src/app/services/custom-translate.service';
 import { PasswordValidation } from 'src/app/validators/password';
 
 @Component({
@@ -37,12 +35,16 @@ export class PlayerFormComponent  implements OnInit {
     if(this.player) {
       this.mode = 'Edit'
       this.form = this.formB.group({
-        id:[this.player?.id],
-        name:[this.player?.name,[Validators.required]],
-        surname:[this.player?.surname,[Validators.required]],
-        position:[this.player?.position,[Validators.required]],
-        nation:[this.player?.nation,[Validators.required]],
-        picture:[this.player?.picture]
+        id:[this.player.id],
+        name:[this.player.name,[Validators.required]],
+        surname:[this.player.surname,[Validators.required]],
+        position:[this.player.position,[Validators.required]],
+        nation:[this.player.nation,[Validators.required]],
+        numbers:[this.player.numbers],
+        assists:[this.player.assists],
+        yellowCards:[this.player.yellowCards],
+        redCards:[this.player.redCards],
+        picture:[this.player.picture]
       })
     }
   }

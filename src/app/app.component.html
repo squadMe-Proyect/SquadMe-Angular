@@ -7,9 +7,9 @@
           <ion-button (click)="menu.close()"><ion-icon slot="icon-only" name="close"></ion-icon></ion-button>
         </ion-buttons>
         <ion-thumbnail slot="start">
-          <img alt="logo of app" src="assets/icon/icon_app.png" />
+          <img alt="logo of app" src="assets/app_logo.png" />
         </ion-thumbnail>
-        <ion-title>FUTCaser</ion-title>
+        <ion-title>SquadMe</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
@@ -17,6 +17,7 @@
         <ion-item [color]="routeInclude('home')?'primary':''" (click)="close(menu)" [routerLink]="['/home']" button detail="false"><ion-icon slot="start" name="home"></ion-icon>{{ 'menu.home' | translate}}</ion-item>
         <ion-item [color]="routeInclude('players')?'primary':''" (click)="close(menu)" [routerLink]="['/players']" button detail="false"><ion-icon slot="start" name="football-outline"></ion-icon>{{ 'menu.myplayers' | translate}}</ion-item>
         <ion-item [color]="routeInclude('squads')?'primary':''" (click)="close(menu)" [routerLink]="['/squads']" button detail="false"><ion-icon slot="start" name="people-outline"></ion-icon>{{ 'menu.mysquads' | translate}}</ion-item>
+        <ion-item [color]="routeInclude('user')?'primary':''" (click)="close(menu)" [routerLink]="['/user']" button detail="false"><ion-icon slot="start" name="person-outline"></ion-icon>{{ 'menu.profile' | translate }}</ion-item>
         <ion-item [color]="routeInclude('about')?'primary':''" (click)="close(menu)" [routerLink]="['/about']" button detail="false"><ion-icon slot="start" name="information-circle-outline"></ion-icon>{{ 'menu.about' | translate }}</ion-item>
         <ion-item (click)="onSignOut(menu)" button detail="false"><ion-icon slot="start" name="log-out-outline"></ion-icon>{{ 'menu.signout' | translate}}</ion-item>
       </ion-list>
@@ -34,6 +35,7 @@
       [languages]="['es','en']" 
       [languageSelected]="lang" 
       (onLanguage)="onLang($event)"
+      (onProfile)="toProfile()"
       (onSignout)="onSignOut(menu)"></app-header>
     <app-header *ngIf="(auth.isConnected$ | async) && !(auth.user$ | async) && !(routeInclude('splash') || routeInclude('login') || routeInclude('register'))"
       [languages]="['es','en']" 

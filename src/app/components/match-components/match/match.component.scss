@@ -1,0 +1,31 @@
+.label, #list, #upside {
+    display: flex;
+}
+
+.label {
+    justify-content: space-around;
+}
+
+#list {
+    align-items: center;
+    justify-content: space-around;
+}
+
+#upside {
+    margin-bottom: 100px;
+    text-align: center;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
+}
+
+ion-list {
+    background: #163e71;
+}
+
+#buttons {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+}

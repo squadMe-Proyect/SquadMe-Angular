@@ -56,6 +56,7 @@ export class MyplayersPage implements OnInit {
   async presentForm(data: Player | null, onDismiss: (result: any) => void) {
     const modal = await this.modal.create({
       component: PlayerFormComponent,
+      cssClass:"form-modal",
       componentProps: {
         player: data
       }
@@ -182,7 +183,9 @@ export class MyplayersPage implements OnInit {
                     nation:info.data.nation,
                     role:player.role,
                     picture:media.file,
-                    teamName:player.teamName
+                    teamName:player.teamName,
+                    numbers:info.data.numbers,
+                    assists:info.data.assists
                   }
                   console.log(_player)
                   this.playerSvc.updatePlayer(_player, this.user).subscribe(_=>{
@@ -208,7 +211,9 @@ export class MyplayersPage implements OnInit {
               nation:info.data.nation,
               role:player.role,
               picture:"",
-              teamName:player.teamName
+              teamName:player.teamName,
+              numbers:info.data.numbers,
+              assists:info.data.assists
             }
             this.playerSvc.updatePlayer(_player, this.user).subscribe(_=>{
               this.onLoadPlayers();

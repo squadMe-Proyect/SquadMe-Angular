@@ -32,6 +32,9 @@
 .squad-modal {
     display:flex;
     --height:100%;
+}
+
+.form-modal, .squad-modal {
     --width:800px;
 }
 
@@ -83,4 +86,10 @@ ion-content.splash {
 .toolbar-content {
     display: flex;
     justify-content: space-around;
+}
+
+.list-players {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
