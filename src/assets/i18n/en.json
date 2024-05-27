@@ -7,7 +7,7 @@
             "noMatchYet":"There is no match assigned this week",
             "addMatch":"ADD MATCH",
             "editMatch":"EDIT MATCH",
-            "deleteMatch":"FINISH MATCH"
+            "finishMatch":"FINISH MATCH"
         },
         "generalPlayerStats":{
             "labelMaxGoals":"Top scorer: ",
@@ -62,7 +62,8 @@
         }
     },
     "user-card":{
-        "name":"Name"
+        "name":"Name",
+        "editUser":"Edit User"
     },
     "header":{
         "user":{
@@ -120,12 +121,13 @@
         "squad":"Squad",
         "squadHint":"Select your squad",
         "result":{
-            "label":"Result",
+            "label":"RESULT",
             "teamName":"Your team",
             "opponentName":"Opponent team"
         },
         "error":{
             "dateNotSelected":"You must select one date"
-        }
+        },
+        "seePreviousMatches":"See previous matches"
     }
 }

@@ -48,6 +48,7 @@ export class MatchFormComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.mode=='Edit') this.onSetResult();
     this.modal.dismiss(this.form.value, 'ok')
   }
 
@@ -83,11 +84,9 @@ export class MatchFormComponent implements OnInit {
     }
   }
 
-  onSetResult(popover:IonPopover, input:IonInput, teamResult:IonInput, opponentResult:IonInput) {
-    if(teamResult.value && opponentResult.value) {
-      input.value = teamResult.value+"-"+opponentResult.value
-      this.form.controls['result'].setValue(input.value)
-      popover.dismiss()
-    }
+  private onSetResult() {
+    const teamResult:number = this.form.controls['teamResult'].value
+    const opponentResult:number = this.form.controls['opponentResult'].value
+    this.form.controls['result'].setValue(teamResult+"-"+opponentResult)
   }
 }

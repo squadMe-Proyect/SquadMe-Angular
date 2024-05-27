@@ -7,7 +7,7 @@
             "noMatchYet":"No hay partido asignado esta semana",
             "addMatch":"AÑADIR PARTIDO",
             "editMatch":"EDITAR PARTIDO",
-            "deleteMatch":"FINALIZAR PARTIDO"
+            "finishMatch":"FINALIZAR PARTIDO"
         },
         "generalPlayerStats":{
             "labelMaxGoals":"Máximo goleador: ",
@@ -62,7 +62,8 @@
         }
     },
     "user-card":{
-        "name":"Nombre"
+        "name":"Nombre",
+        "editUser":"Editar Usuario"
     },
     "header":{
         "user":{
@@ -120,12 +121,13 @@
         "squad": "Plantilla",
         "squadHint": "Selecciona tu plantilla",
         "result":{
-            "label":"Resultado",
+            "label":"RESULTADO",
             "teamName":"Tu equipo",
             "opponentName":"Equipo rival"
         },
         "error":{
             "dateNotSelected":"Debes seleccionar una fecha"
-        }
+        },
+        "seePreviousMatches":"Ver partidos anteriores"
     }
 }

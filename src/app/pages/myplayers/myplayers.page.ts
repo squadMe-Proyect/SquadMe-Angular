@@ -3,10 +3,12 @@ import { ModalController, ToastController, ToastOptions } from '@ionic/angular';
 import { lastValueFrom } from 'rxjs';
 import { PlayerFormComponent } from 'src/app/components/player-components/player-form/player-form.component';
 import { Player } from 'src/app/interfaces/player';
+import { Squad } from 'src/app/interfaces/squad';
 import { UserRegisterInfo } from 'src/app/interfaces/user-register-info';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { MediaService } from 'src/app/services/api/media.service';
 import { CustomTranslateService } from 'src/app/services/custom-translate.service';
+import { MatchService } from 'src/app/services/match.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { SquadService } from 'src/app/services/squad.service';
 
@@ -23,6 +25,7 @@ export class MyplayersPage implements OnInit {
   constructor(
     public playerSvc: PlayerService,
     public squadSvc: SquadService,
+    public matchSvc: MatchService,
     private modal: ModalController,
     public mediaSvc: MediaService,
     private toast:ToastController,
@@ -165,7 +168,7 @@ export class MyplayersPage implements OnInit {
   }
 
   onEditPlayer(player: Player) {
-    var onDismiss = (info: any) => {
+    var onDismiss = async (info: any) => {
       switch (info.role) {
         case 'ok': {
           this.loading = true
@@ -192,6 +195,7 @@ export class MyplayersPage implements OnInit {
                     this.onLoadPlayers();
                   })
                   this.squadSvc.updatePlayerInSquad(_player, this.user).subscribe()
+                  this.matchSvc.updatePlayerOnSquadMatch(_player, this.user).subscribe()
                 })
               })
             } else {
@@ -199,6 +203,7 @@ export class MyplayersPage implements OnInit {
               this.playerSvc.updatePlayer(player, this.user).subscribe(p=>{
                 this.onLoadPlayers();
                 this.squadSvc.updatePlayerInSquad(p, this.user).subscribe()
+                this.matchSvc.updatePlayerOnSquadMatch(p, this.user).subscribe()
               })
             }
           } else if (info.data.picture == null || info.data.picture == "") {
@@ -219,6 +224,7 @@ export class MyplayersPage implements OnInit {
               this.onLoadPlayers();
             })
             this.squadSvc.updatePlayerInSquad(_player, this.user).subscribe()
+            this.matchSvc.updatePlayerOnSquadMatch(_player, this.user).subscribe()
           }
         }
           break;

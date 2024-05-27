@@ -20,11 +20,14 @@ import { PictureSelectableComponent } from '../components/picture-selectable/pic
 import { HighlightDirective } from '../directives/highlight.directive';
 import { MatchFormComponent } from '../components/match-components/match-form/match-form.component';
 import { MatchComponent } from '../components/match-components/match/match.component';
+import { MatchItemComponent } from '../components/match-components/match-item/match-item.component';
+import { UserComponent } from '../components/user/user.component';
 
 @NgModule({
   declarations: [ SquadFormComponent, SquadComponent, LoginFormComponent, PlayerCardComponent, 
     PlayerComponent, PlayerFormComponent, PlayerItemComponent, PlayerSearcherComponent,
-     HeaderComponent, RegisterFormComponent, PictureSelectableComponent, HighlightDirective, MatchFormComponent, MatchComponent],
+     HeaderComponent, RegisterFormComponent, PictureSelectableComponent, HighlightDirective, 
+     MatchFormComponent, MatchComponent, MatchItemComponent, UserComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -44,6 +47,7 @@ import { MatchComponent } from '../components/match-components/match/match.compo
     IonicModule,ReactiveFormsModule,
     RouterModule, TranslateModule, SquadFormComponent, SquadComponent, LoginFormComponent, PlayerCardComponent, 
     PlayerComponent, PlayerFormComponent, PlayerItemComponent,
-     PlayerSearcherComponent, HeaderComponent, RegisterFormComponent, PictureSelectableComponent, HighlightDirective, MatchFormComponent, MatchComponent]
+     PlayerSearcherComponent, HeaderComponent, RegisterFormComponent, PictureSelectableComponent,
+      HighlightDirective, MatchFormComponent, MatchComponent, MatchItemComponent, UserComponent]
 })
 export class SharedModule { }

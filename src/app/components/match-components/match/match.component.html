@@ -55,8 +55,8 @@
     <ion-icon name="create"></ion-icon>
     {{'home.nextMatch.editMatch' | translate}}
   </ion-button>
-  <ion-button color="light" *ngIf="match" (click)="onDeleteClicked($event)">
-    <ion-icon name="trash"></ion-icon>
-    {{'home.nextMatch.deleteMatch' | translate}}
+  <ion-button color="light" *ngIf="match" (click)="onFinishedClicked($event)">
+    <ion-icon name="checkbox-outline"></ion-icon>
+    {{'home.nextMatch.finishMatch' | translate}}
   </ion-button>
 </div>

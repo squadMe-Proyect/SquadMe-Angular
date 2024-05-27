@@ -38,18 +38,15 @@
         </ion-list>
       </ng-template>
     </ion-popover>
-    <ion-item [button]="true" id="nested-result-popover">
-      <ion-input #resultInput [readonly]="true" label="{{'match.result.label' | translate}}" labelPlacement="fixed" formControlName="result" type="text"></ion-input>
+    <ion-item *ngIf="mode=='Edit'" id="result-label">
+      <ion-label>
+        {{'match.result.label' | translate}}
+      </ion-label>
     </ion-item>
-    <ion-popover #popoverResult trigger="nested-result-popover" triggerAction="click" side="end" *ngIf="mode=='Edit'">
-      <ng-template>
-        <ion-input #teamResult label="{{'match.result.teamName' | translate}}" labelPlacement="fixed" formControlName="teamResult" type="number"></ion-input>
-        <ion-input #opponentResult label="{{'match.result.opponentName' | translate}}" labelPlacement="fixed" formControlName="opponentResult" type="number"></ion-input>
-        <ion-buttons>
-          <ion-button (click)="onSetResult(popoverResult, resultInput, teamResult, opponentResult)">Aceptar</ion-button>
-        </ion-buttons>
-      </ng-template>
-    </ion-popover>
+    <ion-item *ngIf="mode=='Edit'" [button]="true" id="nested-result-popover">
+      <ion-input label="{{'match.result.teamName' | translate}}" labelPlacement="fixed" formControlName="teamResult" type="number"></ion-input>
+      <ion-input label="{{'match.result.opponentName' | translate}}" labelPlacement="fixed" formControlName="opponentResult" type="number"></ion-input>
+    </ion-item>
   </form>
 </ion-content>
 <ion-footer>

@@ -74,6 +74,7 @@ export class AuthFirebaseService extends AuthService {
           surname:info.surname,
           teamName:info.teamName,
           email:_user?.email!!,
+          picture:"",
           nation:info.nation,
           role:info.role
         }
@@ -114,7 +115,8 @@ export class AuthFirebaseService extends AuthService {
               teamName: data['teamName'],
               email: data['email'],
               nation: data['nation'],
-              role: data['role']
+              role: data['role'],
+              picture: data['picture']
             }
             this._user.next(_user)
             obs.next(_user)
@@ -130,7 +132,8 @@ export class AuthFirebaseService extends AuthService {
                 email: data['email'],
                 nation: data['nation'],
                 role: data['role'],
-                coachId: data['coachId']
+                coachId: data['coachId'],
+                picture: data['picture']
               }
               this._user.next(_user)
               obs.next(_user)

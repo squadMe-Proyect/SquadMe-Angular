@@ -4,6 +4,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Match } from '../interfaces/match';
 import { Unsubscribe } from 'firebase/firestore';
 import { Coach } from '../interfaces/coach';
+import { Squad } from '../interfaces/squad';
+import { Player } from '../interfaces/player';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +34,8 @@ export class MatchService {
           name:el.data['squad'].name,
           lineUp:el.data['squad'].lineUp,
           players:el.data['squad'].players
-        }
+        },
+        finished:el.data['finished']
       }
     } else {
       const squad:any = {
@@ -54,6 +57,7 @@ export class MatchService {
         delete match.squad.coachId
         match.squad.players = match.squad.players.map(player => {
           const _player:any = {
+            id:player.id,
             name:player.name,
             surname:player.surname,
             position:player.position
@@ -78,6 +82,7 @@ export class MatchService {
       if(user.role == 'ADMIN') {
         match.squad.players = match.squad.players.map(player => {
           const _player:any = {
+            id:player.id,
             name:player.name,
             surname:player.surname,
             position:player.position
@@ -93,6 +98,47 @@ export class MatchService {
         })
       } else {
         obs.error(this.errorNotAdmin)
+      }
+    })
+  }
+
+  updateSquadOnMatch(squad:Squad, user:any):Observable<Match> {
+    return new Observable<Match>(obs => {
+      if(user.role == 'ADMIN') {
+        this.fbSvc.getDocuments("matches").then(docs => {
+          docs.map(doc => {
+            const match:Match = this.mapMatches(doc)
+            if(match.squad.id == squad.id && !match.finished) {  
+              match.squad = squad
+              this.editMatch(match, user).subscribe()
+              obs.next(match)
+            }
+            obs.complete()
+          })
+        }).catch(err => {
+          obs.error(err)
+        })
+      }
+    })
+  }
+
+  updatePlayerOnSquadMatch(player:Player, user:any):Observable<Match> {
+    return new Observable<Match>(obs => {
+      if(user.role == 'ADMIN') {
+        this.fbSvc.getDocuments("matches").then(docs => {
+          docs.map(doc => {
+            const match:Match = this.mapMatches(doc)
+            const index = match.squad.players.findIndex(p => p.id == player.id)
+            if(index > -1 && !match.finished) {
+              match.squad.players[index] = player
+              this.editMatch(match, user).subscribe()
+              obs.next(match)
+            }
+            obs.complete()
+          })
+        }).catch(err => {
+          obs.error(err)
+        })
       }
     })
   }

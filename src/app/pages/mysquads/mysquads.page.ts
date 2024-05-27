@@ -5,6 +5,7 @@ import { Coach } from 'src/app/interfaces/coach';
 import { Squad } from 'src/app/interfaces/squad';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { CustomTranslateService } from 'src/app/services/custom-translate.service';
+import { MatchService } from 'src/app/services/match.service';
 import { SquadService } from 'src/app/services/squad.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class MySquadsPage implements OnInit {
   constructor(
     public squadsSvc:SquadService,
     private modal:ModalController,
-    private authSvc:AuthService
+    private authSvc:AuthService,
+    public matchSvc:MatchService
   ) {
     this.authSvc.user$.subscribe(u => {
       this.user = u
@@ -89,6 +91,7 @@ export class MySquadsPage implements OnInit {
           this.squadsSvc.updateSquad(squad, this.user).subscribe(_=>{
             this.onLoadSquads()
           })
+          this.matchSvc.updateSquadOnMatch(squad, this.user).subscribe()
         }
         break;
         case 'cancel': {

@@ -1,0 +1,19 @@
+<ion-card>
+  <div id="interior">
+    <ion-buttons>
+      <ion-button (click)="onDeleteClicked($event)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <div id="datos">
+      <ion-card-header>
+        <ion-card-title>{{teamName}} VS {{match?.opponent}}</ion-card-title>
+        <ion-card-subtitle>({{match?.date}})</ion-card-subtitle>
+        <ion-card-subtitle>{{match?.result}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="space-datos">
+          <ion-card-subtitle>{{match?.squad?.name}} ({{match?.squad?.lineUp}})</ion-card-subtitle>
+        </div>
+      </ion-card-content>
+    </div>
+  </div>
+</ion-card>

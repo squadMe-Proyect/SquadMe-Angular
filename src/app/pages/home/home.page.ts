@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../services/player.service';
 import { Player } from 'src/app/interfaces/player';
 import { Match } from 'src/app/interfaces/match';
-import { ModalController } from '@ionic/angular';
+import { IonModal, ModalController, ToastController, ToastOptions } from '@ionic/angular';
 import { MatchFormComponent } from 'src/app/components/match-components/match-form/match-form.component';
 import { Squad } from 'src/app/interfaces/squad';
 import { SquadService } from 'src/app/services/squad.service';
@@ -22,18 +22,26 @@ export class HomePage implements OnInit {
   maxRedPlayer:Player | undefined
   squads:Squad[] | undefined
   match:Match | undefined
+  finishedMatches:Match[] = []
   user:any
+  forwards:Player[] = []
+  midfielders:Player[] = []
+  defenses:Player[] = []
+  goalkeeper:Player | undefined
+  openModal:boolean = false
+
   constructor(
     public players:PlayerService,
     public squadSvc:SquadService,
     public matchSvc:MatchService,
     private modal:ModalController,
-    public authSvc:AuthService,
+    public authSvc:AuthService
   ) {
     this.authSvc.user$.subscribe(u => { this.user = u })
     squadSvc.squads$.subscribe(_squads => {
       this.squads = _squads.filter(s => this.user.id == s.coachId)
     })
+    this.onLoadMatch()
     players.players$.subscribe(players => {
       const _players = players.filter(p => this.user.id == p.coachId || this.user.coachId == p.coachId)
       var maxGoals = 0
@@ -61,13 +69,38 @@ export class HomePage implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-    this.onLoadMatch()
+  ngOnInit() {}
+
+  setOpen(open:boolean) {
+    this.openModal = open
   }
 
   onLoadMatch() {
     this.matchSvc.matches$.subscribe(matches => {
-      this.match = matches.find(_match => _match.coachId == this.user.id || _match.coachId == this.user.coachId)
+      this.finishedMatches = matches.filter(m => (m.coachId == this.user.id || m.coachId == this.user.coachId) && m.finished == true)
+      this.match = matches.find(_match => (_match.coachId == this.user.id || _match.coachId == this.user.coachId) && _match.finished == false)
+      switch(this.match?.squad.lineUp) {
+        case "4-3-3":{
+          this.forwards = this.match?.squad.players.slice(0,3)
+          this.midfielders = this.match?.squad.players.slice(3,6)
+          this.defenses = this.match?.squad.players.slice(6,10)
+          this.goalkeeper = this.match?.squad.players[10]
+        }
+        break;
+        case "4-4-2":{
+          this.forwards = this.match?.squad.players.slice(0,2)
+          this.midfielders = this.match?.squad.players.slice(2,6)
+          this.defenses = this.match?.squad.players.slice(6,10)
+          this.goalkeeper = this.match?.squad.players[10]
+        }
+        break;
+        case "3-4-3":{
+          this.forwards = this.match?.squad.players.slice(0,3)
+          this.midfielders = this.match?.squad.players.slice(3,7)
+          this.defenses = this.match?.squad.players.slice(7,10)
+          this.goalkeeper = this.match?.squad.players[10]
+        }
+      }
     })
   }
 
@@ -96,7 +129,8 @@ export class HomePage implements OnInit {
             date:info.data.date,
             opponent:info.data.opponent,
             result:"0-0",
-            squad:squad
+            squad:squad,
+            finished:false
           }
           this.matchSvc.addMatch(_match, this.user).subscribe(_=> {
             this.onLoadMatch()
@@ -119,7 +153,8 @@ export class HomePage implements OnInit {
               opponent:info.data.opponent,
               result:info.data.result,
               squad:squad,
-              coachId:match.coachId
+              coachId:match.coachId,
+              finished:false
             }
             this.matchSvc.editMatch(match, this.user).subscribe(_=> {
               this.onLoadMatch()
@@ -133,8 +168,20 @@ export class HomePage implements OnInit {
   }
 
   finishMatch(match:Match) {
-    this.matchSvc.deleteMatch(match, this.user).subscribe(_=> {
+    match.finished = true
+    this.matchSvc.editMatch(match, this.user).subscribe(_=> {
       this.onLoadMatch()
     })
+  }
+
+  deleteMatch(match:Match, modal:IonModal) {
+    if(match.finished) {
+      this.matchSvc.deleteMatch(match, this.user).subscribe(_=> {
+        this.onLoadMatch()
+      })
+      if(this.finishedMatches.length <= 1) {
+        modal.dismiss()
+      }
+    }
   }
 }

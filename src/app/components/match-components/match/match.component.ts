@@ -12,36 +12,24 @@ export class MatchComponent  implements OnInit {
   @Input() match:Match | null = null
   @Input() user:any
   @Output() onEditClick = new EventEmitter<void>()
-  @Output() onDeleteClick = new EventEmitter<void>()
-  forwards:Player[] = []
-  midfielders:Player[] = []
-  defenses:Player[] = []
-  goalkeeper:Player | undefined
+  @Output() onFinishedClick = new EventEmitter<void>()
+  @Input() forwards:Player[] = []
+  @Input() midfielders:Player[] = []
+  @Input() defenses:Player[] = []
+  @Input() goalkeeper:Player | undefined
 
   constructor() {}
 
-  ngOnInit() {
-    this.match?.squad.players.forEach(player => {
-      if(player.position == "Delantero") {
-        this.forwards.push(player)
-      } else if(player.position == "Centrocampista") {
-        this.midfielders.push(player)
-      } else if(player.position == "Defensa") {
-        this.defenses.push(player)
-      } else {
-        this.goalkeeper = player
-      }
-    })
-  }
+  ngOnInit() {}
 
   onEditClicked(ev:Event) {
     ev.stopPropagation()
     this.onEditClick.emit()
   }
 
-  onDeleteClicked(ev:Event) {
+  onFinishedClicked(ev:Event) {
     ev.stopPropagation()
-    this.onDeleteClick.emit()
+    this.onFinishedClick.emit()
   }
 
 }

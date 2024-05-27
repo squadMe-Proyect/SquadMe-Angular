@@ -50,9 +50,18 @@ app-match {
   width: 400px;
 }
 
-ion-button {
+.seeMatches, #addMatch {
   position: fixed;
   bottom: 0;
+  
+}
+
+.seeMatches {
+  left: 0;
+  margin: 75px;
+}
+
+#addMatch {
   right: 0;
   margin: 30px;
 }
