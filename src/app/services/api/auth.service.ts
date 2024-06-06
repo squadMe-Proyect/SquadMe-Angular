@@ -23,4 +23,8 @@ export abstract class AuthService {
   public abstract logout():Observable<void>;
 
   public abstract me():Observable<Coach|Player|null>;
+
+  public abstract setUser(user:any):Observable<void>;
+
+  public abstract resetPassword():Observable<void>;
 }

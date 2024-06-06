@@ -9,19 +9,24 @@ import { Squad } from 'src/app/interfaces/squad';
 export class SquadComponent  implements OnInit {
 
   @Input() squad:Squad | undefined
+  @Input() isAdmin:boolean = false
   @Output() onEditClicked:EventEmitter<void> = new EventEmitter<void>()
   @Output() onDeleteSquad:EventEmitter<void> = new EventEmitter<void>()
   constructor() { 
   }
 
   onEditClick(ev:Event) {
-    ev.stopPropagation()
-    this.onEditClicked.emit()
+    if(this.isAdmin) {
+      ev.stopPropagation()
+      this.onEditClicked.emit()
+    }
   }
 
   deleteSquad(ev:Event) {
-    ev.stopPropagation()
-    this.onDeleteSquad.emit()
+    if(this.isAdmin) {
+      ev.stopPropagation()
+      this.onDeleteSquad.emit()
+    }
   }
 
   ngOnInit() {

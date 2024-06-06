@@ -1,7 +1,7 @@
 <ion-card appHighlight (click)="onEditClick($event)">
   <div id="interior">
     <ion-buttons>
-      <ion-button (click)="onDeleteClick($event)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+      <ion-button *ngIf="isAdmin" (click)="onDeleteClick($event)"><ion-icon name="trash-outline"></ion-icon></ion-button>
     </ion-buttons>
     <ion-avatar>
       <img *ngIf="player && player.picture" alt="Player photo"  [src]="player.picture" />

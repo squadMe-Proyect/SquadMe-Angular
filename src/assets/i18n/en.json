@@ -63,7 +63,9 @@
     },
     "user-card":{
         "name":"Name",
-        "editUser":"Edit User"
+        "editUser":"Edit User",
+        "change-password":"Change password",
+        "password-message":"We have sent a message to your email for change your password"
     },
     "header":{
         "user":{

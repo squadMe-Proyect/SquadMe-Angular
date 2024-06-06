@@ -16,13 +16,8 @@
       <ion-list *ngIf="(auth.isConnected$ | async) && (auth.user$ | async)">
         <ion-item [color]="routeInclude('home')?'primary':''" (click)="close(menu)" [routerLink]="['/home']" button detail="false"><ion-icon slot="start" name="home"></ion-icon>{{ 'menu.home' | translate}}</ion-item>
         <ion-item [color]="routeInclude('players')?'primary':''" (click)="close(menu)" [routerLink]="['/players']" button detail="false"><ion-icon slot="start" name="football-outline"></ion-icon>{{ 'menu.myplayers' | translate}}</ion-item>
-        <ion-item [color]="routeInclude('squads')?'primary':''" (click)="close(menu)" [routerLink]="['/squads']" button detail="false"><ion-icon slot="start" name="people-outline"></ion-icon>{{ 'menu.mysquads' | translate}}</ion-item>
+        <ion-item *ngIf="(auth.user$ | async)!.role == 'ADMIN'" [color]="routeInclude('squads')?'primary':''" (click)="close(menu)" [routerLink]="['/squads']" button detail="false"><ion-icon slot="start" name="people-outline"></ion-icon>{{ 'menu.mysquads' | translate}}</ion-item>
         <ion-item [color]="routeInclude('user')?'primary':''" (click)="close(menu)" [routerLink]="['/user']" button detail="false"><ion-icon slot="start" name="person-outline"></ion-icon>{{ 'menu.profile' | translate }}</ion-item>
-        <ion-item [color]="routeInclude('about')?'primary':''" (click)="close(menu)" [routerLink]="['/about']" button detail="false"><ion-icon slot="start" name="information-circle-outline"></ion-icon>{{ 'menu.about' | translate }}</ion-item>
-        <ion-item (click)="onSignOut(menu)" button detail="false"><ion-icon slot="start" name="log-out-outline"></ion-icon>{{ 'menu.signout' | translate}}</ion-item>
-      </ion-list>
-      <ion-list *ngIf="(auth.isConnected$ | async) && !(auth.user$ | async)">
-        <ion-item [color]="routeInclude('home')?'primary':''" (click)="close(menu)" [routerLink]="['/home']" button detail="false"><ion-icon slot="start" name="home"></ion-icon>{{ 'menu.home' | translate}}</ion-item>
         <ion-item [color]="routeInclude('about')?'primary':''" (click)="close(menu)" [routerLink]="['/about']" button detail="false"><ion-icon slot="start" name="information-circle-outline"></ion-icon>{{ 'menu.about' | translate }}</ion-item>
         <ion-item (click)="onSignOut(menu)" button detail="false"><ion-icon slot="start" name="log-out-outline"></ion-icon>{{ 'menu.signout' | translate}}</ion-item>
       </ion-list>
@@ -30,8 +25,8 @@
   </ion-menu>
   <div class="ion-page" id="main-content">
     <app-header *ngIf="(auth.isConnected$ | async) && (auth.user$ | async) && !(routeInclude('splash') || routeInclude('login') || routeInclude('register'))"
-      [nickname]="(auth.user$ | async)!.email"
-      [username]="(auth.user$ | async)!.name + ' ' + (auth.user$ | async)!.surname"
+      [email]="(auth.user$ | async)!.email"
+      [name]="(auth.user$ | async)!.name + ' ' + (auth.user$ | async)!.surname"
       [languages]="['es','en']" 
       [languageSelected]="lang" 
       (onLanguage)="onLang($event)"

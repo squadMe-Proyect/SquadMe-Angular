@@ -101,6 +101,23 @@ export class AuthFirebaseService extends AuthService {
     });
   }
 
+  public setUser(user:Coach|Player|null):Observable<void> {
+    return new Observable<void>(_=> {
+      this._user.next(user)
+    })
+  }
+
+  public override resetPassword(): Observable<void> {
+    return new Observable<void>(obs => {
+      this.fbSvc.resetPassword().then(fn => {
+        obs.next(fn)
+        obs.complete()
+      }).catch(err => {
+        obs.error(err)
+      })
+    })
+  }
+
   public me():Observable<Coach|Player|null>{
     return new Observable<Coach|Player|null>(obs=>{
       if(!this._user.value) {

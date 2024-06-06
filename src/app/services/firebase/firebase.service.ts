@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { FirebaseApp, getApp, initializeApp } from 'firebase/app';
 import { DocumentData, Firestore, Unsubscribe, addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, onSnapshot, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { getStorage, ref, getDownloadURL, uploadBytes, FirebaseStorage } from "firebase/storage";
-import { Auth, User, UserCredential, createUserWithEmailAndPassword, deleteUser, getAuth, indexedDBLocalPersistence, initializeAuth, signInAnonymously, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { Auth, User, UserCredential, createUserWithEmailAndPassword, deleteUser, getAuth, indexedDBLocalPersistence, initializeAuth, sendPasswordResetEmail, signInAnonymously, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
 import { rejects } from 'assert';
 
@@ -176,6 +176,15 @@ export class FirebaseService {
         }
     });
         
+  }
+
+  public resetPassword():Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      if(!this._auth || !this._user) {
+        reject();
+      }
+      resolve(sendPasswordResetEmail(this._auth, this._user?.email!!))
+    })
   }
 
   public deleteUser():Promise<void>{

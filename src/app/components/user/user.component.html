@@ -16,6 +16,7 @@
       <p>{{user?.nation}}</p>
       <p>{{user?.teamName}}</p>
       <ion-buttons>
+        <ion-button (click)="onChangePasswordClicked($event)">{{'user-card.change-password' | translate}}</ion-button>
         <ion-button (click)="onEditClicked($event)" *ngIf="user?.role == 'ADMIN'">{{'user-card.editUser' | translate}}</ion-button>
       </ion-buttons>
     </ion-card-content>

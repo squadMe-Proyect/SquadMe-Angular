@@ -25,8 +25,21 @@ export class CoachService {
       teamName:el.data['teamName'],
       email:el.data['email'],
       role:el.data['role'],
-      nation:el.data['nation']
+      nation:el.data['nation'],
+      picture:el.data['picture']
     }
+  }
+
+  getCoach(id:string):Observable<Coach|null> {
+    return new Observable<Coach|null>(obs => {
+      this.fbSvc.getDocument("coaches", id).then(doc => {
+        const coach:Coach = this.mapCoaches(doc)
+        obs.next(coach)
+        obs.complete()
+      }).catch(_ => {
+        obs.next(null)
+      })
+    })
   }
 
   createCoach(user:Coach):Observable<void> {
@@ -55,7 +68,6 @@ export class CoachService {
 
   deleteCoach(user:Coach):Observable<void> {
     return new Observable<void>(obs => {
-      var fbUser:any = user
       this.fbSvc.deleteDocument("coaches", user.id!!).then(_=>{
         this.unsubs = this.fbSvc.subscribeToCollection("coaches", this._coaches, this.mapCoaches)
       }).catch(err => {

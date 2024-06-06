@@ -23,13 +23,16 @@ export class MatchComponent  implements OnInit {
   ngOnInit() {}
 
   onEditClicked(ev:Event) {
-    ev.stopPropagation()
-    this.onEditClick.emit()
+    if(this.user.role == 'ADMIN') {
+      ev.stopPropagation()
+      this.onEditClick.emit()
+    }
   }
 
   onFinishedClicked(ev:Event) {
-    ev.stopPropagation()
-    this.onFinishedClick.emit()
+    if(this.user.role == 'ADMIN') {
+      ev.stopPropagation()
+      this.onFinishedClick.emit()
+    }
   }
-
 }

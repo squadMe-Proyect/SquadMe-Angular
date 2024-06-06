@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../../services/player.service';
 import { Player } from 'src/app/interfaces/player';
 import { Match } from 'src/app/interfaces/match';
-import { IonModal, ModalController, ToastController, ToastOptions } from '@ionic/angular';
+import { IonModal, ModalController, } from '@ionic/angular';
 import { MatchFormComponent } from 'src/app/components/match-components/match-form/match-form.component';
 import { Squad } from 'src/app/interfaces/squad';
 import { SquadService } from 'src/app/services/squad.service';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { MatchService } from 'src/app/services/match.service';
-import { lastValueFrom } from 'rxjs';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -36,13 +36,15 @@ export class HomePage implements OnInit {
     public matchSvc:MatchService,
     private modal:ModalController,
     public authSvc:AuthService
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.authSvc.user$.subscribe(u => { this.user = u })
-    squadSvc.squads$.subscribe(_squads => {
+    this.squadSvc.squads$.subscribe(_squads => {
       this.squads = _squads.filter(s => this.user.id == s.coachId)
     })
     this.onLoadMatch()
-    players.players$.subscribe(players => {
+    this.players.players$.subscribe(players => {
       const _players = players.filter(p => this.user.id == p.coachId || this.user.coachId == p.coachId)
       var maxGoals = 0
       var maxAssists = 0
@@ -69,10 +71,16 @@ export class HomePage implements OnInit {
     })
   }
 
-  ngOnInit() {}
-
   setOpen(open:boolean) {
     this.openModal = open
+  }
+
+  hasFinishedMatches(user:any):boolean {
+    var matches:Match[] = []
+    this.matchSvc.matches$.subscribe(_matches => {
+      matches = _matches
+    })
+    return matches.filter(m => (m.coachId == user.id || m.coachId == user.coachId ) && m.finished == true).length > 0
   }
 
   onLoadMatch() {

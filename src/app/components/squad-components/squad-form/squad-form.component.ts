@@ -49,7 +49,6 @@ export class SquadFormComponent  implements OnInit {
 
   onSubmit() {
     this.modal.dismiss(this.form.value, 'ok')
-    console.log(this.form.controls['players'].value)
   }
 
   onCancel() {

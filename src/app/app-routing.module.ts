@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'players',
     loadChildren: () => import('./pages/myplayers/myplayers.module').then( m => m.MyplayersPageModule),
-    canActivate:[AuthGuard, UserGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'login',
@@ -43,7 +43,8 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: () => import('./pages/user/user.module').then( m => m.UserPageModule)
+    loadChildren: () => import('./pages/user/user.module').then( m => m.UserPageModule),
+    canActivate:[AuthGuard]
   },
 ];
 

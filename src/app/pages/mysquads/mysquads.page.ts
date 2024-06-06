@@ -22,7 +22,7 @@ export class MySquadsPage implements OnInit {
   constructor(
     public squadsSvc:SquadService,
     private modal:ModalController,
-    private authSvc:AuthService,
+    public authSvc:AuthService,
     public matchSvc:MatchService
   ) {
     this.authSvc.user$.subscribe(u => {

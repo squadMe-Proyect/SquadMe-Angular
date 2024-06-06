@@ -10,6 +10,7 @@ export class MatchItemComponent  implements OnInit {
 
   @Input() match:Match | null = null
   @Input() teamName:string = ""
+  @Input() isAdmin:boolean = false
   @Output() onDeleteClick = new EventEmitter<void>()
   constructor() { }
 

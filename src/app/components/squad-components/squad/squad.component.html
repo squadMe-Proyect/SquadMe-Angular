@@ -2,7 +2,7 @@
   <ion-card-header>
     <ng-container>
       <ion-buttons>
-        <ion-button (click)="deleteSquad($event)"><ion-icon name="trash-outline"></ion-icon></ion-button>
+        <ion-button *ngIf="isAdmin" (click)="deleteSquad($event)"><ion-icon name="trash-outline"></ion-icon></ion-button>
       </ion-buttons>
       <ion-card-title>{{squad?.name}}</ion-card-title>
       <ion-text>{{squad?.lineUp}}</ion-text>

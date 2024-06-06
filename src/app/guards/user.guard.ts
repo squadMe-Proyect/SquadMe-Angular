@@ -14,7 +14,7 @@ export class UserGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return this.auth.user$.pipe(map(user => {
-        if(user == null) {
+        if(user == null || user.role == 'PLAYER') {
           this.router.navigate(["/home"])
         }
         return user == null || user != null;

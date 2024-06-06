@@ -11,6 +11,7 @@ import { Player } from 'src/app/interfaces/player';
 export class PlayerComponent  implements OnInit {
 
   @Input() player: Player | null = null
+  @Input() isAdmin: boolean = false
   @Output() onCardClicked:EventEmitter<void> = new EventEmitter<void>()
   @Output() onDeleteClicked:EventEmitter<void> = new EventEmitter<void>()
   @Output() onEditClicked:EventEmitter<void> = new EventEmitter<void>()
@@ -23,12 +24,16 @@ export class PlayerComponent  implements OnInit {
   }
 
   onDeleteClick(ev:Event) {
-    ev.stopPropagation()
-    this.onDeleteClicked.emit()
+    if(this.isAdmin) {
+      ev.stopPropagation()
+      this.onDeleteClicked.emit()
+    }
   }
 
   onEditClick(ev:Event) {
-    ev.stopPropagation()
-    this.onEditClicked.emit()
+    if(this.isAdmin) {
+      ev.stopPropagation()
+      this.onEditClicked.emit()
+    }
   }
 }
