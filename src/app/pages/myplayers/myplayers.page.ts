@@ -2,8 +2,8 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ModalController, ToastController, ToastOptions } from '@ionic/angular';
 import { lastValueFrom } from 'rxjs';
 import { PlayerFormComponent } from 'src/app/components/player-components/player-form/player-form.component';
+import { PlayerInfoComponent } from 'src/app/components/player-components/player-info/player-info.component';
 import { Player } from 'src/app/interfaces/player';
-import { Squad } from 'src/app/interfaces/squad';
 import { UserRegisterInfo } from 'src/app/interfaces/user-register-info';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { MediaService } from 'src/app/services/api/media.service';
@@ -21,7 +21,7 @@ export class MyplayersPage implements OnInit {
 
   loading: boolean = false
   players:Player[] = []
-  private user:any
+  user:any
   constructor(
     public playerSvc: PlayerService,
     public squadSvc: SquadService,
@@ -31,29 +31,34 @@ export class MyplayersPage implements OnInit {
     private toast:ToastController,
     public authSvc:AuthService,
     public translate:CustomTranslateService
-  ) { 
-    this.authSvc.user$.subscribe(u => { this.user = u })
+  ) {
+    this.loading = true 
+    this.authSvc.user$.subscribe(u => {
+      this.user = u
+      this.onLoadPlayers(u)
+    })
   }
 
-  ngOnInit() {
-    this.loading = true
-    this.onLoadPlayers()
-  }
+  ngOnInit() {}
 
-  async onLoadPlayers(page: number = 0, refresh: any = null) {
+  async onLoadPlayers(user:any) {
     this.loading = false;
     this.playerSvc.players$.subscribe(_players => {
-      console.log(this.user?.name)
-      this.players = _players.filter(p => p.coachId == this.user?.id || p.coachId == this.user?.coachId)
+      const ps = [..._players]
+      this.players = ps.filter(p => p.coachId == user.id || p.coachId == user.coachId)
     })
-    /*
-    this.playerSvc.query("").subscribe(response => {
-      this._players.next(response)
-      if (refresh)
-        refresh.complete()
-      this.loading = false
+  }
+
+  onFilter(evt:any) {
+    this.filter(evt.target.value.toLowerCase())
+  }
+
+  private async filter(value:string) {
+    const query = value
+    this.playerSvc.players$.subscribe(_players => {
+      var userPlayers = [..._players.filter(p => p.coachId == this.user.id || p.coachId == this.user.coachId)]
+      this.players = userPlayers.filter(p => p.name.toLowerCase().includes(query) || p.surname.toLowerCase().includes(query))
     })
-    */
   }
 
   async presentForm(data: Player | null, onDismiss: (result: any) => void) {
@@ -70,6 +75,17 @@ export class MyplayersPage implements OnInit {
         onDismiss(result)
       }
     })
+  }
+
+  async seeDetailsPlayer(data: Player | undefined) {
+    const modal = await this.modal.create({
+      component: PlayerInfoComponent,
+      cssClass:"form-modal",
+      componentProps: {
+        player: data
+      }
+    })
+    modal.present()
   }
 
   private dataURLtoBlob(dataUrl: string, callback: (blob: Blob) => void) {
@@ -102,45 +118,34 @@ export class MyplayersPage implements OnInit {
             nation:info.data.nation,
             role:'PLAYER'
           }
+          const pCreated = await lastValueFrom(this.authSvc.register(userReg))
+          var player:any = {
+            id:pCreated.id,
+            name:pCreated.name,
+            surname:pCreated.surname,
+            email:pCreated.email,
+            nation:pCreated.nation,
+            position:info.data.position,
+            teamName:pCreated.teamName,
+            picture:info.data.picture,
+            role:pCreated.role
+          }
           if (info.data.picture) {
             this.dataURLtoBlob(info.data.picture, (blob: Blob) => {
               this.mediaSvc.upload(blob).subscribe(async (media: any) => {
-                const pCreated = await lastValueFrom(this.authSvc.register(userReg))
-                var player:any = {
-                  id:pCreated.id,
-                  name:pCreated.name,
-                  surname:pCreated.surname,
-                  email:pCreated.email,
-                  nation:pCreated.nation,
-                  position:info.data.position,
-                  teamName:pCreated.teamName,
-                  picture:media.file,
-                  role:pCreated.role
-                }
+                player.picture = media.file
                 this.playerSvc.addPlayer(player, user).subscribe(_=>{ 
-                  this.onLoadPlayers()
+                  this.onLoadPlayers(user)
                 })
               })
             })
           } else if (info.data.picture == "") {
-            const pCreated = await lastValueFrom(this.authSvc.register(userReg))
-            var player:any = {
-              id:pCreated.id,
-              name:pCreated.name,
-              surname:pCreated.surname,
-              email:pCreated.email,
-              nation:pCreated.nation,
-              position:info.data.position,
-              teamName:pCreated.teamName,
-              picture:info.data.picture,
-              role:pCreated.role
-            }
             this.playerSvc.addPlayer(player, user).subscribe(_=>{ 
-              this.onLoadPlayers()
+              this.onLoadPlayers(user)
             })
           }
         }
-          break;
+        break;
       }
     }
     this.presentForm(null, onDismiss)
@@ -152,9 +157,10 @@ export class MyplayersPage implements OnInit {
       next: (player:any) => {
         console.log(player)
       },
-      error: (err:any) => {
+      error: async (err:any) => {
+        const message = await lastValueFrom(this.translate.get('player.playerInSquad'))
         const options:ToastOptions = {
-          message:`El jugador que quieres borrar está en una plantilla`,
+          message:message,
           duration:1000,
           position:'bottom',
           color:'danger',
@@ -164,7 +170,7 @@ export class MyplayersPage implements OnInit {
         console.error(err)
       }
     })
-    this.onLoadPlayers();
+    this.onLoadPlayers(this.user);
   }
 
   onEditPlayer(player: Player) {
@@ -172,27 +178,30 @@ export class MyplayersPage implements OnInit {
       switch (info.role) {
         case 'ok': {
           this.loading = true
+          var _player = {
+            id:info.data.id,
+            name:info.data.name,
+            surname:info.data.surname,
+            position:info.data.position,
+            email:player.email,
+            nation:info.data.nation,
+            role:player.role,
+            picture:"",
+            teamName:player.teamName,
+            numbers:info.data.numbers,
+            assists:info.data.assists,
+            yellowCards:info.data.yellowCards,
+            redCards:info.data.redCards
+          }
           if (info.data.picture) {
             const _picture:string = info.data.picture
             if(_picture.substring(0,4) == 'data') {
               this.dataURLtoBlob(info.data.picture, (blob: Blob) => {
                 this.mediaSvc.upload(blob).subscribe((media: any) => {
-                  const _player = {
-                    id:info.data.id,
-                    name:info.data.name,
-                    surname:info.data.surname,
-                    position:info.data.position,
-                    email:player.email,
-                    nation:info.data.nation,
-                    role:player.role,
-                    picture:media.file,
-                    teamName:player.teamName,
-                    numbers:info.data.numbers,
-                    assists:info.data.assists
-                  }
+                  _player.picture = media.file
                   console.log(_player)
                   this.playerSvc.updatePlayer(_player, this.user).subscribe(_=>{
-                    this.onLoadPlayers();
+                    this.onLoadPlayers(this.user);
                   })
                   this.squadSvc.updatePlayerInSquad(_player, this.user).subscribe()
                   this.matchSvc.updatePlayerOnSquadMatch(_player, this.user).subscribe()
@@ -201,27 +210,14 @@ export class MyplayersPage implements OnInit {
             } else {
               player = info.data
               this.playerSvc.updatePlayer(player, this.user).subscribe(p=>{
-                this.onLoadPlayers();
+                this.onLoadPlayers(this.user);
                 this.squadSvc.updatePlayerInSquad(p, this.user).subscribe()
                 this.matchSvc.updatePlayerOnSquadMatch(p, this.user).subscribe()
               })
             }
           } else if (info.data.picture == null || info.data.picture == "") {
-            const _player = {
-              id:info.data.id,
-              name:info.data.name,
-              surname:info.data.surname,
-              position:info.data.position,
-              email:player.email,
-              nation:info.data.nation,
-              role:player.role,
-              picture:"",
-              teamName:player.teamName,
-              numbers:info.data.numbers,
-              assists:info.data.assists
-            }
             this.playerSvc.updatePlayer(_player, this.user).subscribe(_=>{
-              this.onLoadPlayers();
+              this.onLoadPlayers(this.user);
             })
             this.squadSvc.updatePlayerInSquad(_player, this.user).subscribe()
             this.matchSvc.updatePlayerOnSquadMatch(_player, this.user).subscribe()

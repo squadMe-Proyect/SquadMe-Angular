@@ -131,11 +131,34 @@ export class SquadService {
   deleteSquad(squad:Squad, user:any):Observable<void> {
     return new Observable<void>(obs => {
       if(user.role == 'ADMIN') {
-        this.fbSvc.deleteDocument("squads", squad.id!!).then(_ => {
-          this.unsubscr = this.fbSvc.subscribeToCollection('squads', this._squads, this.mapSquads);
-        }).catch(err => {
-          obs.error(err)
-        })
+        this.fbSvc.getDocuments("matches").then(docs => {
+          if(docs.length > 0) {
+            var squads:Squad[] = []
+            docs.forEach(doc => {
+              if(!doc.data['finished']) {
+                const squadFound:Squad = doc.data['squad']
+                if(squadFound.id == squad.id) {
+                  squads.push(squadFound)
+                }
+              }
+            })
+            if(squads.length <= 0) {
+              this.fbSvc.deleteDocument("squads",squad.id!!).then(_=>{
+                this.unsubscr = this.fbSvc.subscribeToCollection('squads', this._squads, this.mapSquads);
+              }).catch(err => {
+                obs.error(err)
+              })
+            } else {
+              obs.error("No se pudo borrar")
+            }
+          } else {
+            this.fbSvc.deleteDocument("squads",squad.id!!).then(_=>{
+              this.unsubscr = this.fbSvc.subscribeToCollection('squads', this._squads, this.mapSquads);
+            }).catch(err => {
+              obs.error(err)
+            })
+          }
+        }).catch(err => obs.error(err))
       }
     })
   }

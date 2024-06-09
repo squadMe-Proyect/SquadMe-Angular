@@ -1,0 +1,8 @@
+<ion-content class="offset-header" [fullscreen]="false">
+  <div id="trainings">
+    <app-training-component *ngFor="let training of trainings" [training]="training"
+    (onEditClick)="onEditTraining(training)" (onDeleteClick)="onDeleteTraining(training)"
+    (onFinishedTraining)="finishTraining($event, training)" [isAdmin]="(authSvc.user$ | async)!.role == 'ADMIN'"></app-training-component>
+  </div>
+  <ion-button color="secondary" *ngIf="(authSvc.user$ | async)!.role == 'ADMIN'" (click)="onNewTraining()" class="create-model">{{'form.mode.createTraining' | translate}} <ion-icon id="añadir" name="add-outline"></ion-icon></ion-button>
+</ion-content>

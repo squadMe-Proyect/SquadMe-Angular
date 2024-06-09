@@ -12,15 +12,16 @@ export class PlayerComponent  implements OnInit {
 
   @Input() player: Player | null = null
   @Input() isAdmin: boolean = false
-  @Output() onCardClicked:EventEmitter<void> = new EventEmitter<void>()
+  @Output() onDetailsClicked:EventEmitter<void> = new EventEmitter<void>()
   @Output() onDeleteClicked:EventEmitter<void> = new EventEmitter<void>()
   @Output() onEditClicked:EventEmitter<void> = new EventEmitter<void>()
   constructor() { }
 
   ngOnInit() {}
 
-  onCardClick() {
-    this.onCardClicked.emit()
+  onDetailsClick(ev:Event) {
+    ev.stopPropagation()
+    this.onDetailsClicked.emit()
   }
 
   onDeleteClick(ev:Event) {

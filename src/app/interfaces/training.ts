@@ -2,6 +2,6 @@ export interface Training {
     id?:string,
     date?:string,
     exercises?:string[],
-    finished:boolean,
+    completed:boolean,
     coachId?:string
 }

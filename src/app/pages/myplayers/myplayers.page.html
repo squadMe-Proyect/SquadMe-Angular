@@ -1,10 +1,14 @@
 <ion-content class="offset-header" [fullscreen]="false">
   <div id="jugadores">
+    <ion-searchbar color="secondary" show-clear-button="focus" placeholder="{{'searcher-placeholder' | translate}}"
+    (ionFocus)="onLoadPlayers(user)" (ionClear)="onLoadPlayers(user)" (ionInput)="onFilter($event)"
+    [debounce]="200"></ion-searchbar>
     <app-player *ngFor="let player of players" [player]="player"
               [isAdmin]="(authSvc.user$ | async)!.role == 'ADMIN'"
               (onDeleteClicked)="onDeletePlayer(player)"
-              (onEditClicked)="onEditPlayer(player)"></app-player>
+              (onEditClicked)="onEditPlayer(player)"
+              (onDetailsClicked)="seeDetailsPlayer(player)"></app-player>
   </div>
-  <ion-button *ngIf="(authSvc.user$ | async)!.role == 'ADMIN'" (click)="onNewPlayer()">{{'form.mode.createPlayer' | translate}} <ion-icon id="añadir" name="add-outline"></ion-icon></ion-button>
+  <ion-button color="secondary" class="create-model" *ngIf="(authSvc.user$ | async)!.role == 'ADMIN'" (click)="onNewPlayer()">{{'form.mode.createPlayer' | translate}} <ion-icon id="añadir" name="add-outline"></ion-icon></ion-button>
   <ion-loading [isOpen]="loading" class="custom-loading" spinner="dots"></ion-loading>
 </ion-content>

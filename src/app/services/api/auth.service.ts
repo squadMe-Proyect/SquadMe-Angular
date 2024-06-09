@@ -27,4 +27,6 @@ export abstract class AuthService {
   public abstract setUser(user:any):Observable<void>;
 
   public abstract resetPassword():Observable<void>;
+
+  public abstract resetPasswordWithEmail(email:string):Observable<void>;
 }

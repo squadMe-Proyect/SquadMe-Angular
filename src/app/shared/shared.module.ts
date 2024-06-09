@@ -22,12 +22,16 @@ import { MatchFormComponent } from '../components/match-components/match-form/ma
 import { MatchComponent } from '../components/match-components/match/match.component';
 import { MatchItemComponent } from '../components/match-components/match-item/match-item.component';
 import { UserComponent } from '../components/user/user.component';
+import { TrainingFormComponent } from '../components/trainings/training-form/training-form.component';
+import { TrainingComponent } from '../components/trainings/training/training.component';
+import { PlayerInfoComponent } from '../components/player-components/player-info/player-info.component';
 
 @NgModule({
   declarations: [ SquadFormComponent, SquadComponent, LoginFormComponent, PlayerCardComponent, 
     PlayerComponent, PlayerFormComponent, PlayerItemComponent, PlayerSearcherComponent,
      HeaderComponent, RegisterFormComponent, PictureSelectableComponent, HighlightDirective, 
-     MatchFormComponent, MatchComponent, MatchItemComponent, UserComponent],
+     MatchFormComponent, MatchComponent, MatchItemComponent, UserComponent, TrainingFormComponent, 
+     TrainingComponent, PlayerInfoComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -47,7 +51,8 @@ import { UserComponent } from '../components/user/user.component';
     IonicModule,ReactiveFormsModule,
     RouterModule, TranslateModule, SquadFormComponent, SquadComponent, LoginFormComponent, PlayerCardComponent, 
     PlayerComponent, PlayerFormComponent, PlayerItemComponent,
-     PlayerSearcherComponent, HeaderComponent, RegisterFormComponent, PictureSelectableComponent,
-      HighlightDirective, MatchFormComponent, MatchComponent, MatchItemComponent, UserComponent]
+    PlayerSearcherComponent, HeaderComponent, RegisterFormComponent, PictureSelectableComponent,
+    HighlightDirective, MatchFormComponent, MatchComponent, MatchItemComponent, UserComponent, TrainingFormComponent,
+    TrainingComponent, PlayerInfoComponent]
 })
 export class SharedModule { }

@@ -62,6 +62,8 @@ export class MatchFormComponent implements OnInit {
     popover.dismiss()
   }
 
+  
+
   async onSelectDate(popover:IonPopover, input:IonInput, dateTime:IonDatetime) {
     if(!dateTime.value) {
       const message = await lastValueFrom(this.translate.get('match.error.dateNotSelected'))

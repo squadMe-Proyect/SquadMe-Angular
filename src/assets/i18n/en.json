@@ -19,7 +19,6 @@
     "player": {
         "nameLabel":"Name",
         "positionLabel":"Position",
-        "ageLabel":"Age",
         "teamLabel":"Team",
         "nationLabel":"Nation",
         "statsLabel":"Season stats",
@@ -28,10 +27,13 @@
         "cleanSheetsLabel":"Clean sheets",
         "yellowCardsLabel":"Yellow cards",
         "redCardsLabel":"Red cards",
-        "beenSelected":"This player has already been selected"
+        "beenSelected":"This player has already been selected",
+        "playerInSquad":"The player you want to delete is in a squad",
+        "see-details":"See details"
     },
     "squad":{
-        "lineUpLabel":"Line-Up"
+        "lineUpLabel":"Line-Up",
+        "squadInMatch":"The squad you want to delete is used in the next match"
     },
     "main":{
         "hello":"Hello"
@@ -40,9 +42,11 @@
         "email":"Email",
         "pwd":"Password",
         "noAccount":"I have no account",
+        "forget-password":"Forget your password?",
         "submit":"Access",
         "error":{
-            "badCredentials":"Credenciales are not correct"
+            "badCredentials":"Credenciales are not correct",
+            "empty-email":"You must write your email to change your password"
         }
     },
     "register":{
@@ -89,8 +93,17 @@
         "myplayers":"Players",
         "mysquads":"Squads",
         "signout":"Sign out",
+        "trainings":"Trainings",
         "profile":"My profile",
         "about":"About"
+    },
+    "training":{
+        "add-exercise":"Add exercise",
+        "error":{
+            "empty-exercise-name":"You must write a name for the exercise"
+        },
+        "completed":"Completed",
+        "exercise-list-label":"Exercise list"
     },
     "searcher-placeholder":"Search player",
     "form":{
@@ -99,10 +112,13 @@
             "editMatch":"Edit next match",
             "createSquad":"Create Squad",
             "createPlayer":"Create Player",
+            "createTraining":"Create Training",
             "editSquad":"Edit Squad",
             "editPlayer":"Edit Player",
+            "editTraining":"Edit Training",
             "create":"Create",
-            "save":"Save"
+            "save":"Save",
+            "accept":"Accept"
         },
         "placeholder":{
             "name":"Write the name",
@@ -122,6 +138,7 @@
         "accept":"Accept",
         "squad":"Squad",
         "squadHint":"Select your squad",
+        "no-squads":"You have no created squads. Create one!",
         "result":{
             "label":"RESULT",
             "teamName":"Your team",

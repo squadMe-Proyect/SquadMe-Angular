@@ -8,7 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class HeaderComponent  implements OnInit {
 
   @Input() name:string|undefined
-  @Input() email:string|undefined|null
+  @Input() avatar:string|undefined|null
+  @Input() teamName:string|undefined|null
   @Input() languages:string[] = ["es","en"];
   @Input() languageSelected:string = "es";
   @Output() onSignout = new EventEmitter();

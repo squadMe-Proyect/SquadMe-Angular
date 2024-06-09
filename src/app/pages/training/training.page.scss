@@ -1,21 +1,17 @@
-#añadir {
-    margin-left: 5px;
-}
-
-#squads {
+#trainings {
     display: flex;
     flex-wrap: wrap;
     margin: 50px;
 }
 
 @media (max-width: 990px) {
-    #squads {
+    #trainings {
       margin: 30px
     }
 }
 
 @media (max-width: 450px) {
-    #squads {
+    #trainings {
       margin: 15px
     }
 }

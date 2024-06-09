@@ -7,11 +7,21 @@
             <img alt="logo of app" src="assets/app_logo.png" />
           </ion-thumbnail>
         </div>
-        
       </ion-card-header>
       <ion-card-content>
         <div class="ion-text-end">
-          <ion-button [routerLink]="['/register']" fill="clear" style="text-transform: none;">{{'login.noAccount' | translate}}</ion-button>
+          <ion-button fill="clear" style="text-transform: none;" (click)="setOpen(true)" color="light">{{'login.forget-password' | translate}}</ion-button>
+          <ion-button [routerLink]="['/register']" fill="clear" style="text-transform: none;" color="light">{{'login.noAccount' | translate}}</ion-button>
+          <ion-popover background="primary" #popover [isOpen]="isOpen" (didDismiss)="setOpen(false)" >
+            <ng-template>
+              <ion-item>
+                <ion-input #emailInput label="{{'register.email' | translate }}" placeholder="{{'form.placeholder.email' | translate}}" labelPlacement="fixed" type="text"></ion-input>
+              </ion-item>
+              <ion-buttons>
+                <ion-button (click)="changePassword(popover, emailInput)">{{'form.mode.accept' | translate}}</ion-button>
+              </ion-buttons>
+            </ng-template>
+          </ion-popover>
         </div>
         <app-login-form (onsubmit)="onLogin($event)"></app-login-form>
       </ion-card-content>

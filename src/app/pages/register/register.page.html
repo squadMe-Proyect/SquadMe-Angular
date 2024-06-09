@@ -10,7 +10,7 @@
       </ion-card-header>
       <ion-card-content>
         <div class="ion-text-end">
-          <ion-button [routerLink]="['/login']" fill="clear" style="text-transform: none;">{{'register.login' | translate}}</ion-button>
+          <ion-button [routerLink]="['/login']" fill="clear" style="text-transform: none;" color="light">{{'register.login' | translate}}</ion-button>
         </div>
         <app-register-form (onsubmit)="onRegister($event)"></app-register-form>
       </ion-card-content>

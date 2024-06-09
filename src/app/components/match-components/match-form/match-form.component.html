@@ -19,7 +19,7 @@
       <ng-template>
         <ion-datetime #dateTime></ion-datetime>
         <ion-buttons>
-          <ion-button (click)="onSelectDate(popoverDate, dateInput, dateTime)">Aceptar</ion-button>
+          <ion-button (click)="onSelectDate(popoverDate, dateInput, dateTime)">{{'form.mode.accept' | translate}}</ion-button>
         </ion-buttons>
       </ng-template>
     </ion-popover>
@@ -28,6 +28,9 @@
     </ion-item>
     <ion-popover #popoverSquad trigger="nested-squad-trigger" triggerAction="click" side="end">
       <ng-template>
+        <ion-item *ngIf="squads!!.length <= 0">
+          <ion-text>{{'match.no-squads' | translate}}</ion-text>
+        </ion-item>
         <ion-list>
           <ion-item (click)="onSelectSquad(popoverSquad, squadInput, squad)" *ngFor="let squad of squads">
             <div id="squad-items">

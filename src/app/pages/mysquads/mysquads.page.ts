@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController, ToastOptions } from '@ionic/angular';
+import { lastValueFrom } from 'rxjs';
 import { SquadFormComponent } from 'src/app/components/squad-components/squad-form/squad-form.component';
 import { Coach } from 'src/app/interfaces/coach';
 import { Squad } from 'src/app/interfaces/squad';
@@ -14,19 +15,22 @@ import { SquadService } from 'src/app/services/squad.service';
   styleUrls: ['./mysquads.page.scss'],
 })
 export class MySquadsPage implements OnInit {
-  
+  coachId:string | undefined
   squads: Squad[] = []
   private user:any
-  coachId:string | undefined
   loading:boolean = false
   constructor(
     public squadsSvc:SquadService,
     private modal:ModalController,
     public authSvc:AuthService,
-    public matchSvc:MatchService
+    public matchSvc:MatchService,
+    private toast:ToastController,
+    public translate:CustomTranslateService
   ) {
+    this.loading = true
     this.authSvc.user$.subscribe(u => {
       this.user = u
+      this.onLoadSquads(u)
       if(this.user.role == 'ADMIN') {
         this.coachId = this.user.id
       } else {
@@ -35,24 +39,15 @@ export class MySquadsPage implements OnInit {
     })
   }
 
-  ngOnInit() {
-    this.loading = true
-    this.onLoadSquads()
-  }
+  ngOnInit() {}
 
-  onLoadSquads(page:number = 0, refresh:any = null) {
+  onLoadSquads(user:any) {
     this.loading = false
     this.squadsSvc.squads$.subscribe(_squads => {
-      console.log(this.user?.id)
-      this.squads = _squads.filter(s => s.coachId == this.coachId)
+      const sqs = [..._squads]
+      this.squads = sqs.filter(s => s.coachId == user.id || s.coachId == user.coachId)
       console.log(this.squads)
     })
-    /*this.squads.query("").subscribe(response => {
-      this._squads.next(response)
-      if(refresh)
-        refresh.complete()
-      this.loading = false
-    })*/
   }
 
   async presentForm(data:Squad | null, onDismiss:(result:any)=>void) {
@@ -76,7 +71,7 @@ export class MySquadsPage implements OnInit {
     var onDismiss = (info:any) => {
       this.loading = true
       this.squadsSvc.addSquad(info.data, this.user).subscribe(_=>{
-        this.onLoadSquads()
+        this.onLoadSquads(this.user)
       })
     }
     this.presentForm(null, onDismiss)
@@ -89,7 +84,7 @@ export class MySquadsPage implements OnInit {
           this.loading = true
           squad = info.data
           this.squadsSvc.updateSquad(squad, this.user).subscribe(_=>{
-            this.onLoadSquads()
+            this.onLoadSquads(this.user)
           })
           this.matchSvc.updateSquadOnMatch(squad, this.user).subscribe()
         }
@@ -97,7 +92,7 @@ export class MySquadsPage implements OnInit {
         case 'cancel': {
           this.loading = true
           this.squadsSvc.getSquad(squad.id!).subscribe(_=> {
-            this.onLoadSquads()
+            this.onLoadSquads(this.user)
           })
         }
       }
@@ -107,7 +102,21 @@ export class MySquadsPage implements OnInit {
 
   onDeleteSquad(squad:Squad) {
     this.loading = true
-    this.squadsSvc.deleteSquad(squad, this.user).subscribe()
-    this.onLoadSquads()
+    this.squadsSvc.deleteSquad(squad, this.user).subscribe({
+      next: (_:any) => {},
+      error: async (err:any) => {
+        const message = await lastValueFrom(this.translate.get('squad.squadInMatch'))
+        const options:ToastOptions = {
+          message:message,
+          duration:1000,
+          position:'bottom',
+          color:'danger',
+          cssClass:'red-toast'
+        }
+        this.toast.create(options).then(toast=>toast.present())
+        console.error(err)
+      }
+    })
+    this.onLoadSquads(this.user)
   }
 }

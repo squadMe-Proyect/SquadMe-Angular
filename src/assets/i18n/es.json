@@ -19,7 +19,6 @@
     "player": {
         "nameLabel":"Nombre",
         "positionLabel":"Posición",
-        "ageLabel":"Edad",
         "teamLabel":"Equipo",
         "nationLabel":"País",
         "statsLabel":"Estadísticas de la temporada",
@@ -28,10 +27,13 @@
         "cleanSheetsLabel":"Porterias a cero",
         "yellowCardsLabel":"Tarjetas amarillas",
         "redCardsLabel":"Tarjetas rojas",
-        "beenSelected":"Este jugador ya ha sido seleccionado"
+        "beenSelected":"Este jugador ya ha sido seleccionado",
+        "playerInSquad":"El jugador que quieres borrar está en una plantilla",
+        "see-details":"Ver detalles"
     },
     "squad":{
-        "lineUpLabel":"Formación"
+        "lineUpLabel":"Formación",
+        "squadInMatch":"La plantilla que quieres borrar está en uso en el próximo partido"
     },
     "main":{
         "hello":"Hola"
@@ -40,9 +42,11 @@
         "email":"Email",
         "pwd":"Contraseña",
         "noAccount":"No tengo cuenta",
+        "forget-password":"¿Olvidaste tu contraseña?",
         "submit":"Acceder",
         "error":{
-            "badCredentials":"Las credenciales no son correctas"
+            "badCredentials":"Las credenciales no son correctas",
+            "empty-email":"Debes escribir tu email para cambiar tu contraseña"
         }
     },
     "register":{
@@ -84,6 +88,7 @@
         "myplayers":"Jugadores",
         "mysquads":"Plantillas",
         "signout":"Cerrar sesión",
+        "trainings":"Entrenamientos",
         "profile":"Mi perfil",
         "about":"Información"
     },
@@ -92,6 +97,14 @@
         "gitLabel":"Cuenta de github (click en el nombre para entrar):",
         "description":"Esta web app consiste en una app de información sobre fútbolistas de la actualidad, además consta de dos páginas (hay que autentificarse para su uso) en las que puedes crear tus propios futbolistas y alinearlos en plantillas que puedas crear a tu gusto"
     },
+    "training":{
+        "add-exercise":"Añadir ejercicio",
+        "error":{
+            "empty-exercise-name":"Debes escribir un nombre para el ejercicio"
+        },
+        "completed":"Completado",
+        "exercise-list-label":"Lista de ejercicios"
+    },
     "searcher-placeholder":"Buscar jugador",
     "form":{
         "mode": {
@@ -99,10 +112,13 @@
             "editMatch":"Editar próximo partido",
             "createSquad":"Crear Plantilla",
             "createPlayer":"Crear Jugador",
+            "createTraining":"Crear Entrenamiento",
             "editSquad":"Editar Plantilla",
             "editPlayer":"Editar Jugador",
+            "editTraining":"Editar Entrenamiento",
             "create":"Crear",
-            "save":"Guardar"
+            "save":"Guardar",
+            "accept":"Aceptar"
         },
         "placeholder":{
             "name":"Escribe el nombre",
@@ -122,6 +138,7 @@
         "accept":"Aceptar",
         "squad": "Plantilla",
         "squadHint": "Selecciona tu plantilla",
+        "no-squads":"No tienes plantillas creadas. ¡Crea una!",
         "result":{
             "label":"RESULTADO",
             "teamName":"Tu equipo",

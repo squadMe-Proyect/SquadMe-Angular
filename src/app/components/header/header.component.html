@@ -4,20 +4,23 @@
       <ion-menu-button color="primary"></ion-menu-button>
     </ion-buttons>
     <div slot="end" class="user-info">
-      <ion-label *ngIf="!email">
+      <ion-label *ngIf="!teamName">
         <p class="username">
           {{ 'header.user.guest' | translate }}
         </p>
       </ion-label>
-      <ion-label *ngIf="email">
+      <ion-label *ngIf="teamName">
         <p class="name">
           {{name}}
         </p>
-        <p class="email">
-          {{email}}
+        <p class="teamName">
+          {{teamName}}
         </p>
       </ion-label>
-      <ion-icon id="user-trigger" slot="end" size="large" color="primary" name="person-circle-outline"></ion-icon>
+      <ion-avatar id="user-trigger">
+        <img *ngIf="avatar" src="{{avatar}}">
+        <img *ngIf="!avatar" src="https://ionicframework.com/docs/img/demos/avatar.svg">
+      </ion-avatar>
     </div>
     <ion-buttons slot="end">
       <ion-button id="language-trigger" shape="round" color="primary" fill="outline">{{languageSelected | uppercase}}</ion-button>

@@ -94,18 +94,22 @@ export class PlayerService {
       if(user.role == 'ADMIN') {
         this.fbSvc.getDocuments("squads").then(docs => {
           if(docs.length > 0) {
-            docs.map(doc => {
-              var players:any[] = doc.data['players'].filter((p:Player) => player.name == p.name)
-              if(players.length <= 0) {
-                this.fbSvc.deleteDocument("players",player.id!!).then(_=>{
-                  this.unsubscr = this.fbSvc.subscribeToCollection('players', this._players, this.mapPlayers);
-                }).catch(err => {
-                  obs.error(err)
-                })
-              } else {
-                obs.error("No se pudo borrar")
+            var players:Player[] = []
+            docs.forEach(doc => {
+              const playerFound:Player = doc.data['players'].find((p:Player) => player.id == p.id)
+              if(playerFound && !players.find(p => player.id == p.id)) {
+                players.push(playerFound)
               }
             })
+            if(players.length <= 0) {
+              this.fbSvc.deleteDocument("players",player.id!!).then(_=>{
+                this.unsubscr = this.fbSvc.subscribeToCollection('players', this._players, this.mapPlayers);
+              }).catch(err => {
+                obs.error(err)
+              })
+            } else {
+              obs.error("No se pudo borrar")
+            }
           } else {
             this.fbSvc.deleteDocument("players",player.id!!).then(_=>{
               this.unsubscr = this.fbSvc.subscribeToCollection('players', this._players, this.mapPlayers);

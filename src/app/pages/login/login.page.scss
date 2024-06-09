@@ -35,3 +35,12 @@ ion-thumbnail {
     font-size:1.2rem;
     color:var(--ion-color-dark);
 }
+
+ion-popover {
+    --width: 400px;
+}
+
+ion-buttons {
+    display: flex;
+    justify-content: space-around;
+}

@@ -13,10 +13,13 @@
       </ion-card-header>
       <ion-card-content>
         <div class="space-datos">
+          <ion-card-subtitle>{{ 'player.nationLabel' | translate }}: {{player?.nation}}</ion-card-subtitle>
           <ion-card-subtitle>{{ 'player.positionLabel' | translate }}: {{player?.position}}</ion-card-subtitle>
         </div>
         <div class="space-datos">
-          <ion-card-subtitle>{{ 'player.nationLabel' | translate }}: {{player?.nation}}</ion-card-subtitle>
+          <ion-buttons>
+            <ion-button (click)="onDetailsClick($event)">{{'player.see-details' | translate}}</ion-button>
+          </ion-buttons>
         </div>
       </ion-card-content>
     </div>

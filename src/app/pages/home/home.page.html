@@ -37,12 +37,12 @@
         </div>
       </ion-card-content>
     </ion-card>
-    <ion-button *ngIf="hasFinishedMatches((authSvc.user$ | async))" (click)="setOpen(true)" class="seeMatches">
+    <ion-button color="secondary" *ngIf="hasFinishedMatches((authSvc.user$ | async))" (click)="setOpen(true)" class="seeMatches">
       {{'match.seePreviousMatches' | translate}}
     </ion-button>
     <ion-modal #modal [isOpen]="openModal" (didDismiss)="setOpen(false)" >
       <ng-template>
-        <ion-list>
+        <ion-list id="finished-matches-list">
           <app-match-item *ngFor="let m of finishedMatches" (onDeleteClick)="deleteMatch(m, modal)" 
                           [teamName]="user.teamName" [match]="m" [isAdmin]="(authSvc.user$ | async)!.role == 'ADMIN'"></app-match-item>
         </ion-list>
@@ -54,7 +54,7 @@
       </ion-card-header>
       <ion-card-content id="contentMatch">
         <ion-card-title *ngIf="!match">{{'home.nextMatch.noMatchYet' | translate}}</ion-card-title>
-        <ion-button id="addMatch" color="light" *ngIf="!match && (authSvc.user$ | async)!.role == 'ADMIN'" (click)="onNewMatch()">
+        <ion-button id="addMatch" *ngIf="!match && (authSvc.user$ | async)!.role == 'ADMIN'" (click)="onNewMatch()">
           <ion-icon name="add"></ion-icon>
           {{'home.nextMatch.addMatch' | translate}}
         </ion-button>

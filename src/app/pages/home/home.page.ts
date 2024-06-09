@@ -8,7 +8,7 @@ import { Squad } from 'src/app/interfaces/squad';
 import { SquadService } from 'src/app/services/squad.service';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { MatchService } from 'src/app/services/match.service';
-import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -36,40 +36,16 @@ export class HomePage implements OnInit {
     public matchSvc:MatchService,
     private modal:ModalController,
     public authSvc:AuthService
-  ) {}
-
-  ngOnInit() {
-    this.authSvc.user$.subscribe(u => { this.user = u })
-    this.squadSvc.squads$.subscribe(_squads => {
-      this.squads = _squads.filter(s => this.user.id == s.coachId)
-    })
-    this.onLoadMatch()
-    this.players.players$.subscribe(players => {
-      const _players = players.filter(p => this.user.id == p.coachId || this.user.coachId == p.coachId)
-      var maxGoals = 0
-      var maxAssists = 0
-      var maxYellowCards = 0
-      var maxRedCards = 0
-      _players.forEach(player => {
-        if(player.numbers!! >= maxGoals) {
-          maxGoals = player.numbers!!
-          this.maxGoalsPlayer = player
-        }
-        if(player.assists!! >= maxAssists) {
-          maxAssists = player.assists!!
-          this.maxAssistsPlayer = player
-        }
-        if(player.yellowCards!! >= maxYellowCards) {
-          maxYellowCards = player.yellowCards!!
-          this.maxYellowPlayer = player
-        }
-        if(player.redCards!! >= maxRedCards) {
-          maxRedCards = player.redCards!!
-          this.maxRedPlayer = player
-        }
-      })
+  ) {
+    this.authSvc.user$.subscribe(u => {
+      this.user = u
+      this.onLoadSquads(u)
+      this.onLoadMatch(u)
+      this.onLoadPlayerStats(u)
     })
   }
+
+  ngOnInit() {}
 
   setOpen(open:boolean) {
     this.openModal = open
@@ -78,15 +54,15 @@ export class HomePage implements OnInit {
   hasFinishedMatches(user:any):boolean {
     var matches:Match[] = []
     this.matchSvc.matches$.subscribe(_matches => {
-      matches = _matches
+      matches = [..._matches]
     })
     return matches.filter(m => (m.coachId == user.id || m.coachId == user.coachId ) && m.finished == true).length > 0
   }
 
-  onLoadMatch() {
+  onLoadMatch(user:any) {
     this.matchSvc.matches$.subscribe(matches => {
-      this.finishedMatches = matches.filter(m => (m.coachId == this.user.id || m.coachId == this.user.coachId) && m.finished == true)
-      this.match = matches.find(_match => (_match.coachId == this.user.id || _match.coachId == this.user.coachId) && _match.finished == false)
+      this.finishedMatches = [...matches].filter(m => (m.coachId == user.id || m.coachId == user.coachId) && m.finished == true)
+      this.match = [...matches].find(_match => (_match.coachId == user.id || _match.coachId == user.coachId) && _match.finished == false)
       switch(this.match?.squad.lineUp) {
         case "4-3-3":{
           this.forwards = this.match?.squad.players.slice(0,3)
@@ -108,6 +84,48 @@ export class HomePage implements OnInit {
           this.defenses = this.match?.squad.players.slice(7,10)
           this.goalkeeper = this.match?.squad.players[10]
         }
+      }
+    })
+  }
+
+  onLoadSquads(user:any) {
+    this.squadSvc.squads$.subscribe(_squads => {
+      const sqs = [..._squads]
+      this.squads = sqs.filter(s => user.id == s.coachId || user.coachId == s.coachId)
+    })
+  }
+
+  onLoadPlayerStats(user:any) {
+    this.players.players$.subscribe(players => {
+      const _players = [...players].filter(p => user.id == p.coachId || user.coachId == p.coachId)
+      if(_players.length > 0) {
+        var maxGoals = 0
+        var maxAssists = 0
+        var maxYellowCards = 0
+        var maxRedCards = 0
+        _players.forEach(player => {
+          if(player.numbers!! >= maxGoals) {
+            maxGoals = player.numbers!!
+            this.maxGoalsPlayer = player
+          }
+          if(player.assists!! >= maxAssists) {
+            maxAssists = player.assists!!
+            this.maxAssistsPlayer = player
+          }
+          if(player.yellowCards!! >= maxYellowCards) {
+            maxYellowCards = player.yellowCards!!
+            this.maxYellowPlayer = player
+          }
+          if(player.redCards!! >= maxRedCards) {
+            maxRedCards = player.redCards!!
+            this.maxRedPlayer = player
+          }
+        })
+      } else {
+        this.maxGoalsPlayer = undefined
+        this.maxAssistsPlayer = undefined
+        this.maxRedPlayer = undefined
+        this.maxYellowPlayer = undefined
       }
     })
   }
@@ -141,7 +159,7 @@ export class HomePage implements OnInit {
             finished:false
           }
           this.matchSvc.addMatch(_match, this.user).subscribe(_=> {
-            this.onLoadMatch()
+            this.onLoadMatch(this.user)
           })
         }
       }
@@ -165,7 +183,7 @@ export class HomePage implements OnInit {
               finished:false
             }
             this.matchSvc.editMatch(match, this.user).subscribe(_=> {
-              this.onLoadMatch()
+              this.onLoadMatch(this.user)
             })
           }
         }
@@ -178,14 +196,14 @@ export class HomePage implements OnInit {
   finishMatch(match:Match) {
     match.finished = true
     this.matchSvc.editMatch(match, this.user).subscribe(_=> {
-      this.onLoadMatch()
+      this.onLoadMatch(this.user)
     })
   }
 
   deleteMatch(match:Match, modal:IonModal) {
     if(match.finished) {
       this.matchSvc.deleteMatch(match, this.user).subscribe(_=> {
-        this.onLoadMatch()
+        this.onLoadMatch(this.user)
       })
       if(this.finishedMatches.length <= 1) {
         modal.dismiss()

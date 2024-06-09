@@ -187,6 +187,15 @@ export class FirebaseService {
     })
   }
 
+  public resetPasswordWithEmail(email:string):Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      if(!this._auth) {
+        reject();
+      }
+      resolve(sendPasswordResetEmail(this._auth, email))
+    })
+  }
+
   public deleteUser():Promise<void>{
     return new Promise<void>((resolve, reject)=>{
         if(!this._user)

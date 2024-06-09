@@ -1,0 +1,21 @@
+img {
+    height: 250px;
+}
+
+#image {
+    display: flex;
+    justify-content: center;
+}
+
+ion-content {
+    --background: #00222D;
+}
+
+#content {
+    margin: 30px;
+}
+
+#personal-data {
+    display: flex;
+    flex-direction: column;
+}

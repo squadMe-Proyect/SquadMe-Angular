@@ -2,6 +2,10 @@
     margin-left: 5px;
 }
 
+ion-searchbar {
+  width: 750px;
+}
+
 #jugadores {
   display: flex;
   flex-wrap: wrap;
@@ -21,9 +25,8 @@
     }
 }
 
-ion-button {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  margin: 0px 50px 30px 0px;
+@media (min-width: 1440px) {
+  ion-searchbar {
+      width: 1000px;
+  }
 }
