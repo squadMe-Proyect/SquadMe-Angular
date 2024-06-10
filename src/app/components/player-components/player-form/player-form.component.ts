@@ -10,7 +10,7 @@ import { PasswordValidation } from 'src/app/validators/password';
   styleUrls: ['./player-form.component.scss'],
 })
 export class PlayerFormComponent  implements OnInit {
-
+  isNotGoalkeeper:boolean = false
   form:FormGroup
   mode:'New' | 'Edit' = 'New'
   @Input('player') player:Player|undefined
@@ -25,6 +25,7 @@ export class PlayerFormComponent  implements OnInit {
       email:['',[Validators.required]],
       position:['',[Validators.required]],
       nation:['',[Validators.required]],
+      number:[0,[Validators.required]],
       picture:[''],
       password:['',[Validators.required, PasswordValidation.passwordProto('password')]],
       confirm:['',[Validators.required, PasswordValidation.passwordProto('confirm')]]
@@ -40,12 +41,14 @@ export class PlayerFormComponent  implements OnInit {
         surname:[this.player.surname,[Validators.required]],
         position:[this.player.position,[Validators.required]],
         nation:[this.player.nation,[Validators.required]],
-        numbers:[this.player.numbers],
+        number:[this.player.number,[Validators.required]],
+        goals:[this.player.goals],
         assists:[this.player.assists],
         yellowCards:[this.player.yellowCards],
         redCards:[this.player.redCards],
         picture:[this.player.picture]
       })
+      this.isNotGoalkeeper = (this.player.position != 'Portero')
     }
   }
 
@@ -60,6 +63,7 @@ export class PlayerFormComponent  implements OnInit {
   onSelectPosition(popover:IonPopover, input:IonInput, position:string) {
     this.form.controls['position'].setValue(position)
     input.value = position
+    this.isNotGoalkeeper = (position != 'Portero')
     popover.dismiss()
   }
 }

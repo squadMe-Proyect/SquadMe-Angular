@@ -104,8 +104,8 @@ export class HomePage implements OnInit {
         var maxYellowCards = 0
         var maxRedCards = 0
         _players.forEach(player => {
-          if(player.numbers!! >= maxGoals) {
-            maxGoals = player.numbers!!
+          if(player.goals!! >= maxGoals) {
+            maxGoals = player.goals!!
             this.maxGoalsPlayer = player
           }
           if(player.assists!! >= maxAssists) {

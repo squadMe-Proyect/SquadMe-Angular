@@ -43,7 +43,7 @@ ion-card.login-form {
 }
 
 ion-content.components {
-    --background: #151f2e;
+    --background: #00222D;
 }
 
 ion-item.card-item {
@@ -74,9 +74,9 @@ ion-content.offset-header{
 }
 
 ion-card {
-    -webkit-box-shadow: 0px 0px 10px 5px #151f2e;
-    -moz-box-shadow: 0px 0px 10px 5px #151f2e;
-    box-shadow: 5px 5px 10px 5px #151f2e;
+    -webkit-box-shadow: 0px 0px 10px 5px #00222D;
+    -moz-box-shadow: 0px 0px 10px 5px #00222D;
+    box-shadow: 5px 5px 10px 5px #00222D;
 }
 
 ion-content.splash {
@@ -99,4 +99,11 @@ ion-button.create-model {
     right: 0;
     bottom: 0;
     margin: 0px 50px 30px 0px;
+}
+
+ion-button.export-data {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin: 0px 0px 30px 30px;
 }

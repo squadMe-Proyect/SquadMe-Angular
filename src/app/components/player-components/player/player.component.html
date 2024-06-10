@@ -1,8 +1,18 @@
-<ion-card appHighlight (click)="onEditClick($event)">
+<ion-card appHighlight>
   <div id="interior">
-    <ion-buttons>
-      <ion-button *ngIf="isAdmin" (click)="onDeleteClick($event)"><ion-icon name="trash-outline"></ion-icon></ion-button>
-    </ion-buttons>
+    <ion-fab *ngIf="isAdmin">
+      <ion-fab-button color="secondary">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="start">
+        <ion-fab-button (click)="onEditClick($event)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button (click)="onDeleteClick($event)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
     <ion-avatar>
       <img *ngIf="player && player.picture" alt="Player photo"  [src]="player.picture" />
       <img *ngIf="!player?.picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -15,6 +25,7 @@
         <div class="space-datos">
           <ion-card-subtitle>{{ 'player.nationLabel' | translate }}: {{player?.nation}}</ion-card-subtitle>
           <ion-card-subtitle>{{ 'player.positionLabel' | translate }}: {{player?.position}}</ion-card-subtitle>
+          <ion-card-subtitle>{{ 'player.numberLabel' | translate }}: {{player?.number}}</ion-card-subtitle>
         </div>
         <div class="space-datos">
           <ion-buttons>

@@ -13,10 +13,15 @@ ion-avatar {
     height: 80px
 }
 
-ion-buttons {
+
+ion-fab {
     position: absolute;
     right: 0;
-    top:0
+    top:0;
+}
+
+ion-fab-button {
+    --box-shadow: 0px;
 }
 
 div {

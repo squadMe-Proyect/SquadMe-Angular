@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/api/auth.service';
 import { MediaService } from 'src/app/services/api/media.service';
 import { CoachService } from 'src/app/services/coach.service';
 import { CustomTranslateService } from 'src/app/services/custom-translate.service';
+import { ExportDataService } from 'src/app/services/firebase/export-data.service';
 import { PlayerService } from 'src/app/services/player.service';
 
 @Component({

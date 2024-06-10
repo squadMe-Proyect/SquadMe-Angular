@@ -35,16 +35,19 @@
     <ion-item>
       <ion-input label="{{'player.nationLabel' | translate }}" placeholder="{{'form.placeholder.nation' | translate}}" labelPlacement="fixed" type="text" formControlName="nation"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-input label="{{'player.numberLabel' | translate }}" placeholder="{{'form.placeholder.number' | translate}}" labelPlacement="fixed" formControlName="number" type="number"></ion-input>
+    </ion-item>
     <ion-item *ngIf="mode=='New'">
       <ion-input label="{{'register.pwd' | translate }}" placeholder="{{'form.placeholder.pwd' | translate}}" labelPlacement="fixed" formControlName="password" type="password"></ion-input>
     </ion-item>
     <ion-item *ngIf="mode=='New'">
       <ion-input label="{{'register.confirm' | translate }}" placeholder="{{'form.placeholder.confirm' | translate}}" formControlName="confirm" type="password"></ion-input>
     </ion-item>
-    <ion-item *ngIf="mode=='Edit' && player?.position!='Portero'">
-      <ion-input label="{{'player.goalsLabel' | translate }}" labelPlacement="fixed" formControlName="numbers" type="number"></ion-input>
+    <ion-item *ngIf="mode=='Edit' && isNotGoalkeeper">
+      <ion-input label="{{'player.goalsLabel' | translate }}" labelPlacement="fixed" formControlName="goals" type="number"></ion-input>
     </ion-item>
-    <ion-item *ngIf="mode=='Edit' && player?.position!='Portero'">
+    <ion-item *ngIf="mode=='Edit' && isNotGoalkeeper">
       <ion-input label="{{'player.assistsLabel' | translate }}" labelPlacement="fixed" formControlName="assists" type="number"></ion-input>
     </ion-item>
     <ion-item *ngIf="mode=='Edit'">

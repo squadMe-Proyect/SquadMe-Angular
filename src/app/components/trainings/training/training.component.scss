@@ -2,17 +2,22 @@
     color: white;
 }
 
-ion-button {
-    position: fixed;
-    right:0;
-}
-
 ion-card {
     width: 400px;
     transition: all .5s ease;
     -webkit-transition: all .5s ease;
 }
 
-ion-list {
-    margin-bottom: 20px;
+ion-fab {
+    position: absolute;
+    right: 0;
+    top:0;
+}
+
+ion-fab-button {
+    --box-shadow: 0px;
+}
+
+ion-checkbox {
+    margin: 0px 0px 10px 15px;
 }

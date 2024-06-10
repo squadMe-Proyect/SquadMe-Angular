@@ -52,7 +52,7 @@
 </div>
 <div id="buttons">
   <ion-button color="light" *ngIf="match && user.role == 'ADMIN'" (click)="onEditClicked($event)">
-    <ion-icon name="create"></ion-icon>
+    <ion-icon name="create-outline"></ion-icon>
     {{'home.nextMatch.editMatch' | translate}}
   </ion-button>
   <ion-button color="light" *ngIf="match && user.role == 'ADMIN'" (click)="onFinishedClicked($event)">

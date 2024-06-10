@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { IonButton, IonCheckbox } from '@ionic/angular';
+import { IonButton, IonCheckbox, IonFabButton } from '@ionic/angular';
 import { Training } from 'src/app/interfaces/training';
 
 @Component({
@@ -28,7 +28,7 @@ export class TrainingComponent  implements OnInit {
     this.onDeleteClick.emit()
   }
 
-  checkExercise(ev:Event, checkbox:IonCheckbox, button:IonButton){
+  checkExercise(ev:Event, checkbox:IonCheckbox, button:IonFabButton){
     ev.stopPropagation()
     const newValue = !checkbox.checked
     if(newValue) {

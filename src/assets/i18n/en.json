@@ -24,16 +24,18 @@
         "statsLabel":"Season stats",
         "goalsLabel":"Goals",
         "assistsLabel":"Assists",
-        "cleanSheetsLabel":"Clean sheets",
+        "numberLabel":"Number",
         "yellowCardsLabel":"Yellow cards",
         "redCardsLabel":"Red cards",
         "beenSelected":"This player has already been selected",
         "playerInSquad":"The player you want to delete is in a squad",
-        "see-details":"See details"
+        "see-details":"See details",
+        "export-data":"Export data"
     },
     "squad":{
         "lineUpLabel":"Line-Up",
-        "squadInMatch":"The squad you want to delete is used in the next match"
+        "squadInMatch":"The squad you want to delete is used in the next match",
+        "players":"PLAYERS"
     },
     "main":{
         "hello":"Hello"
@@ -126,6 +128,7 @@
             "email":"Write the email",
             "click":"Click for choose",
             "nation":"Write the nation",
+            "number":"Write the t-shirt number",
             "pwd":"Write the password",
             "confirm":"Repeat the password"
         }

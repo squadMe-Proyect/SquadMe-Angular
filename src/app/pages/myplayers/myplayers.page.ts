@@ -8,6 +8,7 @@ import { UserRegisterInfo } from 'src/app/interfaces/user-register-info';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { MediaService } from 'src/app/services/api/media.service';
 import { CustomTranslateService } from 'src/app/services/custom-translate.service';
+import { ExportDataService } from 'src/app/services/firebase/export-data.service';
 import { MatchService } from 'src/app/services/match.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { SquadService } from 'src/app/services/squad.service';
@@ -30,7 +31,8 @@ export class MyplayersPage implements OnInit {
     public mediaSvc: MediaService,
     private toast:ToastController,
     public authSvc:AuthService,
-    public translate:CustomTranslateService
+    public translate:CustomTranslateService,
+    public exportDataSvc:ExportDataService
   ) {
     this.loading = true 
     this.authSvc.user$.subscribe(u => {
@@ -116,6 +118,7 @@ export class MyplayersPage implements OnInit {
             password:info.data.password,
             teamName:this.user.teamName,
             nation:info.data.nation,
+            number:info.data.number,
             role:'PLAYER'
           }
           const pCreated = await lastValueFrom(this.authSvc.register(userReg))
@@ -127,6 +130,7 @@ export class MyplayersPage implements OnInit {
             nation:pCreated.nation,
             position:info.data.position,
             teamName:pCreated.teamName,
+            number:info.data.number,
             picture:info.data.picture,
             role:pCreated.role
           }
@@ -188,7 +192,8 @@ export class MyplayersPage implements OnInit {
             role:player.role,
             picture:"",
             teamName:player.teamName,
-            numbers:info.data.numbers,
+            number:info.data.number,
+            goals:info.data.numbers,
             assists:info.data.assists,
             yellowCards:info.data.yellowCards,
             redCards:info.data.redCards
@@ -227,5 +232,9 @@ export class MyplayersPage implements OnInit {
       }
     }
     this.presentForm(player, onDismiss)
+  }
+
+  exportCsvData() {
+    this.exportDataSvc.exportToCsv("players", this.user)
   }
 }

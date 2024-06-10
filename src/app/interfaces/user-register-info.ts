@@ -5,5 +5,6 @@ export interface UserRegisterInfo{
     password:string,
     teamName:string,
     nation:string,
+    number:number,
     role:'ADMIN' | 'PLAYER'
 }

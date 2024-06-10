@@ -24,16 +24,18 @@
         "statsLabel":"Estadísticas de la temporada",
         "goalsLabel":"Goles",
         "assistsLabel":"Asistencias",
-        "cleanSheetsLabel":"Porterias a cero",
+        "numberLabel":"Dorsal",
         "yellowCardsLabel":"Tarjetas amarillas",
         "redCardsLabel":"Tarjetas rojas",
         "beenSelected":"Este jugador ya ha sido seleccionado",
         "playerInSquad":"El jugador que quieres borrar está en una plantilla",
-        "see-details":"Ver detalles"
+        "see-details":"Ver detalles",
+        "export-data":"Exportar datos"
     },
     "squad":{
         "lineUpLabel":"Formación",
-        "squadInMatch":"La plantilla que quieres borrar está en uso en el próximo partido"
+        "squadInMatch":"La plantilla que quieres borrar está en uso en el próximo partido",
+        "players":"JUGADORES"
     },
     "main":{
         "hello":"Hola"
@@ -126,6 +128,7 @@
             "email":"Escribe el email",
             "click":"Click para elegir",
             "nation":"Escribe la nacionalidad",
+            "number":"Escribe el dorsal",
             "pwd":"Escribe la contraseña",
             "confirm":"Repita la contraseña"
         }

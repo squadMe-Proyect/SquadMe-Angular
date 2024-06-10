@@ -2,21 +2,19 @@
     color: white;
 }
 
+img {
+    height: 250px;
+}
+
 ion-card {
     transition: all .5s ease;
     -webkit-transition: all .5s ease;
 }
 
-ion-list {
-    display: flex;
-    flex-direction: column;
-    background: #163e71;
-}
-
 div {
+    background-color: #00222D;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 
 .item {
@@ -25,10 +23,14 @@ div {
 }
 
 
-ion-buttons {
+ion-fab {
     position: absolute;
     right: 0;
-    top:0
+    top:0;
+}
+
+ion-fab-button {
+    --box-shadow: 0px;
 }
 
 @media (max-width: 990px) {

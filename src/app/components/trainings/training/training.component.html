@@ -1,18 +1,28 @@
-<ion-card *ngIf="isAdmin" appHighlight (click)="onEditClicked($event)">
+<ion-card *ngIf="isAdmin" appHighlight>
   <img alt="Player shooting a ball" src="../../../../assets/training.jpg" />
   <ion-card-header>
-    <ion-buttons>
-      <ion-button #button [disabled]="!training?.completed" (click)="onDeleteClicked($event)"><ion-icon name="trash-outline"></ion-icon></ion-button>
-    </ion-buttons>
+    <ion-fab>
+      <ion-fab-button color="secondary">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="start">
+        <ion-fab-button (click)="onEditClicked($event)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button #button [disabled]="!training?.completed" (click)="onDeleteClicked($event)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
     <ion-card-title>{{training?.date}}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
     <h2>{{'training.exercise-list-label' | translate}}:</h2>
-    <ion-list *ngFor="let exercise of training?.exercises">
+    <div *ngFor="let exercise of training?.exercises">
       <li>{{exercise}}</li>
-    </ion-list>
-    <ion-checkbox #checkbox [checked]="training?.completed" (click)="checkExercise($event, checkbox, button)">{{'training.completed' | translate}}</ion-checkbox>
-  </ion-card-content>
+    </div>
+    </ion-card-content>
+  <ion-checkbox #checkbox [checked]="training?.completed" (click)="checkExercise($event, checkbox, button)">{{'training.completed' | translate}}</ion-checkbox>
 </ion-card>
 
 <ion-card *ngIf="!isAdmin" appHighlight>

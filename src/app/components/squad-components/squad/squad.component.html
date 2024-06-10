@@ -1,14 +1,32 @@
-<ion-card appHighlight (click)="onEditClick($event)">
+<ion-card appHighlight>
+  <img src="../../../../assets/squads.jpg">
   <ion-card-header>
-    <ion-buttons>
-      <ion-button *ngIf="isAdmin" (click)="deleteSquad($event)"><ion-icon name="trash-outline"></ion-icon></ion-button>
-    </ion-buttons>
-    <ion-card-title>{{squad?.name}}</ion-card-title>
-    <ion-card-subtitle>{{squad?.lineUp}}</ion-card-subtitle>
+    <ion-fab *ngIf="isAdmin">
+      <ion-fab-button color="secondary">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="start">
+        <ion-fab-button (click)="onEditClick($event)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button (click)="deleteSquad($event)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
   </ion-card-header>
   <ion-card-content>
-    <ion-list *ngFor="let player of squad?.players">
-      <ion-label>{{player.name}} {{player.surname}}</ion-label>
-    </ion-list>
+    <ion-card-title>{{squad?.name}}</ion-card-title>
+    <ion-card-subtitle>{{squad?.lineUp}}</ion-card-subtitle>
+    <ion-accordion-group>
+      <ion-accordion>
+        <ion-item slot="header" color="secondary">
+          <ion-label>{{'squad.players' | translate}}</ion-label>
+        </ion-item>
+        <div *ngFor="let player of squad?.players" slot="content">
+          <li>{{player.name}} {{player.surname}}</li>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
   </ion-card-content>
 </ion-card>

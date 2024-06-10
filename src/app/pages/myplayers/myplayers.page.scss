@@ -30,3 +30,7 @@ ion-searchbar {
       width: 1000px;
   }
 }
+
+ion-fab-button::part(native) {
+  border-radius: 15px,
+}

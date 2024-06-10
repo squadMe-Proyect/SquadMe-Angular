@@ -38,14 +38,14 @@ export class MatchService {
         finished:el.data['finished']
       }
     } else {
-      const squad:any = {
+      const match:any = {
         id:el.id,
         date:el.data['date'],
         opponent:el.data['opponent'],
         result:el.data['result'],
         coachId:el.data['coachId']
       }
-      return squad
+      return match
     }
   }
 

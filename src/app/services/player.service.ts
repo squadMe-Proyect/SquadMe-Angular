@@ -29,7 +29,8 @@ export class PlayerService {
       picture:el.data['picture'],
       email:el.data['email'],
       role:el.data['role'],
-      numbers:el.data['numbers'],
+      number:el.data['number'],
+      goals:el.data['goals'],
       assists:el.data['assists'],
       yellowCards:el.data['yellowCards'],
       redCards:el.data['redCards'],
@@ -56,7 +57,7 @@ export class PlayerService {
         if(player.picture == null || player.picture == undefined)
           player.picture = ""
         player.assists = 0
-        player.numbers = 0
+        player.goals = 0
         player.yellowCards = 0
         player.redCards = 0
         player.coachId = user.id

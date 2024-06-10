@@ -10,5 +10,6 @@
               (onDetailsClicked)="seeDetailsPlayer(player)"></app-player>
   </div>
   <ion-button color="secondary" class="create-model" *ngIf="(authSvc.user$ | async)!.role == 'ADMIN'" (click)="onNewPlayer()">{{'form.mode.createPlayer' | translate}} <ion-icon id="añadir" name="add-outline"></ion-icon></ion-button>
+  <ion-button color="secondary" class="export-data" *ngIf="(authSvc.user$ | async)!.role == 'ADMIN'" (click)="exportCsvData()">{{'player.export-data' | translate}} <ion-icon name="download-outline"></ion-icon></ion-button>
   <ion-loading [isOpen]="loading" class="custom-loading" spinner="dots"></ion-loading>
 </ion-content>

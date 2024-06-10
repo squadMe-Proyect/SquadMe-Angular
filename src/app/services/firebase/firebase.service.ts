@@ -260,6 +260,16 @@ export class FirebaseService {
     });
   }
 
+  public getAllDocumentData(collectionName: string):Promise<DocumentData[]> {
+    return new Promise( async (resolve, reject) => {
+      if(!this._db) {
+        reject({msg:"Database is not connected"})
+      }
+      const querySnapshot = await getDocs(collection(this._db!, collectionName));
+      resolve(querySnapshot.docs.map(doc => doc.data()))
+    })
+  }
+
   public getDocument(collectionName:string, document:string):Promise<FirebaseDocument>{
     return new Promise(async (resolve, reject)=>{
         if(!this._db)
