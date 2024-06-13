@@ -99,8 +99,9 @@
     },
     "about":{
         "developer":"Desarrollador de la web",
-        "gitLabel":"Cuenta de github (click en el nombre para entrar):",
-        "description":"Esta web app consiste en una app de información sobre fútbolistas de la actualidad, además consta de dos páginas (hay que autentificarse para su uso) en las que puedes crear tus propios futbolistas y alinearlos en plantillas que puedas crear a tu gusto"
+        "gitAccountLabel":"Cuenta de github (click en el nombre para entrar):",
+        "gitProjectLabel":"Enlace al proyecto (click en el nombre para entrar):",
+        "description":"Con esta aplicación cualquier entrenador de fútbol podrá inscribir jugadores, gestionar plantillas para ellos, programar partidos y plantear entrenamientos a su gusto"
     },
     "training":{
         "add-exercise":"Añadir ejercicio",

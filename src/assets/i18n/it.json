@@ -89,8 +89,9 @@
     },
     "about":{
         "developer":"Sviluppatore web",
-        "gitLabel":"Account Github (clicca sul nome per entrare):",
-        "description":"Questa web app è un'app informativa sui giocatori di calcio attuali, poi ci sono due pagine (autenticazione necessaria) dove puoi creare i tuoi giocatori e schierarli nelle squadre che puoi creare per le tue esigenze"
+        "gitAccountLabel":"Account Github (clicca sul nome per entrare):",
+        "gitProjectLabel":"Collegamento al progetto (clicca sul nome per entrare):",
+        "description":"Con questa applicazione qualsiasi allenatore di calcio potrà registrare i giocatori, gestirne le rose, programmare le partite e pianificare gli allenamenti a proprio piacimento"
     },
     "menu":{
         "home":"Home",

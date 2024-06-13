@@ -89,8 +89,9 @@
     },
     "about":{
         "developer":"Développeur web",
-        "gitLabel":"Compte Github (cliquez sur le nom pour entrer):",
-        "description":"Cette application web est une application d'information sur les joueurs de football à l'heure actuelle, puis il y a deux pages (authentification requise) où vous pouvez créer vos propres joueurs et les aligner dans des équipes que vous pouvez créer pour vos besoins"
+        "gitAccountLabel":"Compte Github (cliquez sur le nom pour entrer):",
+        "gitProjectLabel":"Lien vers le projet (cliquez sur le nom pour entrer):",
+        "description":"Avec cette application, n'importe quel entraîneur de football pourra inscrire des joueurs, gérer des équipes, programmer des matchs et planifier des séances d'entraînement à son goût"
     },
     "menu":{
         "home":"Accueil",
