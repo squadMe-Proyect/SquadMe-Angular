@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <div class="toolbar-content">
-      <ion-button color="dark" fill="clear" (click)="onCancel()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+      <ion-button color="medium" fill="clear" (click)="onCancel()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
       <ion-title *ngIf="mode=='New'">{{'form.mode.createMatch' | translate}}</ion-title>
       <ion-title *ngIf="mode=='Edit'">{{'form.mode.editMatch' | translate}}</ion-title>
     </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-input label="{{'match.opponentName' | translate }}" placeholder="{{'match.opponentHint' | translate}}" labelPlacement="fixed" type="text" formControlName="opponent"></ion-input>
     </ion-item>

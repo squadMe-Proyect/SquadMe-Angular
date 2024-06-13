@@ -1,6 +1,6 @@
-<div id="upside">
-  <ion-label>
-    <h2>{{match?.date}}</h2>
+<div id="upside" class="containers">
+  <ion-label class="h2-label">
+    <h2 id="date-label">{{match?.date}}</h2>
   </ion-label>
   <ion-label>
     <div class="label">
@@ -13,49 +13,47 @@
     <h1>{{match?.result}}</h1>
   </ion-label>
 </div>
-<div>
-  <ion-label>
-    <h2>{{'match.squad' | translate}} - {{match?.squad?.name}} ({{match?.squad?.lineUp}})</h2>
+<div id="downside" class="containers">
+  <ion-label class="h2-label">
+    <h2 id="plantilla-label">{{'match.squad' | translate}} - {{match?.squad?.name}} ({{match?.squad?.lineUp}})</h2>
   </ion-label>
-  <ion-list>
-    <div id="list">
-      <div>
-        <ion-label *ngFor="let player of forwards">
-          <div class="list-players">
-            <ion-text>{{player.name}} {{player.surname}}</ion-text>
-          </div>
-        </ion-label>
-      </div>
-      <div>
-        <ion-label *ngFor="let player of midfielders">
-          <div class="list-players">
-            <ion-text>{{player.name}} {{player.surname}}</ion-text>
-          </div>
-        </ion-label>
-      </div>
-      <div>
-        <ion-label *ngFor="let player of defenses">
-          <div class="list-players">
-            <ion-text>{{player.name}} {{player.surname}}</ion-text>
-          </div>
-        </ion-label>
-      </div>
-      <div>
-        <ion-label *ngIf="goalkeeper">
-          <div class="list-players">
-            <ion-text>{{goalkeeper.name}} {{goalkeeper.surname}}</ion-text>
-          </div>
-        </ion-label>
-      </div>
+  <div id="list">
+    <div>
+      <ion-label *ngFor="let player of forwards">
+        <div class="list-players">
+          <ion-text>{{player.name}} {{player.surname}}</ion-text>
+        </div>
+      </ion-label>
     </div>
-  </ion-list>
+    <div>
+      <ion-label *ngFor="let player of midfielders">
+        <div class="list-players">
+          <ion-text>{{player.name}} {{player.surname}}</ion-text>
+        </div>
+      </ion-label>
+    </div>
+    <div>
+      <ion-label *ngFor="let player of defenses">
+        <div class="list-players">
+          <ion-text>{{player.name}} {{player.surname}}</ion-text>
+        </div>
+      </ion-label>
+    </div>
+    <div>
+      <ion-label *ngIf="goalkeeper">
+        <div class="list-players">
+          <ion-text>{{goalkeeper.name}} {{goalkeeper.surname}}</ion-text>
+        </div>
+      </ion-label>
+    </div>
+  </div>
 </div>
 <div id="buttons">
-  <ion-button color="light" *ngIf="match && user.role == 'ADMIN'" (click)="onEditClicked($event)">
+  <ion-button color="primary" *ngIf="match && user.role == 'ADMIN'" (click)="onEditClicked($event)">
     <ion-icon name="create-outline"></ion-icon>
     {{'home.nextMatch.editMatch' | translate}}
   </ion-button>
-  <ion-button color="light" *ngIf="match && user.role == 'ADMIN'" (click)="onFinishedClicked($event)">
+  <ion-button color="primary" *ngIf="match && user.role == 'ADMIN'" (click)="onFinishedClicked($event)">
     <ion-icon name="checkbox-outline"></ion-icon>
     {{'home.nextMatch.finishMatch' | translate}}
   </ion-button>

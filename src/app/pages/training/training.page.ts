@@ -4,7 +4,7 @@ import { lastValueFrom } from 'rxjs';
 import { TrainingFormComponent } from 'src/app/components/trainings/training-form/training-form.component';
 import { Training } from 'src/app/interfaces/training';
 import { AuthService } from 'src/app/services/api/auth.service';
-import { TrainingService } from 'src/app/services/training.service';
+import { TrainingService } from 'src/app/services/model/training.service';
 
 @Component({
   selector: 'app-training',

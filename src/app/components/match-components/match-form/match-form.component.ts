@@ -4,7 +4,7 @@ import { IonDatetime, IonInput, IonPopover, ModalController, PickerColumn, Toast
 import { lastValueFrom } from 'rxjs';
 import { Match } from 'src/app/interfaces/match';
 import { Squad } from 'src/app/interfaces/squad';
-import { CustomTranslateService } from 'src/app/services/custom-translate.service';
+import { CustomTranslateService } from 'src/app/services/auxiliar/custom-translate.service';
 
 @Component({
   selector: 'app-match-form',

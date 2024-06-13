@@ -1,6 +1,7 @@
 ion-content{
     min-height: 100vh;
     position: relative;
+    --background: url("../../../assets/soccer-stadium.jpg") 0 0/100% 100% no-repeat;
 }
 .container{
     min-height:0;
@@ -43,4 +44,13 @@ ion-popover {
 ion-buttons {
     display: flex;
     justify-content: space-around;
+}
+
+@media (min-height:1300px) {
+    .container {
+        margin-top: 100px;
+        ion-card {
+            min-height: 600px;
+        }
+    }
 }

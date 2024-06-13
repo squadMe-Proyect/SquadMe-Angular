@@ -20,7 +20,7 @@ export class CustomTranslateService {
   ) { }
 
   private async init() {
-    this.translate.addLangs(['es','en'])
+    this.translate.addLangs(['es','en','fr','it'])
     this.translate.setDefaultLang(this._language.value)
   }
 

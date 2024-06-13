@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonInput, IonPopover, ModalController } from '@ionic/angular';
 import { Player } from 'src/app/interfaces/player';
 import { Squad } from 'src/app/interfaces/squad';
-import { PlayerService } from 'src/app/services/player.service';
+import { PlayerService } from 'src/app/services/model/player.service';
 
 @Component({
   selector: 'app-squad-form',

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayerService } from '../../services/player.service';
+import { PlayerService } from '../../services/model/player.service';
 import { Player } from 'src/app/interfaces/player';
 import { Match } from 'src/app/interfaces/match';
 import { IonModal, ModalController, } from '@ionic/angular';
 import { MatchFormComponent } from 'src/app/components/match-components/match-form/match-form.component';
 import { Squad } from 'src/app/interfaces/squad';
-import { SquadService } from 'src/app/services/squad.service';
+import { SquadService } from 'src/app/services/model/squad.service';
 import { AuthService } from 'src/app/services/api/auth.service';
-import { MatchService } from 'src/app/services/match.service';
+import { MatchService } from 'src/app/services/model/match.service';
 import { lastValueFrom } from 'rxjs';
 
 @Component({
@@ -57,6 +57,22 @@ export class HomePage implements OnInit {
       matches = [..._matches]
     })
     return matches.filter(m => (m.coachId == user.id || m.coachId == user.coachId ) && m.finished == true).length > 0
+  }
+
+  /*async presentFinishedMatches() {
+    const modal = await this.modal.create({
+      component: FinishedMatchesComponent,
+      cssClass:"form-modal",
+      componentProps: {
+        finishedMatches: this.finishedMatches,
+        user: this.user
+      }
+    })
+    modal.present()
+  }*/
+
+  dismissFinishedMatches(modal:IonModal) {
+    modal.dismiss()
   }
 
   onLoadMatch(user:any) {
@@ -205,9 +221,9 @@ export class HomePage implements OnInit {
       this.matchSvc.deleteMatch(match, this.user).subscribe(_=> {
         this.onLoadMatch(this.user)
       })
-      if(this.finishedMatches.length <= 1) {
-        modal.dismiss()
-      }
+    }
+    if(this.finishedMatches.length <= 1) {
+      modal.dismiss()
     }
   }
 }

@@ -1,0 +1,164 @@
+{
+    "home":{
+        "title":"Bienvenue à SquadMe!",
+        "subtitle":"Enregistrez vos joueurs, créez des équipes, planifiez vos séances d'entraînement et assignez vos matchs de la semaine",
+        "nextMatch":{
+            "labelNextMatch":"Prochain match",
+            "noMatchYet":"Aucun match n'est assigné cette semaine",
+            "addMatch":"AJOUTER UN MATCH",
+            "editMatch":"MODIFIER LE MATCH",
+            "finishMatch":"TERMINER LE MATCH"
+        },
+        "generalPlayerStats":{
+            "labelMaxGoals":"Meilleur buteur: ",
+            "labelMaxAssists":"Meilleur assistant: ",
+            "labelMaxYellowCards":"Le plus de cartons jaunes: ",
+            "labelMaxRedCards":"Le plus de cartons rouges: "
+        },
+        "previous-matches":"Matchs précédents"
+    },
+    "player": {
+        "nameLabel":"Nom",
+        "positionLabel":"Position",
+        "teamLabel":"Équipe",
+        "nationLabel":"Nation",
+        "statsLabel":"Statistiques de la saison",
+        "goalsLabel":"Buts",
+        "assistsLabel":"Passes décisives",
+        "numberLabel":"Numéro",
+        "yellowCardsLabel":"Cartons jaunes",
+        "redCardsLabel":"Cartons rouges",
+        "beenSelected":"Ce joueur a déjà été sélectionné",
+        "playerInSquad":"Le joueur que vous souhaitez supprimer est dans une équipe",
+        "see-details":"Voir les détails",
+        "export-data":"Exporter les données"
+    },
+    "squad":{
+        "lineUpLabel":"Composition",
+        "squadInMatch":"L'équipe que vous souhaitez supprimer est utilisée dans le prochain match",
+        "players":"JOUEURS"
+    },
+    "main":{
+        "hello":"Bonjour"
+    },
+    "login":{
+        "email":"Email",
+        "pwd":"Mot de passe",
+        "noAccount":"Je n'ai pas de compte",
+        "forget-password":"Mot de passe oublié?",
+        "submit":"Accéder",
+        "error":{
+            "badCredentials":"Les identifiants ne sont pas corrects",
+            "empty-email":"Vous devez entrer votre email pour changer votre mot de passe"
+        }
+    },
+    "register":{
+        "email":"Email",
+        "name":"Nom",
+        "surname":"Prénom",
+        "teamName":"Nom de l'équipe",
+        "nation":"Nation",
+        "pwd":"Mot de passe",
+        "confirm":"Confirmer le mot de passe",
+        "login":"J'ai un compte",
+        "submit":"S'inscrire",
+        "error": {
+            "existingEmail":"Cet email est déjà utilisé",
+            "invalidEmail":"Le format de l'email n'est pas correct",
+            "errorToRegister":"Erreur lors de l'inscription"
+        }
+    },
+    "user-card":{
+        "name":"Nom",
+        "editUser":"Modifier l'utilisateur",
+        "change-password":"Changer le mot de passe",
+        "password-message":"Nous avons envoyé un message à votre email pour changer votre mot de passe"
+    },
+    "header":{
+        "user":{
+            "guest":"Anonyme",
+            "profile":"Mon profil",
+            "signout":"Déconnexion"
+        },
+        "languages":{
+            "es":"Espagnol",
+            "en":"Anglais",
+            "fr":"Français",
+            "it":"Italien"
+        }
+    },
+    "about":{
+        "developer":"Développeur web",
+        "gitLabel":"Compte Github (cliquez sur le nom pour entrer):",
+        "description":"Cette application web est une application d'information sur les joueurs de football à l'heure actuelle, puis il y a deux pages (authentification requise) où vous pouvez créer vos propres joueurs et les aligner dans des équipes que vous pouvez créer pour vos besoins"
+    },
+    "menu":{
+        "home":"Accueil",
+        "login":"Connexion",
+        "myplayers":"Joueurs",
+        "mysquads":"Équipes",
+        "signout":"Déconnexion",
+        "trainings":"Entraînements",
+        "profile":"Mon profil",
+        "about":"À propos"
+    },
+    "training":{
+        "add-exercise":"Ajouter un exercice",
+        "error":{
+            "empty-exercise-name":"Vous devez entrer un nom pour l'exercice"
+        },
+        "completed":"Terminé",
+        "exercise-list-label":"Liste des exercices"
+    },
+    "searcher-placeholder":"Rechercher un joueur",
+    "form":{
+        "mode": {
+            "createMatch":"Prochain match",
+            "editMatch":"Modifier le prochain match",
+            "createSquad":"Créer une équipe",
+            "createPlayer":"Créer un joueur",
+            "createTraining":"Créer un entraînement",
+            "editSquad":"Modifier l'équipe",
+            "editPlayer":"Modifier le joueur",
+            "editTraining":"Modifier l'entraînement",
+            "create":"Créer",
+            "save":"Enregistrer",
+            "accept":"Accepter"
+        },
+        "placeholder":{
+            "name":"Écrivez le nom",
+            "surname":"Écrivez le prénom",
+            "email":"Écrivez l'email",
+            "click":"Cliquez pour choisir",
+            "nation":"Écrivez la nation",
+            "number":"Écrivez le numéro de maillot",
+            "pwd":"Écrivez le mot de passe",
+            "confirm":"Répétez le mot de passe"
+        }
+    },
+    "match":{
+        "opponentName":"Adversaire",
+        "opponentHint":"Écrivez le nom de votre adversaire",
+        "date":"Date",
+        "dateHint":"Sélectionnez le jour du match",
+        "accept":"Accepter",
+        "squad":"Équipe",
+        "squadHint":"Sélectionnez votre équipe",
+        "no-squads":"Vous n'avez créé aucune équipe. Créez-en une!",
+        "result":{
+            "label":"RÉSULTAT",
+            "teamName":"Votre équipe",
+            "opponentName":"Équipe adverse"
+        },
+        "error":{
+            "dateNotSelected":"Vous devez sélectionner une date"
+        },
+        "seePreviousMatches":"Voir les matchs précédents"
+    },
+    "user":{
+        "information-label":"INFORMATIONS UTILISATEUR",
+        "nation-label":"Nation",
+        "team-name-label":"Équipe",
+        "email-label":"Email"
+    }
+}

@@ -14,7 +14,8 @@
             "labelMaxAssists":"Top assistant: ",
             "labelMaxYellowCards":"Most yellow cards: ",
             "labelMaxRedCards":"Most red cards: "
-        }
+        },
+        "previous-matches":"Previous matches"
     },
     "player": {
         "nameLabel":"Name",
@@ -81,7 +82,9 @@
         },
         "languages":{
             "es":"Spanish",
-            "en":"English"
+            "en":"English",
+            "fr":"French",
+            "it":"Italian"
         }
     },
     "about":{
@@ -151,5 +154,11 @@
             "dateNotSelected":"You must select one date"
         },
         "seePreviousMatches":"See previous matches"
+    },
+    "user":{
+        "information-label":"USER INFORMATION",
+        "nation-label":"Nation",
+        "team-name-label":"Team",
+        "email-label":"Email"
     }
 }

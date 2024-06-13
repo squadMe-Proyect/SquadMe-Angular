@@ -2,9 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PopoverController, ToastController, ToastOptions } from '@ionic/angular';
 import { lastValueFrom } from 'rxjs';
 import { Player } from 'src/app/interfaces/player';
-import { AuthService } from 'src/app/services/api/auth.service';
-import { CustomTranslateService } from 'src/app/services/custom-translate.service';
-import { PlayerService } from 'src/app/services/player.service';
+import { CustomTranslateService } from 'src/app/services/auxiliar/custom-translate.service';
+import { PlayerService } from 'src/app/services/model/player.service';
 
 
 @Component({
@@ -15,7 +14,6 @@ import { PlayerService } from 'src/app/services/player.service';
 export class PlayerSearcherComponent  implements OnInit {
 
   players:Player[] = []
-  //pagination:Pagination = ({page:0, pageCount: 0, pageSize: 0, total:0})
   @Input() playersSelected:Player[] = []
   @Input() player:Player | null = null
   @Input() coachId:string | undefined

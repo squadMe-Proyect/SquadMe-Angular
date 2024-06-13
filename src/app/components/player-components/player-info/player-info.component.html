@@ -1,4 +1,5 @@
 <ion-header>
+  <ion-button class="exit-modal" color="medium" fill="clear" (click)="onDismiss()"><ion-icon slot="start" name="arrow-back-outline"></ion-icon></ion-button>
   <div id="image">
     <img *ngIf="player && player?.picture" alt="Player picture" src="{{player.picture}}" />
     <img *ngIf="!player?.picture" alt="Default avatar picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />  

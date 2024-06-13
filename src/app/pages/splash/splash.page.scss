@@ -9,8 +9,9 @@
 }
 
 #logo {
-    width: 581px;
-    height: 218px;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
 }
 
 .loader {
@@ -25,8 +26,9 @@
   }
   
   .loader span {
-    color: #0048ff;
+    color: #0896c5;
     mix-blend-mode: difference;
+    text-align: center;
   }
   
   .loader:before {
@@ -36,7 +38,7 @@
     left: 0;
     width: 80px;
     height: 100%;
-    background: #0048ff;
+    background: #0896c5;
     animation: animate 3s linear infinite;
   }
   

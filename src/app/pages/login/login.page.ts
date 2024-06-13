@@ -4,7 +4,7 @@ import { IonInput, IonPopover, ToastController, ToastOptions } from '@ionic/angu
 import { lastValueFrom } from 'rxjs';
 import { UserCredentials } from 'src/app/interfaces/user-credentials';
 import { AuthService } from 'src/app/services/api/auth.service';
-import { CustomTranslateService } from 'src/app/services/custom-translate.service';
+import { CustomTranslateService } from 'src/app/services/auxiliar/custom-translate.service';
 
 
 @Component({

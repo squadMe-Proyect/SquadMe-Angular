@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController, ToastOptions } from '@ionic/angular';
 import { lastValueFrom } from 'rxjs';
-import { Coach } from 'src/app/interfaces/coach';
 import { UserRegisterInfo } from 'src/app/interfaces/user-register-info';
 import { AuthService } from 'src/app/services/api/auth.service';
-import { CoachService } from 'src/app/services/coach.service';
-import { CustomTranslateService } from 'src/app/services/custom-translate.service';
+import { CustomTranslateService } from 'src/app/services/auxiliar/custom-translate.service';
+import { CoachService } from 'src/app/services/model/coach.service';
 
 @Component({
   selector: 'app-register',

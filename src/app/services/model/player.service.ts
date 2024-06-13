@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Player } from '../interfaces/player';
-import { FirebaseDocument, FirebaseService, FirebaseUserCredential } from './firebase/firebase.service';
+import { Player } from '../../interfaces/player';
+import { FirebaseDocument, FirebaseService, FirebaseUserCredential } from '../firebase/firebase.service';
 import { Unsubscribe } from 'firebase/firestore';
-import { AuthService } from './api/auth.service';
-import { Coach } from '../interfaces/coach';
+import { AuthService } from '../api/auth.service';
+import { Coach } from '../../interfaces/coach';
 
 @Injectable({
   providedIn: 'root'

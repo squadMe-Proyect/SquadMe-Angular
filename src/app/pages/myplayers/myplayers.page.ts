@@ -7,11 +7,11 @@ import { Player } from 'src/app/interfaces/player';
 import { UserRegisterInfo } from 'src/app/interfaces/user-register-info';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { MediaService } from 'src/app/services/api/media.service';
-import { CustomTranslateService } from 'src/app/services/custom-translate.service';
-import { ExportDataService } from 'src/app/services/firebase/export-data.service';
-import { MatchService } from 'src/app/services/match.service';
-import { PlayerService } from 'src/app/services/player.service';
-import { SquadService } from 'src/app/services/squad.service';
+import { CustomTranslateService } from 'src/app/services/auxiliar/custom-translate.service';
+import { ExportDataService } from 'src/app/services/auxiliar/export-data.service';
+import { MatchService } from 'src/app/services/model/match.service';
+import { PlayerService } from 'src/app/services/model/player.service';
+import { SquadService } from 'src/app/services/model/squad.service';
 
 @Component({
   selector: 'app-myplayers',
@@ -193,7 +193,7 @@ export class MyplayersPage implements OnInit {
             picture:"",
             teamName:player.teamName,
             number:info.data.number,
-            goals:info.data.numbers,
+            goals:info.data.goals,
             assists:info.data.assists,
             yellowCards:info.data.yellowCards,
             redCards:info.data.redCards

@@ -3,7 +3,7 @@ import { ControlValueAccessor, FormBuilder, FormGroup, Validators } from '@angul
 import { IonDatetime, IonInput, IonPopover, ModalController, ToastController, ToastOptions } from '@ionic/angular';
 import { lastValueFrom } from 'rxjs';
 import { Training } from 'src/app/interfaces/training';
-import { CustomTranslateService } from 'src/app/services/custom-translate.service';
+import { CustomTranslateService } from 'src/app/services/auxiliar/custom-translate.service';
 
 @Component({
   selector: 'app-training-form',

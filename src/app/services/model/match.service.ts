@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { FirebaseDocument, FirebaseService } from './firebase/firebase.service';
+import { FirebaseDocument, FirebaseService } from '../firebase/firebase.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Match } from '../interfaces/match';
+import { Match } from '../../interfaces/match';
 import { Unsubscribe } from 'firebase/firestore';
-import { Coach } from '../interfaces/coach';
-import { Squad } from '../interfaces/squad';
-import { Player } from '../interfaces/player';
+import { Coach } from '../../interfaces/coach';
+import { Squad } from '../../interfaces/squad';
+import { Player } from '../../interfaces/player';
 
 @Injectable({
   providedIn: 'root'

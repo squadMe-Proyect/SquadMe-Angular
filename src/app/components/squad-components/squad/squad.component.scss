@@ -47,3 +47,9 @@ ion-fab-button {
         background-size: 150px 100px;
     }
 }
+
+@media (max-height:1000px) {
+    img {
+        height: 200px;
+    }
+}

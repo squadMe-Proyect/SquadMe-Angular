@@ -1,0 +1,164 @@
+{
+    "home":{
+        "title":"Benvenuto su SquadMe!",
+        "subtitle":"Registrare i tuoi giocatori, crea squadre, pianifica le tue sessioni di allenamento e assegna le tue partite della settimana",
+        "nextMatch":{
+            "labelNextMatch":"Prossima partita",
+            "noMatchYet":"Non ci sono partite assegnate questa settimana",
+            "addMatch":"AGGIUNGI PARTITA",
+            "editMatch":"MODIFICA PARTITA",
+            "finishMatch":"FINISCI PARTITA"
+        },
+        "generalPlayerStats":{
+            "labelMaxGoals":"Miglior marcatore: ",
+            "labelMaxAssists":"Miglior assistman: ",
+            "labelMaxYellowCards":"Più cartellini gialli: ",
+            "labelMaxRedCards":"Più cartellini rossi: "
+        },
+        "previous-matches":"Partite precedenti"
+    },
+    "player": {
+        "nameLabel":"Nome",
+        "positionLabel":"Posizione",
+        "teamLabel":"Squadra",
+        "nationLabel":"Nazione",
+        "statsLabel":"Statistiche stagionali",
+        "goalsLabel":"Goal",
+        "assistsLabel":"Assist",
+        "numberLabel":"Numero",
+        "yellowCardsLabel":"Cartellini gialli",
+        "redCardsLabel":"Cartellini rossi",
+        "beenSelected":"Questo giocatore è già stato selezionato",
+        "playerInSquad":"Il giocatore che vuoi eliminare è in una squadra",
+        "see-details":"Vedi dettagli",
+        "export-data":"Esporta dati"
+    },
+    "squad":{
+        "lineUpLabel":"Formazione",
+        "squadInMatch":"La squadra che vuoi eliminare è usata nella prossima partita",
+        "players":"GIOCATORI"
+    },
+    "main":{
+        "hello":"Ciao"
+    },
+    "login":{
+        "email":"Email",
+        "pwd":"Password",
+        "noAccount":"Non ho un account",
+        "forget-password":"Hai dimenticato la password?",
+        "submit":"Accedi",
+        "error":{
+            "badCredentials":"Le credenziali non sono corrette",
+            "empty-email":"Devi scrivere la tua email per cambiare la password"
+        }
+    },
+    "register":{
+        "email":"Email",
+        "name":"Nome",
+        "surname":"Cognome",
+        "teamName":"Nome squadra",
+        "nation":"Nazione",
+        "pwd":"Password",
+        "confirm":"Conferma password",
+        "login":"Ho un account",
+        "submit":"Registrati",
+        "error": {
+            "existingEmail":"Questa email è già in uso",
+            "invalidEmail":"Il formato dell'email non è corretto",
+            "errorToRegister":"Errore durante la registrazione"
+        }
+    },
+    "user-card":{
+        "name":"Nome",
+        "editUser":"Modifica Utente",
+        "change-password":"Cambia password",
+        "password-message":"Abbiamo inviato un messaggio alla tua email per cambiare la password"
+    },
+    "header":{
+        "user":{
+            "guest":"Anonimo",
+            "profile":"Il mio profilo",
+            "signout":"Esci"
+        },
+        "languages":{
+            "es":"Spagnolo",
+            "en":"Inglese",
+            "fr":"Francese",
+            "it":"Italiano"
+        }
+    },
+    "about":{
+        "developer":"Sviluppatore web",
+        "gitLabel":"Account Github (clicca sul nome per entrare):",
+        "description":"Questa web app è un'app informativa sui giocatori di calcio attuali, poi ci sono due pagine (autenticazione necessaria) dove puoi creare i tuoi giocatori e schierarli nelle squadre che puoi creare per le tue esigenze"
+    },
+    "menu":{
+        "home":"Home",
+        "login":"Accesso",
+        "myplayers":"Giocatori",
+        "mysquads":"Squadre",
+        "signout":"Esci",
+        "trainings":"Allenamenti",
+        "profile":"Il mio profilo",
+        "about":"Informazioni"
+    },
+    "training":{
+        "add-exercise":"Aggiungi esercizio",
+        "error":{
+            "empty-exercise-name":"Devi scrivere un nome per l'esercizio"
+        },
+        "completed":"Completato",
+        "exercise-list-label":"Lista degli esercizi"
+    },
+    "searcher-placeholder":"Cerca giocatore",
+    "form":{
+        "mode": {
+            "createMatch":"Prossima partita",
+            "editMatch":"Modifica prossima partita",
+            "createSquad":"Crea squadra",
+            "createPlayer":"Crea giocatore",
+            "createTraining":"Crea allenamento",
+            "editSquad":"Modifica squadra",
+            "editPlayer":"Modifica giocatore",
+            "editTraining":"Modifica allenamento",
+            "create":"Crea",
+            "save":"Salva",
+            "accept":"Accetta"
+        },
+        "placeholder":{
+            "name":"Scrivi il nome",
+            "surname":"Scrivi il cognome",
+            "email":"Scrivi l'email",
+            "click":"Clicca per scegliere",
+            "nation":"Scrivi la nazione",
+            "number":"Scrivi il numero della maglia",
+            "pwd":"Scrivi la password",
+            "confirm":"Ripeti la password"
+        }
+    },
+    "match":{
+        "opponentName":"Avversario",
+        "opponentHint":"Scrivi il nome del tuo avversario",
+        "date":"Data",
+        "dateHint":"Seleziona il giorno della partita",
+        "accept":"Accetta",
+        "squad":"Squadra",
+        "squadHint":"Seleziona la tua squadra",
+        "no-squads":"Non hai creato squadre. Creane una!",
+        "result":{
+            "label":"RISULTATO",
+            "teamName":"La tua squadra",
+            "opponentName":"Squadra avversaria"
+        },
+        "error":{
+            "dateNotSelected":"Devi selezionare una data"
+        },
+        "seePreviousMatches":"Vedi partite precedenti"
+    },
+    "user":{
+        "information-label":"INFORMAZIONI UTENTE",
+        "nation-label":"Nazione",
+        "team-name-label":"Squadra",
+        "email-label":"Email"
+    }
+}

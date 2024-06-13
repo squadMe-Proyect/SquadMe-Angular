@@ -29,13 +29,13 @@
       [name]="(auth.user$ | async)!.name + ' ' + (auth.user$ | async)!.surname"
       [avatar]="(auth.user$ | async)!.picture"
       [teamName]="(auth.user$ | async)!.teamName"
-      [languages]="['es','en']" 
+      [languages]="['es','en','fr','it']" 
       [languageSelected]="lang" 
       (onLanguage)="onLang($event)"
       (onProfile)="toProfile()"
       (onSignout)="onSignOut(menu)"></app-header>
     <app-header *ngIf="(auth.isConnected$ | async) && !(auth.user$ | async) && !(routeInclude('splash') || routeInclude('login') || routeInclude('register'))"
-      [languages]="['es','en']" 
+      [languages]="['es','en','fr','it']" 
       [languageSelected]="lang" 
       (onLanguage)="onLang($event)"
       (onSignout)="onSignOut(menu)"></app-header>

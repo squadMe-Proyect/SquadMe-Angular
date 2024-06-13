@@ -8,13 +8,25 @@
             <img *ngIf="!user?.picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
           </ion-avatar>
         </ion-avatar>
-        <ion-card-subtitle>{{user?.email}}</ion-card-subtitle>
         <ion-card-title>{{user?.name}} {{user?.surname}}</ion-card-title>
       </div>
     </ion-card-header>
-    <ion-card-content>
-      <p>{{user?.nation}}</p>
-      <p>{{user?.teamName}}</p>
+    <ion-card-content class="card-content">
+      <div>
+        <h1>{{'user.information-label' | translate}}</h1>
+        <div class="data-line">
+          <h2>{{'user.email-label' | translate}}:</h2>
+          <p>{{user?.email}}</p>
+        </div>
+        <div class="data-line">
+          <h2>{{'user.nation-label' | translate}}:</h2>
+          <p>{{user?.nation}}</p>
+        </div>
+        <div class="data-line">
+          <h2>{{'user.team-name-label' | translate}}:</h2>
+          <p>{{user?.teamName}}</p>
+        </div>
+      </div>
       <ion-buttons>
         <ion-button (click)="onChangePasswordClicked($event)">{{'user-card.change-password' | translate}}</ion-button>
         <ion-button (click)="onEditClicked($event)" *ngIf="user?.role == 'ADMIN'">{{'user-card.editUser' | translate}}</ion-button>

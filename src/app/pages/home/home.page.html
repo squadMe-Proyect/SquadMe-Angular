@@ -7,33 +7,57 @@
         </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-card-subtitle>
-          {{'home.generalPlayerStats.labelMaxGoals' | translate}}
-        </ion-card-subtitle>
-        <div class="datos">
-          <ion-label>{{maxGoalsPlayer?.name}} {{maxGoalsPlayer?.surname}}</ion-label>
-          <ion-label>{{maxGoalsPlayer?.goals}}</ion-label>
+        <div class="stats-item">
+          <ion-card-subtitle>
+            {{'home.generalPlayerStats.labelMaxGoals' | translate}}
+          </ion-card-subtitle>
+          <div class="datos">
+            <ion-thumbnail>
+              <img *ngIf="maxGoalsPlayer && maxGoalsPlayer?.picture" alt="Player picture" src="{{maxGoalsPlayer.picture}}" />
+              <img *ngIf="!maxGoalsPlayer?.picture" alt="Default avatar picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />  
+            </ion-thumbnail>
+            <ion-label>{{maxGoalsPlayer?.name}} {{maxGoalsPlayer?.surname}}</ion-label>
+            <ion-label>{{maxGoalsPlayer?.goals}}</ion-label>
+          </div>
         </div>
-        <ion-card-subtitle>
-          {{'home.generalPlayerStats.labelMaxAssists' | translate}}
-        </ion-card-subtitle>
-        <div class="datos">
-          <ion-label>{{maxAssistsPlayer?.name}} {{maxAssistsPlayer?.surname}}</ion-label>
-          <ion-label>{{maxAssistsPlayer?.assists}}</ion-label>
+        <div class="stats-item">
+          <ion-card-subtitle>
+            {{'home.generalPlayerStats.labelMaxAssists' | translate}}
+          </ion-card-subtitle>
+          <div class="datos">
+            <ion-thumbnail>
+              <img *ngIf="maxAssistsPlayer && maxAssistsPlayer?.picture" alt="Player picture" src="{{maxAssistsPlayer.picture}}" />
+              <img *ngIf="!maxAssistsPlayer?.picture" alt="Default avatar picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />  
+            </ion-thumbnail>
+            <ion-label>{{maxAssistsPlayer?.name}} {{maxAssistsPlayer?.surname}}</ion-label>
+            <ion-label>{{maxAssistsPlayer?.assists}}</ion-label>
+          </div>
         </div>
-        <ion-card-subtitle>
-          {{'home.generalPlayerStats.labelMaxYellowCards' | translate}}
-        </ion-card-subtitle>
-        <div class="datos">
-          <ion-label>{{maxYellowPlayer?.name}} {{maxYellowPlayer?.surname}}</ion-label>
-          <ion-label>{{maxYellowPlayer?.yellowCards}}</ion-label>
+        <div class="stats-item">
+          <ion-card-subtitle>
+            {{'home.generalPlayerStats.labelMaxYellowCards' | translate}}
+          </ion-card-subtitle>
+          <div class="datos">
+            <ion-thumbnail>
+              <img *ngIf="maxYellowPlayer && maxYellowPlayer?.picture" alt="Player picture" src="{{maxYellowPlayer.picture}}" />
+              <img *ngIf="!maxYellowPlayer?.picture" alt="Default avatar picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />  
+            </ion-thumbnail>
+            <ion-label>{{maxYellowPlayer?.name}} {{maxYellowPlayer?.surname}}</ion-label>
+            <ion-label>{{maxYellowPlayer?.yellowCards}}</ion-label>
+          </div>
         </div>
-        <ion-card-subtitle>
-          {{'home.generalPlayerStats.labelMaxRedCards' | translate}}
-        </ion-card-subtitle>
-        <div class="datos">
-          <ion-label>{{maxRedPlayer?.name}} {{maxRedPlayer?.surname}}</ion-label>
-          <ion-label>{{maxRedPlayer?.redCards}}</ion-label>
+        <div class="stats-item">
+          <ion-card-subtitle>
+            {{'home.generalPlayerStats.labelMaxRedCards' | translate}}
+          </ion-card-subtitle>
+          <div class="datos">
+            <ion-thumbnail>
+              <img *ngIf="maxRedPlayer && maxRedPlayer?.picture" alt="Player picture" src="{{maxRedPlayer.picture}}" />
+              <img *ngIf="!maxRedPlayer?.picture" alt="Default avatar picture" src="https://ionicframework.com/docs/img/demos/avatar.svg" />  
+            </ion-thumbnail>
+            <ion-label>{{maxRedPlayer?.name}} {{maxRedPlayer?.surname}}</ion-label>
+            <ion-label>{{maxRedPlayer?.redCards}}</ion-label>
+          </div>
         </div>
       </ion-card-content>
     </ion-card>
@@ -42,10 +66,18 @@
     </ion-button>
     <ion-modal #modal [isOpen]="openModal" (didDismiss)="setOpen(false)" >
       <ng-template>
-        <ion-list id="finished-matches-list">
-          <app-match-item *ngFor="let m of finishedMatches" (onDeleteClick)="deleteMatch(m, modal)" 
-                          [teamName]="user.teamName" [match]="m" [isAdmin]="(authSvc.user$ | async)!.role == 'ADMIN'"></app-match-item>
-        </ion-list>
+        <ion-header class="modal-header">
+          <div class="toolbar-content">
+            <ion-button color="medium" fill="clear" (click)="dismissFinishedMatches(modal)"><ion-icon slot="start" name="arrow-back-outline"></ion-icon></ion-button>
+            <ion-title>{{'home.previous-matches' | translate}}</ion-title>
+          </div>
+        </ion-header>
+        <ion-content class="modal-content">
+          <ion-list id="finished-matches-list">
+            <app-match-item *ngFor="let m of finishedMatches" (onDeleteClick)="deleteMatch(m, modal)" 
+                            [teamName]="user.teamName" [match]="m" [isAdmin]="(authSvc.user$ | async)!.role == 'ADMIN'"></app-match-item>
+          </ion-list>
+        </ion-content>
       </ng-template>
     </ion-modal>
     <ion-card id="nextMatch">

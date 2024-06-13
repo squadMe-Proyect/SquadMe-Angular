@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { FirebaseDocument, FirebaseService } from './firebase/firebase.service';
+import { FirebaseDocument, FirebaseService } from '../firebase/firebase.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Coach } from '../interfaces/coach';
+import { Coach } from '../../interfaces/coach';
 import { Unsubscribe } from 'firebase/firestore';
 
 @Injectable({

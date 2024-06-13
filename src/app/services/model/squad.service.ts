@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Squad } from '../interfaces/squad';
-import { FirebaseDocument, FirebaseService } from './firebase/firebase.service';
-import { Player } from '../interfaces/player';
+import { Squad } from '../../interfaces/squad';
+import { FirebaseDocument, FirebaseService } from '../firebase/firebase.service';
+import { Player } from '../../interfaces/player';
 import { Unsubscribe } from 'firebase/firestore';
 
 @Injectable({

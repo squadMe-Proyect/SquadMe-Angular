@@ -5,9 +5,9 @@ import { SquadFormComponent } from 'src/app/components/squad-components/squad-fo
 import { Coach } from 'src/app/interfaces/coach';
 import { Squad } from 'src/app/interfaces/squad';
 import { AuthService } from 'src/app/services/api/auth.service';
-import { CustomTranslateService } from 'src/app/services/custom-translate.service';
-import { MatchService } from 'src/app/services/match.service';
-import { SquadService } from 'src/app/services/squad.service';
+import { CustomTranslateService } from 'src/app/services/auxiliar/custom-translate.service';
+import { MatchService } from 'src/app/services/model/match.service';
+import { SquadService } from 'src/app/services/model/squad.service';
 
 @Component({
   selector: 'app-mysquads',

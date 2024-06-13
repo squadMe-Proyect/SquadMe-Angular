@@ -3,7 +3,7 @@ import { AuthService } from './services/api/auth.service';
 import { Router } from '@angular/router';
 import { IonMenu } from '@ionic/angular';
 import { delay, of, tap } from 'rxjs';
-import { CustomTranslateService } from './services/custom-translate.service';
+import { CustomTranslateService } from './services/auxiliar/custom-translate.service';
 
 @Component({
   selector: 'app-root',

@@ -6,10 +6,9 @@ import { Coach } from 'src/app/interfaces/coach';
 import { Player } from 'src/app/interfaces/player';
 import { AuthService } from 'src/app/services/api/auth.service';
 import { MediaService } from 'src/app/services/api/media.service';
-import { CoachService } from 'src/app/services/coach.service';
-import { CustomTranslateService } from 'src/app/services/custom-translate.service';
-import { ExportDataService } from 'src/app/services/firebase/export-data.service';
-import { PlayerService } from 'src/app/services/player.service';
+import { CustomTranslateService } from 'src/app/services/auxiliar/custom-translate.service';
+import { CoachService } from 'src/app/services/model/coach.service';
+import { PlayerService } from 'src/app/services/model/player.service';
 
 @Component({
   selector: 'app-user',

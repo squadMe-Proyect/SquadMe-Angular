@@ -4,22 +4,24 @@
     <ng-template>
       <ion-toolbar>
         <div class="toolbar-content">
-          <ion-button color="dark" fill="clear" (click)="onCancel(modal)"><ion-icon slot="start" name="arrow-back-outline"></ion-icon></ion-button>
+          <ion-button color="medium" fill="clear" (click)="onCancel(modal)"><ion-icon slot="start" name="arrow-back-outline"></ion-icon></ion-button>
           <ion-title>{{'user-card.editUser' | translate}}</ion-title>
         </div>
       </ion-toolbar>
-      <form  [formGroup]="form" (ngSubmit)="onSubmit(modal)" (keyup.enter)="onSubmit(modal)">
-        <app-picture-selectable formControlName="picture"></app-picture-selectable>
-        <ion-item>
-          <ion-input label="{{'player.nameLabel' | translate }}" labelPlacement="fixed" type="text" formControlName="name"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input label="{{'register.surname' | translate }}" labelPlacement="fixed" type="text" formControlName="surname"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input label="{{'register.nation' | translate}}" labelPlacement="fixed" type="text" formControlName="nation"></ion-input>
-        </ion-item>
-      </form>
+      <ion-content>
+        <form  [formGroup]="form" (ngSubmit)="onSubmit(modal)">
+          <app-picture-selectable formControlName="picture"></app-picture-selectable>
+          <ion-item>
+            <ion-input label="{{'player.nameLabel' | translate }}" labelPlacement="fixed" type="text" formControlName="name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="{{'register.surname' | translate }}" labelPlacement="fixed" type="text" formControlName="surname"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="{{'register.nation' | translate}}" labelPlacement="fixed" type="text" formControlName="nation"></ion-input>
+          </ion-item>
+        </form>
+      </ion-content>
       <ion-footer>
         <ion-buttons>
           <ion-button (click)="onSubmit(modal)">{{'form.mode.save' | translate}}</ion-button>

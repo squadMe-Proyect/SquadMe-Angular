@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <div class="toolbar-content">
-      <ion-button color="dark" fill="clear" (click)="onCancel()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+      <ion-button color="medium" fill="clear" (click)="onCancel()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
       <ion-title *ngIf="mode=='New'">{{'form.mode.createTraining' | translate}}</ion-title>
       <ion-title *ngIf="mode=='Edit'">{{'form.mode.editTraining' | translate}}</ion-title>
     </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <ion-item [button]="true" id="nested-date-trigger">
       <ion-input #dateInput [readonly]="true" label="{{'match.date' | translate }}" placeholder="{{'match.dateHint' | translate}}" labelPlacement="fixed" type="text" formControlName="date"></ion-input>
     </ion-item>

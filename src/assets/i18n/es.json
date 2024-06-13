@@ -14,7 +14,8 @@
             "labelMaxAssists":"Máximo asistente: ",
             "labelMaxYellowCards":"Más tarjetas amarillas: ",
             "labelMaxRedCards":"Más tarjetas rojas: "
-        }
+        },
+        "previous-matches":"Partidos anteriores"
     },
     "player": {
         "nameLabel":"Nombre",
@@ -81,7 +82,9 @@
         },
         "languages":{
             "es":"Español",
-            "en":"Inglés"
+            "en":"Inglés",
+            "fr":"Francés",
+            "it":"Italiano"
         }
     },
     "menu":{
@@ -151,5 +154,11 @@
             "dateNotSelected":"Debes seleccionar una fecha"
         },
         "seePreviousMatches":"Ver partidos anteriores"
+    },
+    "user":{
+        "information-label":"INFORMACIÓN DEL USUARIO",
+        "nation-label":"Nacionalidad",
+        "team-name-label":"Equipo",
+        "email-label":"Email"
     }
 }

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Player } from 'src/app/interfaces/player';
 
 @Component({
@@ -9,8 +10,13 @@ import { Player } from 'src/app/interfaces/player';
 export class PlayerInfoComponent  implements OnInit {
 
   @Input() player:Player | undefined
-  constructor() { }
+  constructor(
+    private modal:ModalController
+  ) { }
 
   ngOnInit() {}
 
+  onDismiss() {
+    this.modal.dismiss()
+  }
 }

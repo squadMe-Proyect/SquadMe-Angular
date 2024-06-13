@@ -6,26 +6,89 @@
     justify-content: space-around;
 }
 
+#plantilla-label, #date-label {
+    text-align: center;
+    background-color: #003a4d;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #21444f;
+}
+
+#plantilla-label {
+    width: 270px;
+    margin-bottom: 15px;
+}
+
+#date-label {
+    width: 180px;
+}
+
+.h2-label {
+    display: flex;
+    justify-content: center;
+}
+
 #list {
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 #upside {
-    margin-bottom: 100px;
+    margin-bottom: 20px;
     text-align: center;
     flex-direction: column;
-    height: 200px;
+    height: 250px;
     justify-content: space-between;
 }
 
-ion-list {
-    background: #163e71;
+.list-players {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #buttons {
     position: fixed;
     bottom: 0;
     right: 0;
-    margin: 30px;
+    margin: 5px 45px 15px 45px;
+}
+
+.containers {
+    background-color: #00516B;
+    padding: 10px 30px 30px 30px;
+    -webkit-box-shadow: 5px 5px 5px 5px #0e1d22;
+    -moz-box-shadow: 5px 5px 5px 5px #0e1d22;
+    box-shadow: 5px 5px 5px 5px #0e1d22;
+    border-radius: 2px;
+}
+
+@media (max-width:960px) {
+    #upside {
+        height: 200px;
+    }
+
+    #downside {
+        height: 350px;
+    }
+
+    ion-text {
+        font-size: small;
+    }
+}
+
+@media (max-width:660px) {
+
+    #list, .list-players {
+        flex-direction: column;
+    }
+
+    h2, h1 {
+        font-size: small;
+    }
+
+    #buttons {
+        bottom:auto;
+        top: 0;
+    }
 }
