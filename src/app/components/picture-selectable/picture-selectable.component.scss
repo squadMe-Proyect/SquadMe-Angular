@@ -3,7 +3,7 @@ div.user-picture{
     ion-img{
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         cursor: pointer;
     }
     ion-button.picture-button{
@@ -15,4 +15,8 @@ div.user-picture{
             padding:0!important;
         }
     }
+}
+
+#empty-picture {
+    color: rgba(106, 106, 106, 0.795);
 }

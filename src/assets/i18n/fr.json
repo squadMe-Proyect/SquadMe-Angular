@@ -134,6 +134,10 @@
             "number":"Écrivez le numéro de maillot",
             "pwd":"Écrivez le mot de passe",
             "confirm":"Répétez le mot de passe"
+        },
+        "photo":{
+            "open-camera":"Ouvrir la caméra",
+            "search-on-computer":"Rechercher sur votre ordinateur"
         }
     },
     "match":{

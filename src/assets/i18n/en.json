@@ -134,6 +134,10 @@
             "number":"Write the t-shirt number",
             "pwd":"Write the password",
             "confirm":"Repeat the password"
+        },
+        "photo":{
+            "open-camera":"Open camera",
+            "search-on-computer":"Search on your computer"
         }
     },
     "match":{

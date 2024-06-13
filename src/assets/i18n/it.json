@@ -134,6 +134,10 @@
             "number":"Scrivi il numero della maglia",
             "pwd":"Scrivi la password",
             "confirm":"Ripeti la password"
+        },
+        "photo":{
+            "open-camera":"Fotocamera aperta",
+            "search-on-computer":"Cerca sul tuo computer"
         }
     },
     "match":{

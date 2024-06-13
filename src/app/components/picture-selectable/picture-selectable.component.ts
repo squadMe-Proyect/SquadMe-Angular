@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Camera, CameraDirection, CameraResultType, CameraSource } from '@capacitor/camera';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
@@ -21,6 +22,8 @@ export class PictureSelectableComponent  implements OnInit, ControlValueAccessor
   public picture$ = this._picture.asObservable();
   isDisabled:boolean = false;
   hasValue:boolean = false;
+  isModalOpen:boolean = false;
+
   constructor(
     private pictureModal:ModalController
   ) { }
@@ -66,6 +69,7 @@ export class PictureSelectableComponent  implements OnInit, ControlValueAccessor
         var reader = new FileReader();
         reader.onload = () => {
           this.changePicture(reader.result as string);
+          this.setOpen(false)
         };
         reader.onerror = (error) =>{
           console.log(error);
@@ -79,6 +83,21 @@ export class PictureSelectableComponent  implements OnInit, ControlValueAccessor
   onDeletePicture(event:Event){
     event.stopPropagation();
     this.changePicture('');
+  }
+
+  async takePicture(event:Event) {
+    event.stopPropagation()
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Uri
+    });
+    this.changePicture(image.webPath!!);
+    this.setOpen(false)
+  }
+
+  setOpen(isOpen:boolean) {
+    this.isModalOpen = isOpen;
   }
 
   close(){

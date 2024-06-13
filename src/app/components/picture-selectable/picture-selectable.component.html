@@ -1,16 +1,23 @@
 <input type="file" #fileLoader accept="image/png, image/jpeg" hidden>
 <div class="user-picture">
   <ng-container *ngIf="hasValue">
-    <ion-img id="picture"  [src]="picture$ | async" (click)="onChangePicture($event, fileLoader)"></ion-img>
+    <ion-img id="picture"  [src]="picture$ | async"></ion-img>
     <ion-button *ngIf="!isDisabled"
-      style="position:absolute;top:40px;right:0;--background:rgba(var(--ion-color-danger-rgb), 0.7);"
+      style="position:absolute;top:100px;right:0;--background:rgba(var(--ion-color-danger-rgb), 0.7);"
       expand="full" (click)="onDeletePicture($event)">
         <ion-icon slot="icon-only" name="trash"></ion-icon>
     </ion-button>
   </ng-container>
-  <ion-button color="medium" *ngIf="!isDisabled && !hasValue"
-  style="height:100%;width:100%"
-  expand="full" fill="clear" (click)="onChangePicture($event,fileLoader)">
-    <ion-icon name="image" style="width:100%;height:100%"></ion-icon>
+  <ion-icon id="empty-picture" style="height:100%;width:100%"
+    expand="full" fill="clear" *ngIf="!isDisabled && !hasValue" name="person-outline"></ion-icon>
+  <ion-button *ngIf="!isDisabled"
+      style="position:absolute;top:50px;right:0;--background:rgba(var(--ion-color-tertiary-rgb), 0.7);"
+      expand="full" (click)="takePicture($event)">
+        <ion-icon slot="icon-only" name="camera"></ion-icon>
+  </ion-button>
+  <ion-button *ngIf="!isDisabled"
+      style="position:absolute;top:0;right:0;--background:rgba(var(--ion-color-tertiary-rgb), 0.7);"
+      expand="full" (click)="onChangePicture($event, fileLoader)">
+        <ion-icon slot="icon-only" name="image"></ion-icon>
   </ion-button>
 </div>

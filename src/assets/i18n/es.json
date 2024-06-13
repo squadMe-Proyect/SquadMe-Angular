@@ -134,6 +134,10 @@
             "number":"Escribe el dorsal",
             "pwd":"Escribe la contraseña",
             "confirm":"Repita la contraseña"
+        },
+        "photo":{
+            "open-camera":"Abrir cámara",
+            "search-on-computer":"Buscar en el ordenador"
         }
     },
     "match": {
