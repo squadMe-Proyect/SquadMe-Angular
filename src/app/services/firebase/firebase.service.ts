@@ -4,7 +4,6 @@ import { DocumentData, Firestore, Unsubscribe, addDoc, collection, deleteDoc, do
 import { getStorage, ref, getDownloadURL, uploadBytes, FirebaseStorage } from "firebase/storage";
 import { Auth, User, UserCredential, createUserWithEmailAndPassword, deleteUser, getAuth, indexedDBLocalPersistence, initializeAuth, sendPasswordResetEmail, signInAnonymously, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
-import { rejects } from 'assert';
 
 export interface FirebaseStorageFile{
   path:string,

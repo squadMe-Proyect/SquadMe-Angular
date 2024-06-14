@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Camera, CameraDirection, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Camera, CameraResultType } from '@capacitor/camera';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 
@@ -10,23 +10,44 @@ export const PICTURE_SELECTABLE_VALUE_ACCESSOR: any = {
   multi: true
 };
 
+/**
+ * El componente PictureSelectableComponent permite al usuario seleccionar, tomar y eliminar imágenes.
+ * Implementa ControlValueAccessor para integrarse con formularios reactivos.
+ */
 @Component({
   selector: 'app-picture-selectable',
   templateUrl: './picture-selectable.component.html',
   styleUrls: ['./picture-selectable.component.scss'],
-  providers:[PICTURE_SELECTABLE_VALUE_ACCESSOR]
+  providers: [PICTURE_SELECTABLE_VALUE_ACCESSOR]
 })
-export class PictureSelectableComponent  implements OnInit, ControlValueAccessor, OnDestroy {
+export class PictureSelectableComponent implements OnInit, ControlValueAccessor, OnDestroy {
 
+  /**
+   * BehaviorSubject para gestionar el estado de la imagen.
+   */
   private _picture = new BehaviorSubject("");
-  public picture$ = this._picture.asObservable();
-  isDisabled:boolean = false;
-  hasValue:boolean = false;
-  isModalOpen:boolean = false;
 
-  constructor(
-    private pictureModal:ModalController
-  ) { }
+  /**
+   * Observable de la imagen seleccionada.
+   */
+  public picture$ = this._picture.asObservable();
+
+  /**
+   * Indica si el componente está deshabilitado.
+   */
+  isDisabled: boolean = false;
+
+  /**
+   * Indica si hay una imagen seleccionada.
+   */
+  hasValue: boolean = false;
+
+  /**
+   * Indica si el modal está abierto.
+   */
+  isModalOpen: boolean = false;
+
+  constructor(private pictureModal: ModalController) { }
 
   ngOnDestroy(): void {
     this._picture.complete();
@@ -34,74 +55,111 @@ export class PictureSelectableComponent  implements OnInit, ControlValueAccessor
 
   ngOnInit() {}
 
-  propagateChange = (obj: any) => {
-  }
+  propagateChange = (obj: any) => {}
 
+  /**
+   * Escribe el valor en el componente.
+   * @param obj - El valor a escribir.
+   */
   writeValue(obj: any): void {
-    if(obj){
+    if (obj) {
       this.hasValue = true;
       this._picture.next(obj);
     }
   }
 
+  /**
+   * Registra una función que se llamará cuando el valor cambie.
+   * @param fn - La función de callback.
+   */
   registerOnChange(fn: any): void {
     this.propagateChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
-  }
+  /**
+   * Registra una función que se llamará cuando el componente sea tocado.
+   * @param fn - La función de callback.
+   */
+  registerOnTouched(fn: any): void {}
 
+  /**
+   * Habilita o deshabilita el componente.
+   * @param isDisabled - Indica si el componente está deshabilitado.
+   */
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
   }
 
-  changePicture(picture:string){
-    this.hasValue = picture!='';
+  /**
+   * Cambia la imagen seleccionada.
+   * @param picture - La nueva imagen.
+   */
+  changePicture(picture: string) {
+    this.hasValue = picture != '';
     this._picture.next(picture);
     this.propagateChange(picture);
   }
 
-  onChangePicture(event:Event, fileLoader:HTMLInputElement){
+  /**
+   * Maneja el evento de cambio de imagen desde un input de archivo.
+   * @param event - El evento de cambio.
+   * @param fileLoader - El input de archivo.
+   */
+  onChangePicture(event: Event, fileLoader: HTMLInputElement) {
     event.stopPropagation();
-    fileLoader.onchange = ()=>{
-      if(fileLoader.files && fileLoader.files?.length>0){
+    fileLoader.onchange = () => {
+      if (fileLoader.files && fileLoader.files.length > 0) {
         var file = fileLoader.files[0];
         var reader = new FileReader();
         reader.onload = () => {
           this.changePicture(reader.result as string);
-          this.setOpen(false)
+          this.setOpen(false);
         };
-        reader.onerror = (error) =>{
+        reader.onerror = (error) => {
           console.log(error);
-        }
+        };
         reader.readAsDataURL(file);
       }
-    }
+    };
     fileLoader.click();
   }
 
-  onDeletePicture(event:Event){
+  /**
+   * Maneja el evento de eliminar imagen.
+   * @param event - El evento de clic.
+   */
+  onDeletePicture(event: Event) {
     event.stopPropagation();
     this.changePicture('');
   }
 
-  async takePicture(event:Event) {
-    event.stopPropagation()
+  /**
+   * Abre la cámara para tomar una nueva imagen.
+   * @param event - El evento de clic.
+   */
+  async takePicture(event: Event) {
+    event.stopPropagation();
     const image = await Camera.getPhoto({
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Uri
     });
     this.changePicture(image.webPath!!);
-    this.setOpen(false)
+    this.setOpen(false);
   }
 
-  setOpen(isOpen:boolean) {
+  /**
+   * Abre o cierra el modal.
+   * @param isOpen - Indica si el modal debe estar abierto.
+   */
+  setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
 
-  close(){
+  /**
+   * Cierra el modal.
+   */
+  close() {
     this.pictureModal?.dismiss();
   }
-
 }
