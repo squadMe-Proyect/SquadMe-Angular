@@ -1,0 +1,1217 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>squadme-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">squadme-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >MatchService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/model/match.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servicio para la gestión de partidos.
+Proporciona métodos para la creación, edición, eliminación y obtención de partidos.</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_matches" >_matches</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#errorNotAdmin" >errorNotAdmin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#matches$" >matches$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#unsubs" >unsubs</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addMatch" >addMatch</a>
+                            </li>
+                            <li>
+                                <a href="#deleteMatch" >deleteMatch</a>
+                            </li>
+                            <li>
+                                <a href="#editMatch" >editMatch</a>
+                            </li>
+                            <li>
+                                <a href="#mapMatches" >mapMatches</a>
+                            </li>
+                            <li>
+                                <a href="#updatePlayerOnSquadMatch" >updatePlayerOnSquadMatch</a>
+                            </li>
+                            <li>
+                                <a href="#updateSquadOnMatch" >updateSquadOnMatch</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fbSvc: <a href="../injectables/FirebaseService.html" target="_self">FirebaseService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/model/match.service.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fbSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FirebaseService.html" target="_self" >FirebaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addMatch"></a>
+                    <span class="name">
+                        <span ><b>addMatch</b></span>
+                        <a href="#addMatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addMatch(match: <a href="../interfaces/Match.html" target="_self">Match</a>, user: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/services/model/match.service.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Añade un nuevo partido a la colección &#39;matches&#39;.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>match</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Match.html" target="_self" >Match</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Datos del nuevo partido a crear.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario que realiza la operación.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Match.html" target="_self" >Observable&lt;Match&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable que emite el partido creado una vez completada la operación.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteMatch"></a>
+                    <span class="name">
+                        <span ><b>deleteMatch</b></span>
+                        <a href="#deleteMatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteMatch(match: <a href="../interfaces/Match.html" target="_self">Match</a>, user: <a href="../interfaces/Coach.html" target="_self">Coach</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">src/app/services/model/match.service.ts:189</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina un partido de la colección &#39;matches&#39;.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>match</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Match.html" target="_self" >Match</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Partido a eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Coach.html" target="_self" >Coach</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario que realiza la operación.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable que completa una vez que se ha eliminado el partido.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editMatch"></a>
+                    <span class="name">
+                        <span ><b>editMatch</b></span>
+                        <a href="#editMatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editMatch(match: <a href="../interfaces/Match.html" target="_self">Match</a>, user: <a href="../interfaces/Coach.html" target="_self">Coach</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/services/model/match.service.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Edita los datos de un partido existente en la colección &#39;matches&#39;.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>match</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Match.html" target="_self" >Match</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Datos actualizados del partido.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Coach.html" target="_self" >Coach</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario que realiza la operación.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Match.html" target="_self" >Observable&lt;Match&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable que emite el partido actualizado una vez completada la operación.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapMatches"></a>
+                    <span class="name">
+                        <span ><b>mapMatches</b></span>
+                        <a href="#mapMatches"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapMatches(el: <a href="../interfaces/FirebaseDocument.html" target="_self">FirebaseDocument</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/services/model/match.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Convierte un documento de Firebase a un objeto Match.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>el</td>
+                                            <td>
+                                                            <code><a href="../interfaces/FirebaseDocument.html" target="_self" >FirebaseDocument</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Documento de Firebase que contiene los datos del partido.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Match.html" target="_self" >Match</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Objeto Match generado a partir del documento.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatePlayerOnSquadMatch"></a>
+                    <span class="name">
+                        <span ><b>updatePlayerOnSquadMatch</b></span>
+                        <a href="#updatePlayerOnSquadMatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updatePlayerOnSquadMatch(player: <a href="../interfaces/Player.html" target="_self">Player</a>, user: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="162"
+                                    class="link-to-prism">src/app/services/model/match.service.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza los datos de un jugador en la alineación de todos los partidos que lo contienen.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>player</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Player.html" target="_self" >Player</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Jugador con datos actualizados.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario que realiza la operación.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Match.html" target="_self" >Observable&lt;Match&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable que emite el partido actualizado una vez completada la operación.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSquadOnMatch"></a>
+                    <span class="name">
+                        <span ><b>updateSquadOnMatch</b></span>
+                        <a href="#updateSquadOnMatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateSquadOnMatch(squad: <a href="../interfaces/Squad.html" target="_self">Squad</a>, user: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/services/model/match.service.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la alineación (squad) en todos los partidos que tienen el mismo ID de squad.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>squad</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Squad.html" target="_self" >Squad</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Alineación actualizada.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario que realiza la operación.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Match.html" target="_self" >Observable&lt;Match&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable que emite el partido actualizado una vez completada la operación.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_matches"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_matches</b></span>
+                        <a href="#_matches"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Match.html" target="_self" >BehaviorSubject&lt;Match[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;Match[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/model/match.service.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorNotAdmin"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>errorNotAdmin</b></span>
+                        <a href="#errorNotAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;ERROR user not admin&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/services/model/match.service.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matches$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>matches$</b></span>
+                        <a href="#matches$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Match.html" target="_self" >Observable&lt;Match[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this._matches.asObservable()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/model/match.service.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unsubs"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>unsubs</b></span>
+                        <a href="#unsubs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Unsubscribe | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/services/model/match.service.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { FirebaseDocument, FirebaseService } from &#x27;../firebase/firebase.service&#x27;;
+import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
+import { Match } from &#x27;../../interfaces/match&#x27;;
+import { Unsubscribe } from &#x27;firebase/firestore&#x27;;
+import { Coach } from &#x27;../../interfaces/coach&#x27;;
+import { Squad } from &#x27;../../interfaces/squad&#x27;;
+import { Player } from &#x27;../../interfaces/player&#x27;;
+
+/**
+ * Servicio para la gestión de partidos.
+ * Proporciona métodos para la creación, edición, eliminación y obtención de partidos.
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class MatchService {
+
+  private _matches: BehaviorSubject&lt;Match[]&gt; &#x3D; new BehaviorSubject&lt;Match[]&gt;([]); // BehaviorSubject para almacenar la lista de partidos
+  public matches$: Observable&lt;Match[]&gt; &#x3D; this._matches.asObservable(); // Observable expuesto para recibir actualizaciones de la lista de partidos
+
+  private unsubs: Unsubscribe | null &#x3D; null; // Variable para almacenar la función de unsubscribe
+  private errorNotAdmin &#x3D; &quot;ERROR user not admin&quot;; // Mensaje de error para usuarios que no son administradores
+
+  constructor(
+    private fbSvc: FirebaseService // Servicio de Firebase para la interacción con Firestore
+  ) {
+    // Suscribe el BehaviorSubject a la colección &#x27;matches&#x27; en Firebase
+    this.unsubs &#x3D; fbSvc.subscribeToCollection(&quot;matches&quot;, this._matches, this.mapMatches);
+  }
+
+  /**
+   * Convierte un documento de Firebase a un objeto Match.
+   * @param el Documento de Firebase que contiene los datos del partido.
+   * @returns Objeto Match generado a partir del documento.
+   */
+  mapMatches(el: FirebaseDocument): Match {
+    if (el.data[&#x27;squad&#x27;]) {
+      return {
+        id: el.id,
+        date: el.data[&#x27;date&#x27;],
+        opponent: el.data[&#x27;opponent&#x27;],
+        result: el.data[&#x27;result&#x27;],
+        coachId: el.data[&#x27;coachId&#x27;],
+        squad: {
+          id: el.data[&#x27;squad&#x27;].id,
+          name: el.data[&#x27;squad&#x27;].name,
+          lineUp: el.data[&#x27;squad&#x27;].lineUp,
+          players: el.data[&#x27;squad&#x27;].players
+        },
+        finished: el.data[&#x27;finished&#x27;]
+      };
+    } else {
+      const match: any &#x3D; {
+        id: el.id,
+        date: el.data[&#x27;date&#x27;],
+        opponent: el.data[&#x27;opponent&#x27;],
+        result: el.data[&#x27;result&#x27;],
+        coachId: el.data[&#x27;coachId&#x27;]
+      };
+      return match;
+    }
+  }
+
+  /**
+   * Añade un nuevo partido a la colección &#x27;matches&#x27;.
+   * @param match Datos del nuevo partido a crear.
+   * @param user Usuario que realiza la operación.
+   * @returns Observable que emite el partido creado una vez completada la operación.
+   */
+  addMatch(match: Match, user: any): Observable&lt;Match&gt; {
+    return new Observable&lt;Match&gt;(obs &#x3D;&gt; {
+      if (user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;) {
+        delete match.id;
+        match.coachId &#x3D; user.id;
+        delete match.squad.coachId;
+        match.squad.players &#x3D; match.squad.players.map(player &#x3D;&gt; {
+          const _player:any &#x3D; {
+            id:player.id,
+            name:player.name,
+            surname:player.surname,
+            position:player.position
+          }
+          return _player
+        });
+        this.fbSvc.createDocument(&quot;matches&quot;, match).then(_ &#x3D;&gt; {
+          this.unsubs &#x3D; this.fbSvc.subscribeToCollection(&quot;matches&quot;, this._matches, this.mapMatches);
+          obs.next(match);
+          obs.complete();
+        }).catch(err &#x3D;&gt; {
+          obs.error(err);
+        });
+      } else {
+        obs.error(this.errorNotAdmin);
+      }
+    });
+  }
+
+  /**
+   * Edita los datos de un partido existente en la colección &#x27;matches&#x27;.
+   * @param match Datos actualizados del partido.
+   * @param user Usuario que realiza la operación.
+   * @returns Observable que emite el partido actualizado una vez completada la operación.
+   */
+  editMatch(match: Match, user: Coach): Observable&lt;Match&gt; {
+    return new Observable&lt;Match&gt;(obs &#x3D;&gt; {
+      if (user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;) {
+        match.squad.players &#x3D; match.squad.players.map(player &#x3D;&gt; {
+          const _player:any &#x3D; {
+            id:player.id,
+            name:player.name,
+            surname:player.surname,
+            position:player.position
+          }
+          return _player
+        });
+        this.fbSvc.updateDocument(&quot;matches&quot;, match.id!!, match).then(_ &#x3D;&gt; {
+          this.unsubs &#x3D; this.fbSvc.subscribeToCollection(&quot;matches&quot;, this._matches, this.mapMatches);
+          obs.next(match);
+          obs.complete();
+        }).catch(err &#x3D;&gt; {
+          obs.error(err);
+        });
+      } else {
+        obs.error(this.errorNotAdmin);
+      }
+    });
+  }
+
+  /**
+   * Actualiza la alineación (squad) en todos los partidos que tienen el mismo ID de squad.
+   * @param squad Alineación actualizada.
+   * @param user Usuario que realiza la operación.
+   * @returns Observable que emite el partido actualizado una vez completada la operación.
+   */
+  updateSquadOnMatch(squad: Squad, user: any): Observable&lt;Match&gt; {
+    return new Observable&lt;Match&gt;(obs &#x3D;&gt; {
+      if (user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;) {
+        this.fbSvc.getDocuments(&quot;matches&quot;).then(docs &#x3D;&gt; {
+          docs.map(doc &#x3D;&gt; {
+            const match: Match &#x3D; this.mapMatches(doc);
+            if (match.squad.id &#x3D;&#x3D; squad.id &amp;&amp; !match.finished) {
+              match.squad &#x3D; squad;
+              this.editMatch(match, user).subscribe();
+              obs.next(match);
+            }
+          });
+          obs.complete();
+        }).catch(err &#x3D;&gt; {
+          obs.error(err);
+        });
+      }
+    });
+  }
+
+  /**
+   * Actualiza los datos de un jugador en la alineación de todos los partidos que lo contienen.
+   * @param player Jugador con datos actualizados.
+   * @param user Usuario que realiza la operación.
+   * @returns Observable que emite el partido actualizado una vez completada la operación.
+   */
+  updatePlayerOnSquadMatch(player: Player, user: any): Observable&lt;Match&gt; {
+    return new Observable&lt;Match&gt;(obs &#x3D;&gt; {
+      if (user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;) {
+        this.fbSvc.getDocuments(&quot;matches&quot;).then(docs &#x3D;&gt; {
+          docs.map(doc &#x3D;&gt; {
+            const match: Match &#x3D; this.mapMatches(doc);
+            const index &#x3D; match.squad.players.findIndex(p &#x3D;&gt; p.id &#x3D;&#x3D; player.id);
+            if (index &gt; -1 &amp;&amp; !match.finished) {
+              match.squad.players[index] &#x3D; player;
+              this.editMatch(match, user).subscribe();
+              obs.next(match);
+            }
+          });
+          obs.complete();
+        }).catch(err &#x3D;&gt; {
+          obs.error(err);
+        });
+      }
+    });
+  }
+
+  /**
+   * Elimina un partido de la colección &#x27;matches&#x27;.
+   * @param match Partido a eliminar.
+   * @param user Usuario que realiza la operación.
+   * @returns Observable que completa una vez que se ha eliminado el partido.
+   */
+  deleteMatch(match: Match, user: Coach): Observable&lt;void&gt; {
+    return new Observable&lt;void&gt;(obs &#x3D;&gt; {
+      if (user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;) {
+        this.fbSvc.deleteDocument(&quot;matches&quot;, match.id!!).then(_ &#x3D;&gt; {
+          this.unsubs &#x3D; this.fbSvc.subscribeToCollection(&quot;matches&quot;, this._matches, this.mapMatches);
+          obs.complete();
+        }).catch(err &#x3D;&gt; {
+          obs.error(err);
+        });
+      } else {
+        obs.error(this.errorNotAdmin);
+      }
+    });
+  }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'MatchService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

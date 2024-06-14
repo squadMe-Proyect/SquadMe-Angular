@@ -1,0 +1,1084 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>squadme-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">squadme-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/login/login.page.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente LoginPage.
+Este componente maneja la lógica para la página de inicio de sesión.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#auth" >auth</a>
+                            </li>
+                            <li>
+                                <a href="#isOpen" >isOpen</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#translate" >translate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#changePassword" >changePassword</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onLogin" >onLogin</a>
+                            </li>
+                            <li>
+                                <a href="#setOpen" >setOpen</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(auth: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, toast: ToastController, translate: <a href="../injectables/CustomTranslateService.html" target="_self">CustomTranslateService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/login/login.page.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor del componente LoginPage.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>auth</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de autenticación (<code>AuthService</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Router de navegación (<code>Router</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>toast</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controlador de toasts (<code>ToastController</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para traducciones personalizadas (<code>CustomTranslateService</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changePassword"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>changePassword</b></span>
+                        <a href="#changePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changePassword(popover: IonPopover, input: IonInput)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cambia la contraseña del usuario con el correo electrónico proporcionado.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>popover</td>
+                                            <td>
+                                                        <code>IonPopover</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Instancia del popover de Ionic (<code>IonPopover</code>).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>input</td>
+                                            <td>
+                                                        <code>IonInput</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Instancia del input de Ionic (<code>IonInput</code>) que contiene el correo electrónico.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método del ciclo de vida de Angular que se llama al inicializarse el componente.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLogin"></a>
+                    <span class="name">
+                        <span ><b>onLogin</b></span>
+                        <a href="#onLogin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLogin(credentials: <a href="../interfaces/UserCredentials.html" target="_self">UserCredentials</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el evento de inicio de sesión.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>credentials</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UserCredentials.html" target="_self" >UserCredentials</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Credenciales de usuario (<code>UserCredentials</code>).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setOpen"></a>
+                    <span class="name">
+                        <span ><b>setOpen</b></span>
+                        <a href="#setOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setOpen(open: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/app/pages/login/login.page.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Establece el estado del popover.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>open</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p><code>true</code> para abrir el popover, <code>false</code> para cerrarlo.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="auth"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>auth</b></span>
+                        <a href="#auth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/login/login.page.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio de autenticación (`AuthService`).</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOpen"></a>
+                    <span class="name">
+                        <span ><b>isOpen</b></span>
+                        <a href="#isOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/login/login.page.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>translate</b></span>
+                        <a href="#translate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/login/login.page.ts:32</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio para traducciones personalizadas (`CustomTranslateService`).</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { IonInput, IonPopover, ToastController, ToastOptions } from &#x27;@ionic/angular&#x27;;
+import { lastValueFrom } from &#x27;rxjs&#x27;;
+import { UserCredentials } from &#x27;src/app/interfaces/user-credentials&#x27;;
+import { AuthService } from &#x27;src/app/services/api/auth.service&#x27;;
+import { CustomTranslateService } from &#x27;src/app/services/auxiliar/custom-translate.service&#x27;;
+
+/**
+ * Componente LoginPage.
+ * Este componente maneja la lógica para la página de inicio de sesión.
+ */
+@Component({
+  selector: &#x27;app-login&#x27;,
+  templateUrl: &#x27;./login.page.html&#x27;,
+  styleUrls: [&#x27;./login.page.scss&#x27;],
+})
+export class LoginPage implements OnInit {
+  isOpen: boolean &#x3D; false;
+
+  /**
+   * Constructor del componente LoginPage.
+   * @param auth Servicio de autenticación (&#x60;AuthService&#x60;).
+   * @param router Router de navegación (&#x60;Router&#x60;).
+   * @param toast Controlador de toasts (&#x60;ToastController&#x60;).
+   * @param translate Servicio para traducciones personalizadas (&#x60;CustomTranslateService&#x60;).
+   */
+  constructor(
+    public auth: AuthService,
+    private router: Router,
+    private toast: ToastController,
+    public translate: CustomTranslateService
+  ) { }
+
+  /**
+   * Método del ciclo de vida de Angular que se llama al inicializarse el componente.
+   */
+  ngOnInit() { }
+
+  /**
+   * Maneja el evento de inicio de sesión.
+   * @param credentials Credenciales de usuario (&#x60;UserCredentials&#x60;).
+   */
+  onLogin(credentials: UserCredentials) {
+    this.auth.login(credentials).subscribe({
+      next: (user: any) &#x3D;&gt; {
+        console.log(user);
+        this.router.navigate([&#x27;/home&#x27;]);
+      },
+      error: async (err: any) &#x3D;&gt; {
+        const message &#x3D; await lastValueFrom(this.translate.get(&#x27;login.error.badCredentials&#x27;));
+        const options: ToastOptions &#x3D; {
+          message: message,
+          duration: 1000,
+          position: &#x27;bottom&#x27;,
+          color: &#x27;danger&#x27;,
+          cssClass: &#x27;red-toast&#x27;
+        };
+        this.toast.create(options).then(toast &#x3D;&gt; toast.present());
+        console.error(err);
+      }
+    });
+  }
+
+  /**
+   * Establece el estado del popover.
+   * @param open &#x60;true&#x60; para abrir el popover, &#x60;false&#x60; para cerrarlo.
+   */
+  setOpen(open: boolean) {
+    this.isOpen &#x3D; open;
+  }
+
+  /**
+   * Cambia la contraseña del usuario con el correo electrónico proporcionado.
+   * @param popover Instancia del popover de Ionic (&#x60;IonPopover&#x60;).
+   * @param input Instancia del input de Ionic (&#x60;IonInput&#x60;) que contiene el correo electrónico.
+   */
+  async changePassword(popover: IonPopover, input: IonInput) {
+    if (input.value) {
+      this.auth.resetPasswordWithEmail(input.value.toString()).subscribe({
+        next: async (_: any) &#x3D;&gt; {
+          popover.dismiss();
+          const message &#x3D; await lastValueFrom(this.translate.get(&#x27;user-card.password-message&#x27;));
+          const options: ToastOptions &#x3D; {
+            message: message,
+            duration: 1000,
+            position: &#x27;bottom&#x27;,
+            color: &#x27;tertiary&#x27;,
+            cssClass: &#x27;red-toast&#x27;
+          };
+          this.toast.create(options).then(toast &#x3D;&gt; toast.present());
+        },
+        error: async (err: any) &#x3D;&gt; {
+          const message &#x3D; await lastValueFrom(this.translate.get(&#x27;register.error.invalidEmail&#x27;));
+          const options: ToastOptions &#x3D; {
+            message: message,
+            duration: 1000,
+            position: &#x27;bottom&#x27;,
+            color: &#x27;danger&#x27;,
+            cssClass: &#x27;red-toast&#x27;
+          };
+          this.toast.create(options).then(toast &#x3D;&gt; toast.present());
+        }
+      });
+    } else {
+      const message &#x3D; await lastValueFrom(this.translate.get(&#x27;login.error.empty-email&#x27;));
+      const options: ToastOptions &#x3D; {
+        message: message,
+        duration: 1000,
+        position: &#x27;bottom&#x27;,
+        color: &#x27;danger&#x27;,
+        cssClass: &#x27;red-toast&#x27;
+      };
+      this.toast.create(options).then(toast &#x3D;&gt; toast.present());
+    }
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content class&#x3D;&quot;offset-header&quot; [fullscreen]&#x3D;&quot;false&quot;&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;ion-card class&#x3D;&quot;login-form&quot;&gt;
+      &lt;ion-card-header&gt;
+        &lt;div class&#x3D;&quot;logo&quot;&gt;
+          &lt;ion-thumbnail&gt;
+            &lt;img alt&#x3D;&quot;logo of app&quot; src&#x3D;&quot;assets/app_logo.png&quot; /&gt;
+          &lt;/ion-thumbnail&gt;
+        &lt;/div&gt;
+      &lt;/ion-card-header&gt;
+      &lt;ion-card-content&gt;
+        &lt;div class&#x3D;&quot;ion-text-end&quot;&gt;
+          &lt;ion-button fill&#x3D;&quot;clear&quot; style&#x3D;&quot;text-transform: none;&quot; (click)&#x3D;&quot;setOpen(true)&quot; color&#x3D;&quot;light&quot;&gt;{{&#x27;login.forget-password&#x27; | translate}}&lt;/ion-button&gt;
+          &lt;ion-button [routerLink]&#x3D;&quot;[&#x27;/register&#x27;]&quot; fill&#x3D;&quot;clear&quot; style&#x3D;&quot;text-transform: none;&quot; color&#x3D;&quot;light&quot;&gt;{{&#x27;login.noAccount&#x27; | translate}}&lt;/ion-button&gt;
+          &lt;ion-popover background&#x3D;&quot;primary&quot; #popover [isOpen]&#x3D;&quot;isOpen&quot; (didDismiss)&#x3D;&quot;setOpen(false)&quot; &gt;
+            &lt;ng-template&gt;
+              &lt;ion-item&gt;
+                &lt;ion-input #emailInput label&#x3D;&quot;{{&#x27;register.email&#x27; | translate }}&quot; placeholder&#x3D;&quot;{{&#x27;form.placeholder.email&#x27; | translate}}&quot; labelPlacement&#x3D;&quot;fixed&quot; type&#x3D;&quot;text&quot;&gt;&lt;/ion-input&gt;
+              &lt;/ion-item&gt;
+              &lt;ion-buttons&gt;
+                &lt;ion-button (click)&#x3D;&quot;changePassword(popover, emailInput)&quot;&gt;{{&#x27;form.mode.accept&#x27; | translate}}&lt;/ion-button&gt;
+              &lt;/ion-buttons&gt;
+            &lt;/ng-template&gt;
+          &lt;/ion-popover&gt;
+        &lt;/div&gt;
+        &lt;app-login-form (onsubmit)&#x3D;&quot;onLogin($event)&quot;&gt;&lt;/app-login-form&gt;
+      &lt;/ion-card-content&gt;
+    &lt;/ion-card&gt;
+  &lt;/div&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./login.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content{
+    min-height: 100vh;
+    position: relative;
+    --background: url(&quot;../../../assets/soccer-stadium.jpg&quot;) 0 0/100% 100% no-repeat;
+}
+.container{
+    min-height:0;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    ion-card{
+        box-shadow:none;
+        border:1px solid var(--ion-color-medium);
+        border-radius:8px;
+        width:auto;
+        min-height:500px;
+        overflow-y:auto;
+        height:auto;
+        padding:24px 20px 18px;
+        min-width:350px;
+    }
+}
+
+ion-thumbnail {
+    width: 100px;
+    height: auto;
+}
+
+.logo{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    font-size:1.2rem;
+    color:var(--ion-color-dark);
+}
+
+ion-popover {
+    --width: 400px;
+}
+
+ion-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (min-height:1300px) {
+    .container {
+        margin-top: 100px;
+        ion-card {
+            min-height: 600px;
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content class="offset-header" [fullscreen]="false">  <div class="container">    <ion-card class="login-form">      <ion-card-header>        <div class="logo">          <ion-thumbnail>            <img alt="logo of app" src="assets/app_logo.png" />          </ion-thumbnail>        </div>      </ion-card-header>      <ion-card-content>        <div class="ion-text-end">          <ion-button fill="clear" style="text-transform: none;" (click)="setOpen(true)" color="light">{{\'login.forget-password\' | translate}}</ion-button>          <ion-button [routerLink]="[\'/register\']" fill="clear" style="text-transform: none;" color="light">{{\'login.noAccount\' | translate}}</ion-button>          <ion-popover background="primary" #popover [isOpen]="isOpen" (didDismiss)="setOpen(false)" >            <ng-template>              <ion-item>                <ion-input #emailInput label="{{\'register.email\' | translate }}" placeholder="{{\'form.placeholder.email\' | translate}}" labelPlacement="fixed" type="text"></ion-input>              </ion-item>              <ion-buttons>                <ion-button (click)="changePassword(popover, emailInput)">{{\'form.mode.accept\' | translate}}</ion-button>              </ion-buttons>            </ng-template>          </ion-popover>        </div>        <app-login-form (onsubmit)="onLogin($event)"></app-login-form>      </ion-card-content>    </ion-card>  </div></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MatchComponent', 'selector': 'app-match'},{'name': 'MatchFormComponent', 'selector': 'app-match-form'},{'name': 'MatchItemComponent', 'selector': 'app-match-item'},{'name': 'MyplayersPage', 'selector': 'app-myplayers'},{'name': 'MySquadsPage', 'selector': 'app-mysquads'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'PlayerCardComponent', 'selector': 'app-player-card'},{'name': 'PlayerComponent', 'selector': 'app-player'},{'name': 'PlayerFormComponent', 'selector': 'app-player-form'},{'name': 'PlayerInfoComponent', 'selector': 'app-player-info'},{'name': 'PlayerItemComponent', 'selector': 'app-player-item'},{'name': 'PlayerSearcherComponent', 'selector': 'app-player-searcher'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SplashPage', 'selector': 'app-splash'},{'name': 'SquadComponent', 'selector': 'app-squad'},{'name': 'SquadFormComponent', 'selector': 'app-squad-form'},{'name': 'TrainingComponent', 'selector': 'app-training-component'},{'name': 'TrainingFormComponent', 'selector': 'app-training-form'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'UserComponent', 'selector': 'app-user-component'},{'name': 'UserPage', 'selector': 'app-user'}];
+    var DIRECTIVES = [{'name': 'HighlightDirective', 'selector': '[appHighlight]'}];
+    var ACTUAL_COMPONENT = {'name': 'LoginPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

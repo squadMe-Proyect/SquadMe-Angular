@@ -1,0 +1,1394 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>squadme-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">squadme-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MySquadsPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/mysquads/mysquads.page.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Página para gestionar escuadras (equipos).
+Permite ver, filtrar, editar y eliminar escuadras.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-mysquads</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./mysquads.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./mysquads.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#authSvc" >authSvc</a>
+                            </li>
+                            <li>
+                                <a href="#coachId" >coachId</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#matchSvc" >matchSvc</a>
+                            </li>
+                            <li>
+                                <a href="#squads" >squads</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#squadsSvc" >squadsSvc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#translate" >translate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onDeleteSquad" >onDeleteSquad</a>
+                            </li>
+                            <li>
+                                <a href="#onEditSquad" >onEditSquad</a>
+                            </li>
+                            <li>
+                                <a href="#onLoadSquads" >onLoadSquads</a>
+                            </li>
+                            <li>
+                                <a href="#onNewSquad" >onNewSquad</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#presentForm" >presentForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(squadsSvc: <a href="../injectables/SquadService.html" target="_self">SquadService</a>, modal: ModalController, authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, matchSvc: <a href="../injectables/MatchService.html" target="_self">MatchService</a>, toast: ToastController, translate: <a href="../injectables/CustomTranslateService.html" target="_self">CustomTranslateService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de MySquadsPage.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>squadsSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SquadService.html" target="_self" >SquadService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de gestión de escuadras (<code>SquadService</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>modal</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controlador de modales (<code>ModalController</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>authSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de autenticación (<code>AuthService</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>matchSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MatchService.html" target="_self" >MatchService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de gestión de partidos (<code>MatchService</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>toast</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controlador de toasts (<code>ToastController</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para traducciones personalizadas (<code>CustomTranslateService</code>).</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método del ciclo de vida de Angular que se llama al inicializarse el componente.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDeleteSquad"></a>
+                    <span class="name">
+                        <span ><b>onDeleteSquad</b></span>
+                        <a href="#onDeleteSquad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDeleteSquad(squad: <a href="../interfaces/Squad.html" target="_self">Squad</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:145</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina una escuadra.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>squad</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Squad.html" target="_self" >Squad</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Escuadra a eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onEditSquad"></a>
+                    <span class="name">
+                        <span ><b>onEditSquad</b></span>
+                        <a href="#onEditSquad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onEditSquad(squad: <a href="../interfaces/Squad.html" target="_self">Squad</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Edita una escuadra existente.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>squad</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Squad.html" target="_self" >Squad</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Escuadra a editar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onLoadSquads"></a>
+                    <span class="name">
+                        <span ><b>onLoadSquads</b></span>
+                        <a href="#onLoadSquads"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onLoadSquads(user: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga las escuadras del usuario actual.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Usuario actual.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onNewSquad"></a>
+                    <span class="name">
+                        <span ><b>onNewSquad</b></span>
+                        <a href="#onNewSquad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onNewSquad()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Agrega una nueva escuadra.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentForm"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>presentForm</b></span>
+                        <a href="#presentForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentForm(data: <a href="../interfaces/Squad.html" target="_self">Squad | null</a>, onDismiss: (result: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>) => void)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Presenta un formulario para agregar o editar una escuadra.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Squad.html" target="_self" >Squad | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Datos de la escuadra para editar o <code>null</code> para agregar una nueva.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>onDismiss</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Función a ejecutar cuando se cierra el modal.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>authSvc</b></span>
+                        <a href="#authSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio de autenticación (`AuthService`).</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="coachId"></a>
+                    <span class="name">
+                        <span ><b>coachId</b></span>
+                        <a href="#coachId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matchSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>matchSvc</b></span>
+                        <a href="#matchSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/MatchService.html" target="_self" >MatchService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio de gestión de partidos (`MatchService`).</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="squads"></a>
+                    <span class="name">
+                        <span ><b>squads</b></span>
+                        <a href="#squads"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Squad.html" target="_self" >Squad[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="squadsSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>squadsSvc</b></span>
+                        <a href="#squadsSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/SquadService.html" target="_self" >SquadService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio de gestión de escuadras (`SquadService`).</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>translate</b></span>
+                        <a href="#translate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:42</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio para traducciones personalizadas (`CustomTranslateService`).</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/mysquads/mysquads.page.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ModalController, ToastController, ToastOptions } from &#x27;@ionic/angular&#x27;;
+import { lastValueFrom } from &#x27;rxjs&#x27;;
+import { SquadFormComponent } from &#x27;src/app/components/squad-components/squad-form/squad-form.component&#x27;;
+import { Squad } from &#x27;src/app/interfaces/squad&#x27;;
+import { AuthService } from &#x27;src/app/services/api/auth.service&#x27;;
+import { CustomTranslateService } from &#x27;src/app/services/auxiliar/custom-translate.service&#x27;;
+import { MatchService } from &#x27;src/app/services/model/match.service&#x27;;
+import { SquadService } from &#x27;src/app/services/model/squad.service&#x27;;
+
+/**
+ * Página para gestionar escuadras (equipos).
+ * Permite ver, filtrar, editar y eliminar escuadras.
+ */
+@Component({
+  selector: &#x27;app-mysquads&#x27;,
+  templateUrl: &#x27;./mysquads.page.html&#x27;,
+  styleUrls: [&#x27;./mysquads.page.scss&#x27;],
+})
+export class MySquadsPage implements OnInit {
+
+  coachId: string | undefined; // Identificador del entrenador
+  squads: Squad[] &#x3D; []; // Lista de escuadras
+  private user: any; // Usuario actual
+  loading: boolean &#x3D; false; // Indicador de carga
+
+  /**
+   * Constructor de MySquadsPage.
+   * @param squadsSvc Servicio de gestión de escuadras (&#x60;SquadService&#x60;).
+   * @param modal Controlador de modales (&#x60;ModalController&#x60;).
+   * @param authSvc Servicio de autenticación (&#x60;AuthService&#x60;).
+   * @param matchSvc Servicio de gestión de partidos (&#x60;MatchService&#x60;).
+   * @param toast Controlador de toasts (&#x60;ToastController&#x60;).
+   * @param translate Servicio para traducciones personalizadas (&#x60;CustomTranslateService&#x60;).
+   */
+  constructor(
+    public squadsSvc: SquadService,
+    private modal: ModalController,
+    public authSvc: AuthService,
+    public matchSvc: MatchService,
+    private toast: ToastController,
+    public translate: CustomTranslateService
+  ) {
+    this.loading &#x3D; true;
+    // Suscripción al usuario actual
+    this.authSvc.user$.subscribe(u &#x3D;&gt; {
+      this.user &#x3D; u;
+      this.onLoadSquads(u); // Cargar las escuadras del usuario
+      if (this.user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;) {
+        this.coachId &#x3D; this.user.id; // Si es administrador, usar su propio ID como coachId
+      } else {
+        this.coachId &#x3D; this.user.coachId; // Si es entrenador, usar el coachId asignado
+      }
+    });
+  }
+
+  /**
+   * Método del ciclo de vida de Angular que se llama al inicializarse el componente.
+   */
+  ngOnInit() {}
+
+  /**
+   * Carga las escuadras del usuario actual.
+   * @param user Usuario actual.
+   */
+  onLoadSquads(user: any) {
+    this.loading &#x3D; false;
+    this.squadsSvc.squads$.subscribe(_squads &#x3D;&gt; {
+      const sqs &#x3D; [..._squads];
+      // Filtrar las escuadras por el coachId del usuario actual
+      this.squads &#x3D; sqs.filter(s &#x3D;&gt; s.coachId &#x3D;&#x3D; user.id || s.coachId &#x3D;&#x3D; user.coachId);
+      console.log(this.squads); // Imprimir las escuadras cargadas (para propósitos de depuración)
+    });
+  }
+
+  /**
+   * Presenta un formulario para agregar o editar una escuadra.
+   * @param data Datos de la escuadra para editar o &#x60;null&#x60; para agregar una nueva.
+   * @param onDismiss Función a ejecutar cuando se cierra el modal.
+   */
+  async presentForm(data: Squad | null, onDismiss: (result: any) &#x3D;&gt; void) {
+    const modal &#x3D; await this.modal.create({
+      component: SquadFormComponent,
+      componentProps: {
+        squad: data,
+        coachId: this.coachId
+      },
+      cssClass: &#x27;squad-modal&#x27;
+    });
+    modal.present();
+    modal.onDidDismiss().then(result &#x3D;&gt; {
+      if (result?.data) {
+        onDismiss(result);
+      }
+    });
+  }
+
+  /**
+   * Agrega una nueva escuadra.
+   */
+  onNewSquad() {
+    var onDismiss &#x3D; (info: any) &#x3D;&gt; {
+      this.loading &#x3D; true;
+      // Agregar la escuadra usando el servicio de gestión de escuadras
+      this.squadsSvc.addSquad(info.data, this.user).subscribe(_ &#x3D;&gt; {
+        this.onLoadSquads(this.user); // Recargar las escuadras después de agregar
+      });
+    };
+    this.presentForm(null, onDismiss); // Presentar formulario para agregar una nueva escuadra
+  }
+
+  /**
+   * Edita una escuadra existente.
+   * @param squad Escuadra a editar.
+   */
+  onEditSquad(squad: Squad) {
+    var onDismiss &#x3D; (info: any) &#x3D;&gt; {
+      switch (info.role) {
+        case &#x27;ok&#x27;: {
+          this.loading &#x3D; true;
+          squad &#x3D; info.data; // Actualizar los datos de la escuadra con la información editada
+          // Actualizar la escuadra usando el servicio de gestión de escuadras
+          this.squadsSvc.updateSquad(squad, this.user).subscribe(_ &#x3D;&gt; {
+            this.onLoadSquads(this.user); // Recargar las escuadras después de la actualización
+          });
+          this.matchSvc.updateSquadOnMatch(squad, this.user).subscribe(); // Actualizar escuadra en los partidos relacionados
+        }
+        break;
+        case &#x27;cancel&#x27;: {
+          this.loading &#x3D; true;
+          // Obtener nuevamente los datos de la escuadra desde el servicio si se cancela la edición
+          this.squadsSvc.getSquad(squad.id!).subscribe(_ &#x3D;&gt; {
+            this.onLoadSquads(this.user); // Recargar las escuadras después de obtener nuevamente
+          });
+        }
+      }
+    };
+    this.presentForm(squad, onDismiss); // Presentar formulario para editar la escuadra
+  }
+
+  /**
+   * Elimina una escuadra.
+   * @param squad Escuadra a eliminar.
+   */
+  onDeleteSquad(squad: Squad) {
+    this.loading &#x3D; true;
+    // Eliminar la escuadra usando el servicio de gestión de escuadras
+    this.squadsSvc.deleteSquad(squad, this.user).subscribe({
+      next: (_: any) &#x3D;&gt; {}, // Manejar el resultado exitoso si se requiere
+      error: async (err: any) &#x3D;&gt; {
+        // Manejar el error al intentar eliminar la escuadra
+        const message &#x3D; await lastValueFrom(this.translate.get(&#x27;squad.squadInMatch&#x27;));
+        const options: ToastOptions &#x3D; {
+          message: message,
+          duration: 1000,
+          position: &#x27;bottom&#x27;,
+          color: &#x27;danger&#x27;,
+          cssClass: &#x27;red-toast&#x27;
+        };
+        this.toast.create(options).then(toast &#x3D;&gt; toast.present()); // Mostrar mensaje de error como un toast
+        console.error(err); // Imprimir el error en la consola para propósitos de depuración
+      }
+    });
+    this.onLoadSquads(this.user); // Recargar las escuadras después de eliminar
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content class&#x3D;&quot;offset-header&quot; [fullscreen]&#x3D;&quot;false&quot;&gt;
+  &lt;div id&#x3D;&quot;squads&quot;&gt;
+    &lt;app-squad highlight *ngFor&#x3D;&quot;let squad of squads&quot; (onEditClicked)&#x3D;&quot;onEditSquad(squad)&quot; 
+    (onDeleteSquad)&#x3D;&quot;onDeleteSquad(squad)&quot; [squad]&#x3D;&quot;squad&quot;
+    [isAdmin]&#x3D;&quot;(authSvc.user$ | async)!.role &#x3D;&#x3D; &#x27;ADMIN&#x27;&quot;&gt;&lt;/app-squad&gt;
+  &lt;/div&gt;
+  &lt;ion-button color&#x3D;&quot;secondary&quot; class&#x3D;&quot;create-model&quot; *ngIf&#x3D;&quot;(authSvc.user$ | async)!.role &#x3D;&#x3D; &#x27;ADMIN&#x27;&quot; (click)&#x3D;&quot;onNewSquad()&quot;&gt;{{&#x27;form.mode.createSquad&#x27; | translate}} &lt;ion-icon id&#x3D;&quot;añadir&quot; name&#x3D;&quot;add-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+  &lt;ion-loading [isOpen]&#x3D;&quot;loading&quot; class&#x3D;&quot;custom-loading&quot; spinner&#x3D;&quot;dots&quot;&gt;&lt;/ion-loading&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./mysquads.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">#añadir {
+    margin-left: 5px;
+}
+
+#squads {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+}
+
+@media (max-width: 990px) {
+    #squads {
+      margin: 30px
+    }
+}
+
+@media (max-width: 450px) {
+    #squads {
+      margin: 15px
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content class="offset-header" [fullscreen]="false">  <div id="squads">    <app-squad highlight *ngFor="let squad of squads" (onEditClicked)="onEditSquad(squad)"     (onDeleteSquad)="onDeleteSquad(squad)" [squad]="squad"    [isAdmin]="(authSvc.user$ | async)!.role == \'ADMIN\'"></app-squad>  </div>  <ion-button color="secondary" class="create-model" *ngIf="(authSvc.user$ | async)!.role == \'ADMIN\'" (click)="onNewSquad()">{{\'form.mode.createSquad\' | translate}} <ion-icon id="añadir" name="add-outline"></ion-icon></ion-button>  <ion-loading [isOpen]="loading" class="custom-loading" spinner="dots"></ion-loading></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MatchComponent', 'selector': 'app-match'},{'name': 'MatchFormComponent', 'selector': 'app-match-form'},{'name': 'MatchItemComponent', 'selector': 'app-match-item'},{'name': 'MyplayersPage', 'selector': 'app-myplayers'},{'name': 'MySquadsPage', 'selector': 'app-mysquads'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'PlayerCardComponent', 'selector': 'app-player-card'},{'name': 'PlayerComponent', 'selector': 'app-player'},{'name': 'PlayerFormComponent', 'selector': 'app-player-form'},{'name': 'PlayerInfoComponent', 'selector': 'app-player-info'},{'name': 'PlayerItemComponent', 'selector': 'app-player-item'},{'name': 'PlayerSearcherComponent', 'selector': 'app-player-searcher'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SplashPage', 'selector': 'app-splash'},{'name': 'SquadComponent', 'selector': 'app-squad'},{'name': 'SquadFormComponent', 'selector': 'app-squad-form'},{'name': 'TrainingComponent', 'selector': 'app-training-component'},{'name': 'TrainingFormComponent', 'selector': 'app-training-form'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'UserComponent', 'selector': 'app-user-component'},{'name': 'UserPage', 'selector': 'app-user'}];
+    var DIRECTIVES = [{'name': 'HighlightDirective', 'selector': '[appHighlight]'}];
+    var ACTUAL_COMPONENT = {'name': 'MySquadsPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MySquadsPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

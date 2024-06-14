@@ -1,0 +1,1092 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>squadme-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">squadme-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MatchComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/match-components/match/match.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>El componente MatchComponent es responsable de mostrar y gestionar un partido de fútbol.
+Permite a los administradores editar y marcar el partido como finalizado.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-match</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./match.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./match.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onEditClicked" >onEditClicked</a>
+                            </li>
+                            <li>
+                                <a href="#onFinishedClicked" >onFinishedClicked</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#defenses" >defenses</a>
+                            </li>
+                            <li>
+                                <a href="#forwards" >forwards</a>
+                            </li>
+                            <li>
+                                <a href="#goalkeeper" >goalkeeper</a>
+                            </li>
+                            <li>
+                                <a href="#match" >match</a>
+                            </li>
+                            <li>
+                                <a href="#midfielders" >midfielders</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onEditClick" >onEditClick</a>
+                            </li>
+                            <li>
+                                <a href="#onFinishedClick" >onFinishedClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/match-components/match/match.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defenses"></a>
+                        <b>defenses</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Player.html" target="_self" >Player[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/match-components/match/match.component.ts:49</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Los jugadores que juegan en la posición de defensa.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forwards"></a>
+                        <b>forwards</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Player.html" target="_self" >Player[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/match-components/match/match.component.ts:39</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Los jugadores que juegan en la posición de delantero.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="goalkeeper"></a>
+                        <b>goalkeeper</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Player.html" target="_self" >Player | undefined</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/match-components/match/match.component.ts:54</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>El jugador que juega en la posición de portero.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="match"></a>
+                        <b>match</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Match.html" target="_self" >Match | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/match-components/match/match.component.ts:19</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>El partido que se muestra y gestiona.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="midfielders"></a>
+                        <b>midfielders</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Player.html" target="_self" >Player[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/match-components/match/match.component.ts:44</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Los jugadores que juegan en la posición de mediocampista.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user"></a>
+                        <b>user</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/match-components/match/match.component.ts:24</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Información del usuario actual.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onEditClick"></a>
+                        <b>onEditClick</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/match-components/match/match.component.ts:29</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onFinishedClick"></a>
+                        <b>onFinishedClick</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/match-components/match/match.component.ts:34</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/app/components/match-components/match/match.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onEditClicked"></a>
+                    <span class="name">
+                        <span ><b>onEditClicked</b></span>
+                        <a href="#onEditClicked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onEditClicked(ev: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/components/match-components/match/match.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el evento de clic en el botón de editar partido.
+Solo permite la acción si el usuario es un administrador.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ev</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El evento de clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFinishedClicked"></a>
+                    <span class="name">
+                        <span ><b>onFinishedClicked</b></span>
+                        <a href="#onFinishedClicked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFinishedClicked(ev: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/app/components/match-components/match/match.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el evento de clic en el botón de marcar partido como finalizado.
+Solo permite la acción si el usuario es un administrador.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ev</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El evento de clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
+import { Match } from &#x27;src/app/interfaces/match&#x27;;
+import { Player } from &#x27;src/app/interfaces/player&#x27;;
+
+/**
+ * El componente MatchComponent es responsable de mostrar y gestionar un partido de fútbol.
+ * Permite a los administradores editar y marcar el partido como finalizado.
+ */
+@Component({
+  selector: &#x27;app-match&#x27;,
+  templateUrl: &#x27;./match.component.html&#x27;,
+  styleUrls: [&#x27;./match.component.scss&#x27;],
+})
+export class MatchComponent implements OnInit {
+
+  /**
+   * El partido que se muestra y gestiona.
+   */
+  @Input() match: Match | null &#x3D; null;
+
+  /**
+   * Información del usuario actual.
+   */
+  @Input() user: any;
+
+  /**
+   * @Output onEditClick - Evento emitido cuando se hace clic en el botón de editar partido.
+   */
+  @Output() onEditClick &#x3D; new EventEmitter&lt;void&gt;();
+
+  /**
+   * @Output onFinishedClick - Evento emitido cuando se hace clic en el botón de marcar partido como finalizado.
+   */
+  @Output() onFinishedClick &#x3D; new EventEmitter&lt;void&gt;();
+
+  /**
+   * Los jugadores que juegan en la posición de delantero.
+   */
+  @Input() forwards: Player[] &#x3D; [];
+
+  /**
+   * Los jugadores que juegan en la posición de mediocampista.
+   */
+  @Input() midfielders: Player[] &#x3D; [];
+
+  /**
+   * Los jugadores que juegan en la posición de defensa.
+   */
+  @Input() defenses: Player[] &#x3D; [];
+
+  /**
+   * El jugador que juega en la posición de portero.
+   */
+  @Input() goalkeeper: Player | undefined;
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  /**
+   * Maneja el evento de clic en el botón de editar partido.
+   * Solo permite la acción si el usuario es un administrador.
+   * @param ev - El evento de clic.
+   */
+  onEditClicked(ev: Event) {
+    if (this.user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;) {
+      ev.stopPropagation();
+      this.onEditClick.emit();
+    }
+  }
+
+  /**
+   * Maneja el evento de clic en el botón de marcar partido como finalizado.
+   * Solo permite la acción si el usuario es un administrador.
+   * @param ev - El evento de clic.
+   */
+  onFinishedClicked(ev: Event) {
+    if (this.user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;) {
+      ev.stopPropagation();
+      this.onFinishedClick.emit();
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;upside&quot; class&#x3D;&quot;containers&quot;&gt;
+  &lt;ion-label class&#x3D;&quot;h2-label&quot;&gt;
+    &lt;h2 id&#x3D;&quot;date-label&quot;&gt;{{match?.date}}&lt;/h2&gt;
+  &lt;/ion-label&gt;
+  &lt;ion-label&gt;
+    &lt;div class&#x3D;&quot;label&quot;&gt;
+      &lt;h1&gt;{{user.teamName}}&lt;/h1&gt;
+      &lt;h1&gt;VS&lt;/h1&gt;
+      &lt;h1&gt;{{match?.opponent}}&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/ion-label&gt;
+  &lt;ion-label&gt;
+    &lt;h1&gt;{{match?.result}}&lt;/h1&gt;
+  &lt;/ion-label&gt;
+&lt;/div&gt;
+&lt;div id&#x3D;&quot;downside&quot; class&#x3D;&quot;containers&quot;&gt;
+  &lt;ion-label class&#x3D;&quot;h2-label&quot;&gt;
+    &lt;h2 id&#x3D;&quot;plantilla-label&quot;&gt;{{&#x27;match.squad&#x27; | translate}} - {{match?.squad?.name}} ({{match?.squad?.lineUp}})&lt;/h2&gt;
+  &lt;/ion-label&gt;
+  &lt;div id&#x3D;&quot;list&quot;&gt;
+    &lt;div&gt;
+      &lt;ion-label *ngFor&#x3D;&quot;let player of forwards&quot;&gt;
+        &lt;div class&#x3D;&quot;list-players&quot;&gt;
+          &lt;ion-text&gt;{{player.name}} {{player.surname}}&lt;/ion-text&gt;
+        &lt;/div&gt;
+      &lt;/ion-label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;ion-label *ngFor&#x3D;&quot;let player of midfielders&quot;&gt;
+        &lt;div class&#x3D;&quot;list-players&quot;&gt;
+          &lt;ion-text&gt;{{player.name}} {{player.surname}}&lt;/ion-text&gt;
+        &lt;/div&gt;
+      &lt;/ion-label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;ion-label *ngFor&#x3D;&quot;let player of defenses&quot;&gt;
+        &lt;div class&#x3D;&quot;list-players&quot;&gt;
+          &lt;ion-text&gt;{{player.name}} {{player.surname}}&lt;/ion-text&gt;
+        &lt;/div&gt;
+      &lt;/ion-label&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;ion-label *ngIf&#x3D;&quot;goalkeeper&quot;&gt;
+        &lt;div class&#x3D;&quot;list-players&quot;&gt;
+          &lt;ion-text&gt;{{goalkeeper.name}} {{goalkeeper.surname}}&lt;/ion-text&gt;
+        &lt;/div&gt;
+      &lt;/ion-label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id&#x3D;&quot;buttons&quot;&gt;
+  &lt;ion-button color&#x3D;&quot;primary&quot; *ngIf&#x3D;&quot;match &amp;&amp; user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;&quot; (click)&#x3D;&quot;onEditClicked($event)&quot;&gt;
+    &lt;ion-icon name&#x3D;&quot;create-outline&quot;&gt;&lt;/ion-icon&gt;
+    {{&#x27;home.nextMatch.editMatch&#x27; | translate}}
+  &lt;/ion-button&gt;
+  &lt;ion-button color&#x3D;&quot;primary&quot; *ngIf&#x3D;&quot;match &amp;&amp; user.role &#x3D;&#x3D; &#x27;ADMIN&#x27;&quot; (click)&#x3D;&quot;onFinishedClicked($event)&quot;&gt;
+    &lt;ion-icon name&#x3D;&quot;checkbox-outline&quot;&gt;&lt;/ion-icon&gt;
+    {{&#x27;home.nextMatch.finishMatch&#x27; | translate}}
+  &lt;/ion-button&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./match.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.label, #list, #upside {
+    display: flex;
+}
+
+.label {
+    justify-content: space-around;
+}
+
+#plantilla-label, #date-label {
+    text-align: center;
+    background-color: #003a4d;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px #21444f;
+}
+
+#plantilla-label {
+    width: 270px;
+    margin-bottom: 15px;
+}
+
+#date-label {
+    width: 180px;
+}
+
+.h2-label {
+    display: flex;
+    justify-content: center;
+}
+
+#list {
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#upside {
+    margin-bottom: 20px;
+    text-align: center;
+    flex-direction: column;
+    height: 250px;
+    justify-content: space-between;
+}
+
+.list-players {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#buttons {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 5px 45px 15px 45px;
+}
+
+.containers {
+    background-color: #00516B;
+    padding: 10px 30px 30px 30px;
+    -webkit-box-shadow: 5px 5px 5px 5px #0e1d22;
+    -moz-box-shadow: 5px 5px 5px 5px #0e1d22;
+    box-shadow: 5px 5px 5px 5px #0e1d22;
+    border-radius: 2px;
+}
+
+@media (max-width:960px) {
+    #upside {
+        height: 200px;
+    }
+
+    #downside {
+        height: 350px;
+    }
+
+    ion-text {
+        font-size: small;
+    }
+}
+
+@media (max-width:660px) {
+
+    #list, .list-players {
+        flex-direction: column;
+    }
+
+    h2, h1 {
+        font-size: small;
+    }
+
+    #buttons {
+        bottom:auto;
+        top: 0;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="upside" class="containers">  <ion-label class="h2-label">    <h2 id="date-label">{{match?.date}}</h2>  </ion-label>  <ion-label>    <div class="label">      <h1>{{user.teamName}}</h1>      <h1>VS</h1>      <h1>{{match?.opponent}}</h1>    </div>  </ion-label>  <ion-label>    <h1>{{match?.result}}</h1>  </ion-label></div><div id="downside" class="containers">  <ion-label class="h2-label">    <h2 id="plantilla-label">{{\'match.squad\' | translate}} - {{match?.squad?.name}} ({{match?.squad?.lineUp}})</h2>  </ion-label>  <div id="list">    <div>      <ion-label *ngFor="let player of forwards">        <div class="list-players">          <ion-text>{{player.name}} {{player.surname}}</ion-text>        </div>      </ion-label>    </div>    <div>      <ion-label *ngFor="let player of midfielders">        <div class="list-players">          <ion-text>{{player.name}} {{player.surname}}</ion-text>        </div>      </ion-label>    </div>    <div>      <ion-label *ngFor="let player of defenses">        <div class="list-players">          <ion-text>{{player.name}} {{player.surname}}</ion-text>        </div>      </ion-label>    </div>    <div>      <ion-label *ngIf="goalkeeper">        <div class="list-players">          <ion-text>{{goalkeeper.name}} {{goalkeeper.surname}}</ion-text>        </div>      </ion-label>    </div>  </div></div><div id="buttons">  <ion-button color="primary" *ngIf="match && user.role == \'ADMIN\'" (click)="onEditClicked($event)">    <ion-icon name="create-outline"></ion-icon>    {{\'home.nextMatch.editMatch\' | translate}}  </ion-button>  <ion-button color="primary" *ngIf="match && user.role == \'ADMIN\'" (click)="onFinishedClicked($event)">    <ion-icon name="checkbox-outline"></ion-icon>    {{\'home.nextMatch.finishMatch\' | translate}}  </ion-button></div></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MatchComponent', 'selector': 'app-match'},{'name': 'MatchFormComponent', 'selector': 'app-match-form'},{'name': 'MatchItemComponent', 'selector': 'app-match-item'},{'name': 'MyplayersPage', 'selector': 'app-myplayers'},{'name': 'MySquadsPage', 'selector': 'app-mysquads'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'PlayerCardComponent', 'selector': 'app-player-card'},{'name': 'PlayerComponent', 'selector': 'app-player'},{'name': 'PlayerFormComponent', 'selector': 'app-player-form'},{'name': 'PlayerInfoComponent', 'selector': 'app-player-info'},{'name': 'PlayerItemComponent', 'selector': 'app-player-item'},{'name': 'PlayerSearcherComponent', 'selector': 'app-player-searcher'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SplashPage', 'selector': 'app-splash'},{'name': 'SquadComponent', 'selector': 'app-squad'},{'name': 'SquadFormComponent', 'selector': 'app-squad-form'},{'name': 'TrainingComponent', 'selector': 'app-training-component'},{'name': 'TrainingFormComponent', 'selector': 'app-training-form'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'UserComponent', 'selector': 'app-user-component'},{'name': 'UserPage', 'selector': 'app-user'}];
+    var DIRECTIVES = [{'name': 'HighlightDirective', 'selector': '[appHighlight]'}];
+    var ACTUAL_COMPONENT = {'name': 'MatchComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MatchComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1422 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>squadme-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">squadme-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/user/user.page.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Página para la gestión del perfil de usuario (jugador o entrenador).</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./user.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#authSvc" >authSvc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#coachSvc" >coachSvc</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#mediaSvc" >mediaSvc</a>
+                            </li>
+                            <li>
+                                <a href="#openModal" >openModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#playerSvc" >playerSvc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#translate" >translate</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#dataURLtoBlob" >dataURLtoBlob</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onCancel" >onCancel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#resetPassword" >resetPassword</a>
+                            </li>
+                            <li>
+                                <a href="#setOpen" >setOpen</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authSvc: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, formB: FormBuilder, coachSvc: <a href="../injectables/CoachService.html" target="_self">CoachService</a>, playerSvc: <a href="../injectables/PlayerService.html" target="_self">PlayerService</a>, mediaSvc: <a href="../injectables/MediaService.html" target="_self">MediaService</a>, toast: ToastController, translate: <a href="../injectables/CustomTranslateService.html" target="_self">CustomTranslateService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/user/user.page.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor de la página UserPage.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de autenticación para obtener información del usuario.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>formB</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Constructor de formularios reactivos para crear el formulario de edición.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>coachSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CoachService.html" target="_self" >CoachService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de gestión de entrenadores.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>playerSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PlayerService.html" target="_self" >PlayerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de gestión de jugadores.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>mediaSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MediaService.html" target="_self" >MediaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio para la gestión de medios (imágenes).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>toast</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controlador de mensajes Toast para mostrar notificaciones al usuario.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Servicio de traducción personalizada para obtener mensajes localizados.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataURLtoBlob"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>dataURLtoBlob</b></span>
+                        <a href="#dataURLtoBlob"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dataURLtoBlob(dataUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (blob: Blob) => void)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/pages/user/user.page.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Convierte una URL de datos en formato base64 a un objeto Blob.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataUrl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>URL de datos en formato base64.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>callback</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Función de devolución que recibe el objeto Blob resultante.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/pages/user/user.page.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Método de ciclo de vida de Angular, se ejecuta al inicializarse el componente.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCancel"></a>
+                    <span class="name">
+                        <span ><b>onCancel</b></span>
+                        <a href="#onCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCancel(modal: IonModal)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">src/app/pages/user/user.page.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Cancela la edición del perfil de usuario.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>modal</td>
+                                            <td>
+                                                        <code>IonModal</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Modal activo que se va a cerrar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onSubmit(modal: IonModal)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/pages/user/user.page.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maneja el evento de envío del formulario de edición del usuario.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>modal</td>
+                                            <td>
+                                                        <code>IonModal</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Modal activo que contiene el formulario de edición.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetPassword"></a>
+                    <span class="name">
+                        <span ><b>resetPassword</b></span>
+                        <a href="#resetPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetPassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/pages/user/user.page.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Reinicia la contraseña del usuario actual.
+Muestra un mensaje Toast con el resultado de la operación.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setOpen"></a>
+                    <span class="name">
+                        <span ><b>setOpen</b></span>
+                        <a href="#setOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setOpen(open: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/pages/user/user.page.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Configura el formulario con los datos del usuario para abrir el modal de edición.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>open</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Estado para abrir o cerrar el modal de edición.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>authSvc</b></span>
+                        <a href="#authSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/user/user.page.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio de autenticación para obtener información del usuario.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="coachSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>coachSvc</b></span>
+                        <a href="#coachSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CoachService.html" target="_self" >CoachService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/user/user.page.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio de gestión de entrenadores.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/user/user.page.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mediaSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>mediaSvc</b></span>
+                        <a href="#mediaSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/MediaService.html" target="_self" >MediaService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/user/user.page.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio para la gestión de medios (imágenes).</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openModal"></a>
+                    <span class="name">
+                        <span ><b>openModal</b></span>
+                        <a href="#openModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/user/user.page.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="playerSvc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>playerSvc</b></span>
+                        <a href="#playerSvc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/PlayerService.html" target="_self" >PlayerService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/user/user.page.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio de gestión de jugadores.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>translate</b></span>
+                        <a href="#translate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CustomTranslateService.html" target="_self" >CustomTranslateService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/user/user.page.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description">Servicio de traducción personalizada para obtener mensajes localizados.</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Player | Coach | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/user/user.page.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { IonModal, ToastController, ToastOptions } from &#x27;@ionic/angular&#x27;;
+import { lastValueFrom } from &#x27;rxjs&#x27;;
+import { Coach } from &#x27;src/app/interfaces/coach&#x27;;
+import { Player } from &#x27;src/app/interfaces/player&#x27;;
+import { AuthService } from &#x27;src/app/services/api/auth.service&#x27;;
+import { MediaService } from &#x27;src/app/services/api/media.service&#x27;;
+import { CustomTranslateService } from &#x27;src/app/services/auxiliar/custom-translate.service&#x27;;
+import { CoachService } from &#x27;src/app/services/model/coach.service&#x27;;
+import { PlayerService } from &#x27;src/app/services/model/player.service&#x27;;
+
+/**
+ * Página para la gestión del perfil de usuario (jugador o entrenador).
+ */
+@Component({
+  selector: &#x27;app-user&#x27;,
+  templateUrl: &#x27;./user.page.html&#x27;,
+  styleUrls: [&#x27;./user.page.scss&#x27;],
+})
+export class UserPage implements OnInit {
+  form: FormGroup; // Formulario para la edición de datos del usuario
+  user: Player | Coach | null &#x3D; null; // Usuario actual (puede ser jugador o entrenador)
+  openModal: boolean &#x3D; false; // Indicador para abrir o cerrar el modal de edición
+
+  /**
+   * Constructor de la página UserPage.
+   * @param authSvc Servicio de autenticación para obtener información del usuario.
+   * @param formB Constructor de formularios reactivos para crear el formulario de edición.
+   * @param coachSvc Servicio de gestión de entrenadores.
+   * @param playerSvc Servicio de gestión de jugadores.
+   * @param mediaSvc Servicio para la gestión de medios (imágenes).
+   * @param toast Controlador de mensajes Toast para mostrar notificaciones al usuario.
+   * @param translate Servicio de traducción personalizada para obtener mensajes localizados.
+   */
+  constructor(
+    public authSvc: AuthService,
+    private formB: FormBuilder,
+    public coachSvc: CoachService,
+    public playerSvc: PlayerService,
+    public mediaSvc: MediaService,
+    private toast: ToastController,
+    public translate: CustomTranslateService
+  ) {
+    // Suscripción al observable de usuario para actualizar los datos cuando cambia
+    this.authSvc.user$.subscribe(u &#x3D;&gt; {
+      this.user &#x3D; u; // Asigna el usuario actual
+    });
+
+    this.form &#x3D; this.formB.group({}); // Inicializa el formulario vacío al inicio
+  }
+
+  /**
+   * Método de ciclo de vida de Angular, se ejecuta al inicializarse el componente.
+   */
+  ngOnInit() {}
+
+  /**
+   * Convierte una URL de datos en formato base64 a un objeto Blob.
+   * @param dataUrl URL de datos en formato base64.
+   * @param callback Función de devolución que recibe el objeto Blob resultante.
+   */
+  private dataURLtoBlob(dataUrl: string, callback: (blob: Blob) &#x3D;&gt; void) {
+    var req &#x3D; new XMLHttpRequest();
+    req.open(&#x27;GET&#x27;, dataUrl);
+    req.responseType &#x3D; &#x27;arraybuffer&#x27;;
+
+    req.onload &#x3D; function fileLoaded(e) {
+      var mime &#x3D; this.getResponseHeader(&#x27;content-type&#x27;);
+      callback(new Blob([this.response], { type: mime || undefined }));
+    };
+
+    req.send();
+  }
+
+  /**
+   * Configura el formulario con los datos del usuario para abrir el modal de edición.
+   * @param open Estado para abrir o cerrar el modal de edición.
+   */
+  setOpen(open: boolean) {
+    this.form &#x3D; this.formB.group({
+      id: [this.user?.id],
+      name: [this.user?.name, [Validators.required]],
+      surname: [this.user?.surname, [Validators.required]],
+      nation: [this.user?.nation, [Validators.required]],
+      picture: [this.user?.picture]
+    });
+    this.openModal &#x3D; open; // Establece el estado del modal
+  }
+
+  /**
+   * Maneja el evento de envío del formulario de edición del usuario.
+   * @param modal Modal activo que contiene el formulario de edición.
+   */
+  async onSubmit(modal: IonModal) {
+    const previousTeam &#x3D; this.user?.teamName;
+
+    // Construye el objeto actualizado con los datos del formulario
+    var updatedCoach &#x3D; {
+      id: this.form.controls[&#x27;id&#x27;].value,
+      name: this.form.controls[&#x27;name&#x27;].value,
+      surname: this.form.controls[&#x27;surname&#x27;].value,
+      teamName: this.user?.teamName!!,
+      nation: this.form.controls[&#x27;nation&#x27;].value,
+      picture: this.form.controls[&#x27;picture&#x27;].value,
+      role: this.user?.role!!,
+      email: this.user?.email!!
+    };
+
+    // Si no se seleccionó una imagen nueva
+    if (updatedCoach.picture &#x3D;&#x3D; null) {
+      updatedCoach.picture &#x3D; &quot;&quot;; // Establece la imagen como cadena vacía
+      this.authSvc.setUser(updatedCoach).subscribe(); // Actualiza los datos del usuario
+      this.coachSvc.updateCoach(this.form.value).subscribe(); // Actualiza el perfil del entrenador
+      modal.dismiss(); // Cierra el modal
+    } else {
+      // Si la imagen es una URL de datos (base64)
+      if (updatedCoach.picture.substring(0, 4) &#x3D;&#x3D; &quot;data&quot;) {
+        // Convierte la URL de datos a un objeto Blob
+        this.dataURLtoBlob(updatedCoach.picture, (blob: Blob) &#x3D;&gt; {
+          // Sube el blob de la imagen al servicio de medios
+          this.mediaSvc.upload(blob).subscribe((media: any) &#x3D;&gt; {
+            updatedCoach.picture &#x3D; media.file; // Asigna la URL de la imagen subida
+            this.authSvc.setUser(updatedCoach).subscribe(); // Actualiza los datos del usuario
+            this.coachSvc.updateCoach(updatedCoach).subscribe(); // Actualiza el perfil del entrenador
+            modal.dismiss(); // Cierra el modal
+          });
+        });
+      } else {
+        // Si la imagen es una URL directa o está vacía
+        this.authSvc.setUser(updatedCoach).subscribe(); // Actualiza los datos del usuario
+        this.coachSvc.updateCoach(updatedCoach).subscribe(); // Actualiza el perfil del entrenador
+        modal.dismiss(); // Cierra el modal
+      }
+    }
+  }
+
+  /**
+   * Reinicia la contraseña del usuario actual.
+   * Muestra un mensaje Toast con el resultado de la operación.
+   */
+  resetPassword() {
+    this.authSvc.resetPassword().subscribe(async _ &#x3D;&gt; {
+      const message &#x3D; await lastValueFrom(this.translate.get(&#x27;user-card.password-message&#x27;));
+      const options: ToastOptions &#x3D; {
+        message: message,
+        duration: 1000,
+        position: &#x27;bottom&#x27;,
+        color: &#x27;tertiary&#x27;,
+        cssClass: &#x27;red-toast&#x27;
+      };
+      this.toast.create(options).then(toast &#x3D;&gt; toast.present()); // Muestra el mensaje Toast
+    });
+  }
+
+  /**
+   * Cancela la edición del perfil de usuario.
+   * @param modal Modal activo que se va a cerrar.
+   */
+  onCancel(modal: IonModal) {
+    modal.dismiss(); // Cierra el modal
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content class&#x3D;&quot;offset-header&quot; [fullscreen]&#x3D;&quot;false&quot;&gt;
+  &lt;app-user-component [user]&#x3D;&quot;authSvc.user$ | async&quot; (onEditClick)&#x3D;&quot;setOpen(true)&quot; (onChangePasswordClick)&#x3D;&quot;resetPassword()&quot;&gt;&lt;/app-user-component&gt;
+  &lt;ion-modal #modal [isOpen]&#x3D;&quot;openModal&quot; (didDismiss)&#x3D;&quot;setOpen(false)&quot;&gt;
+    &lt;ng-template&gt;
+      &lt;ion-toolbar&gt;
+        &lt;div class&#x3D;&quot;toolbar-content&quot;&gt;
+          &lt;ion-button color&#x3D;&quot;medium&quot; fill&#x3D;&quot;clear&quot; (click)&#x3D;&quot;onCancel(modal)&quot;&gt;&lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;arrow-back-outline&quot;&gt;&lt;/ion-icon&gt;&lt;/ion-button&gt;
+          &lt;ion-title&gt;{{&#x27;user-card.editUser&#x27; | translate}}&lt;/ion-title&gt;
+        &lt;/div&gt;
+      &lt;/ion-toolbar&gt;
+      &lt;ion-content&gt;
+        &lt;form  [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit(modal)&quot;&gt;
+          &lt;app-picture-selectable formControlName&#x3D;&quot;picture&quot;&gt;&lt;/app-picture-selectable&gt;
+          &lt;ion-item&gt;
+            &lt;ion-input label&#x3D;&quot;{{&#x27;player.nameLabel&#x27; | translate }}&quot; labelPlacement&#x3D;&quot;fixed&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;name&quot;&gt;&lt;/ion-input&gt;
+          &lt;/ion-item&gt;
+          &lt;ion-item&gt;
+            &lt;ion-input label&#x3D;&quot;{{&#x27;register.surname&#x27; | translate }}&quot; labelPlacement&#x3D;&quot;fixed&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;surname&quot;&gt;&lt;/ion-input&gt;
+          &lt;/ion-item&gt;
+          &lt;ion-item&gt;
+            &lt;ion-input label&#x3D;&quot;{{&#x27;register.nation&#x27; | translate}}&quot; labelPlacement&#x3D;&quot;fixed&quot; type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;nation&quot;&gt;&lt;/ion-input&gt;
+          &lt;/ion-item&gt;
+        &lt;/form&gt;
+      &lt;/ion-content&gt;
+      &lt;ion-footer&gt;
+        &lt;ion-buttons&gt;
+          &lt;ion-button (click)&#x3D;&quot;onSubmit(modal)&quot;&gt;{{&#x27;form.mode.save&#x27; | translate}}&lt;/ion-button&gt;
+        &lt;/ion-buttons&gt;
+      &lt;/ion-footer&gt;
+    &lt;/ng-template&gt;
+  &lt;/ion-modal&gt;
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./user.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content class="offset-header" [fullscreen]="false">  <app-user-component [user]="authSvc.user$ | async" (onEditClick)="setOpen(true)" (onChangePasswordClick)="resetPassword()"></app-user-component>  <ion-modal #modal [isOpen]="openModal" (didDismiss)="setOpen(false)">    <ng-template>      <ion-toolbar>        <div class="toolbar-content">          <ion-button color="medium" fill="clear" (click)="onCancel(modal)"><ion-icon slot="start" name="arrow-back-outline"></ion-icon></ion-button>          <ion-title>{{\'user-card.editUser\' | translate}}</ion-title>        </div>      </ion-toolbar>      <ion-content>        <form  [formGroup]="form" (ngSubmit)="onSubmit(modal)">          <app-picture-selectable formControlName="picture"></app-picture-selectable>          <ion-item>            <ion-input label="{{\'player.nameLabel\' | translate }}" labelPlacement="fixed" type="text" formControlName="name"></ion-input>          </ion-item>          <ion-item>            <ion-input label="{{\'register.surname\' | translate }}" labelPlacement="fixed" type="text" formControlName="surname"></ion-input>          </ion-item>          <ion-item>            <ion-input label="{{\'register.nation\' | translate}}" labelPlacement="fixed" type="text" formControlName="nation"></ion-input>          </ion-item>        </form>      </ion-content>      <ion-footer>        <ion-buttons>          <ion-button (click)="onSubmit(modal)">{{\'form.mode.save\' | translate}}</ion-button>        </ion-buttons>      </ion-footer>    </ng-template>  </ion-modal></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginFormComponent', 'selector': 'app-login-form'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MatchComponent', 'selector': 'app-match'},{'name': 'MatchFormComponent', 'selector': 'app-match-form'},{'name': 'MatchItemComponent', 'selector': 'app-match-item'},{'name': 'MyplayersPage', 'selector': 'app-myplayers'},{'name': 'MySquadsPage', 'selector': 'app-mysquads'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'PlayerCardComponent', 'selector': 'app-player-card'},{'name': 'PlayerComponent', 'selector': 'app-player'},{'name': 'PlayerFormComponent', 'selector': 'app-player-form'},{'name': 'PlayerInfoComponent', 'selector': 'app-player-info'},{'name': 'PlayerItemComponent', 'selector': 'app-player-item'},{'name': 'PlayerSearcherComponent', 'selector': 'app-player-searcher'},{'name': 'RegisterFormComponent', 'selector': 'app-register-form'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SplashPage', 'selector': 'app-splash'},{'name': 'SquadComponent', 'selector': 'app-squad'},{'name': 'SquadFormComponent', 'selector': 'app-squad-form'},{'name': 'TrainingComponent', 'selector': 'app-training-component'},{'name': 'TrainingFormComponent', 'selector': 'app-training-form'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'UserComponent', 'selector': 'app-user-component'},{'name': 'UserPage', 'selector': 'app-user'}];
+    var DIRECTIVES = [{'name': 'HighlightDirective', 'selector': '[appHighlight]'}];
+    var ACTUAL_COMPONENT = {'name': 'UserPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
