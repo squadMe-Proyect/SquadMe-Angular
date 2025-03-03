@@ -1,4 +1,4 @@
-# Proyecto SquadMe - Angular version
+# SquadMe - Angular version
 
 Enlace del proyecto: https://github.com/squadMe-Proyect/SquadMe-Angular
 
